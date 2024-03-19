@@ -1,5 +1,4 @@
-﻿using FrameWork.Structs;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace FrameWork
@@ -26,11 +25,8 @@ namespace FrameWork
 
         #endregion
 
-        private void Awake()
-        {
-            SetCanCount(canCountOnAwake);
-        }
-
+        private void Awake() => SetCanCount(canCountOnAwake);
+        
         private void Update() => Counting();
 
         /// <summary>

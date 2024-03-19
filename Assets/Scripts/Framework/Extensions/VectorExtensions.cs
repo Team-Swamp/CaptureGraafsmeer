@@ -241,6 +241,8 @@ namespace FrameWork.Extensions
         /// <returns>A new Vector3 with multiplied Axis.</returns>
         public static ref Vector3 Multiply(ref this Vector3 v, Vector3 f) => ref v.MultiplyX(f.x).MultiplyY(f.y).MultiplyZ(f.z);
 
+        public static ref Vector3 Multiply(ref this Vector3 v, float f) => ref v.MultiplyX(f).MultiplyY(f).MultiplyZ(f);
+        
         /// <summary>
         /// Multiply the specified values with the Axis of this Vector3.
         /// </summary>

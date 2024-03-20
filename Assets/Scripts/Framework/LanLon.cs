@@ -7,11 +7,13 @@ namespace Framework
 {
     public class LanLon : MonoBehaviour
     {
-        private const float SCALE_FACTOR = 100;
+        private const float SCALE_FACTOR = 100000;
+        
+        private static readonly Vector2 minus = new Vector2(52.356531f, 4.930800f);
 
         [SerializeField] private Vector2 coordinates;
         [SerializeField] private bool isStatic;
-
+        
         private void Start()
         {
             if (isStatic)
@@ -28,11 +30,10 @@ namespace Framework
 
         private void UpdateLocation()
         {
-            //todo: haal 53, 4.9 er van af.
-            
             Vector2 a = new Vector2(coordinates.x, coordinates.y);
-            // a.Multiply(SCALE_FACTOR);
-            transform.position = a;
+            a.Subtract(minus);
+            a.Multiply(SCALE_FACTOR);
+            transform.position = new Vector3(a.x, 0, a.y);
         }
     }
 }

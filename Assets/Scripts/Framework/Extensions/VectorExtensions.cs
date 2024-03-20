@@ -854,6 +854,8 @@ namespace FrameWork.Extensions
         /// <returns>A new Vector2 with multiplied Axis.</returns>
         public static ref Vector2 Multiply(ref this Vector2 v, Vector2 f) => ref v.MultiplyX(f.x).MultiplyY(f.y);
 
+        public static ref Vector2 Multiply(ref this Vector2 v, float f) => ref v.MultiplyX(f).MultiplyY(f);
+        
         /// <summary>
         /// Multiply the specified values with the Axis of this Vector3.
         /// </summary>

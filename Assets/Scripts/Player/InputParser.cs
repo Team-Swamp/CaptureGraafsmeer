@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 using FrameWork;
 
-namespace Player.Input_Parser
+namespace Player.Input
 {
     public sealed class InputParser : MonoBehaviour
     {

@@ -6,27 +6,27 @@ namespace UI.Canvas
 {
     public sealed class GeoPositionText : MonoBehaviour
     {
+        private const string NO_LOCATION_ERROR = "Location services not enabled on device";
+        
         [SerializeField] private Transform player;
         [SerializeField] private TMP_Text locationText;
 
         private void Start()
         {
-            #if !UNITY_EDITOR
             if (!Input.location.isEnabledByUser)
             {
                 Destroy(locationText);
                 locationText = null;
-                throw new Exception("Location services not enabled on device");
+                throw new Exception(NO_LOCATION_ERROR);
             }
-            #endif
 
             SetText(0, 0);
         }
 
         private void Update()
         {
-            if (player)
-                // && Input.location.status == LocationServiceStatus.Running)
+            if (player
+                && Input.location.status == LocationServiceStatus.Running)
                 SetText(player.position.x, player.position.z);
         }
 

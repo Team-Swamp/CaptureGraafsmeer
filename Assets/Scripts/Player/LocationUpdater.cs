@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Android;
 using UnityEngine.InputSystem;
 
@@ -37,25 +38,20 @@ namespace Player
 
         private void Update()
         {
-            switch (Input.location.status)
+            rend.material = Input.location.status switch
             {
-                case LocationServiceStatus.Running:
-                {
-                    rend.material = mats[0];
-                    LocationInfo location = Input.location.lastData;
-                    rend.transform.position = new Vector3(location.latitude * SCALE_FACTOR, 0, location.longitude * SCALE_FACTOR);
-                    break;
-                }
-                case LocationServiceStatus.Failed:
-                    rend.material = mats[1];
-                    break;
-                case LocationServiceStatus.Initializing:
-                    rend.material = mats[2];
-                    break;
-                case LocationServiceStatus.Stopped:
-                    rend.material = mats[3];
-                    break;
-            }
+                LocationServiceStatus.Running => mats[0],
+                LocationServiceStatus.Failed => mats[1],
+                LocationServiceStatus.Initializing => mats[2],
+                LocationServiceStatus.Stopped => mats[3],
+                _ => throw new ArgumentOutOfRangeException()
+            };
+        }
+
+        public Vector2 GetLiveLocation()
+        {
+            LocationInfo location = Input.location.lastData;
+            return new Vector2(location.latitude, location.longitude);
         }
     }
 }

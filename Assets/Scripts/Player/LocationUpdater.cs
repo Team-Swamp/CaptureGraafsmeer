@@ -50,6 +50,9 @@ namespace Player
         /// <returns>Returns a Vector2 with latitude & longitude</returns>
         public Vector2 GetLiveLocation()
         {
+            if (!Input.location.isEnabledByUser)
+                return Vector2.zero;
+            
             LocationInfo location = Input.location.lastData;
             return new Vector2(location.latitude, location.longitude);
         }

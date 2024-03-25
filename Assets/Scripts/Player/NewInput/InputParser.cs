@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 using FrameWork;
 
-namespace Player.Input
+namespace Player.NewInput
 {
     public sealed class InputParser : MonoBehaviour
     {

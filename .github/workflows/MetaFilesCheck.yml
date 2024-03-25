@@ -3,8 +3,8 @@ on: pull_request
 
 jobs:
   unity-meta-check:
-    env:
-        GITHUB_TOKEN: "${{ secrets.MY_GITHUB_TOKEN }}"
+#    env:
+#        GITHUB_TOKEN: "${{ secrets.MY_GITHUB_TOKEN }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

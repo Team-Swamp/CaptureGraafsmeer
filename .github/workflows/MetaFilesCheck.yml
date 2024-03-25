@@ -4,6 +4,8 @@ on: pull_request
 jobs:
   unity-meta-check:
     runs-on: ubuntu-latest
+    env:
+          GITHUB_TOKEN: "${{ secrets.MY_GITHUB_TOKEN }}"
     steps:
       - uses: actions/checkout@v2
       - uses: DeNA/unity-meta-check@v3
@@ -11,5 +13,3 @@ jobs:
           enable_pr_comment: true
           pr_comment_lang: en
           pr_comment_send_success: false
-        env:
-          GITHUB_TOKEN: "${{ secrets.MY_GITHUB_TOKEN }}"

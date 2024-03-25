@@ -1,8 +1,10 @@
 name: Meta Files Check
-on: pull_request
-
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
-  unity-meta-check:
+  sonarcloud:
+    name: PR Decoration
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -12,3 +14,4 @@ jobs:
           pr_comment_lang: en
           pr_comment_send_success: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          pr_comment_pull_number: 0

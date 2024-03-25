@@ -241,6 +241,12 @@ namespace FrameWork.Extensions
         /// <returns>A new Vector3 with multiplied Axis.</returns>
         public static ref Vector3 Multiply(ref this Vector3 v, Vector3 f) => ref v.MultiplyX(f.x).MultiplyY(f.y).MultiplyZ(f.z);
 
+        /// <summary>
+        /// Multiply the Axis of this Vector3 with the corresponding Axis of a float and return the result.
+        /// </summary>
+        /// <param name="v">This Vector3.</param>
+        /// <param name="f">The float to multiply by.</param>
+        /// <returns>A new Vector3 with multiplied Axis.</returns>
         public static ref Vector3 Multiply(ref this Vector3 v, float f) => ref v.MultiplyX(f).MultiplyY(f).MultiplyZ(f);
         
         /// <summary>
@@ -854,6 +860,12 @@ namespace FrameWork.Extensions
         /// <returns>A new Vector2 with multiplied Axis.</returns>
         public static ref Vector2 Multiply(ref this Vector2 v, Vector2 f) => ref v.MultiplyX(f.x).MultiplyY(f.y);
 
+        /// <summary>
+        /// Multiply the Axis of this Vector2 with the corresponding Axis of a float and return the result.
+        /// </summary>
+        /// <param name="v">This Vector2.</param>
+        /// <param name="f">The float to multiply by.</param>
+        /// <returns>A new Vector2 with multiplied Axis.</returns>
         public static ref Vector2 Multiply(ref this Vector2 v, float f) => ref v.MultiplyX(f).MultiplyY(f);
         
         /// <summary>

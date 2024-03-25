@@ -44,15 +44,15 @@ namespace Framework
         {
             Vector2 targetPosition = pos ?? new Vector2(coordinates.x, coordinates.y);
             targetPosition.Subtract(origin);
-            double[] a = ConvertToMeters(targetPosition.x, -targetPosition.y);
+            (double latitude, double longitude) = ConvertToMeters(targetPosition.x, -targetPosition.y);
             
             transform.position = new Vector3(
-                (float) a[0], 
+                (float) latitude, 
                 0,
-                (float) a[1]);
+                (float) longitude);
         }
 
-        private double[] ConvertToMeters(double latitude, double longitude)
+        private (double, double) ConvertToMeters(double latitude, double longitude)
         {
             double latInRadians = latitude * Math.PI / HALF_CIRCLE;
             double lonInRadians = longitude * Math.PI / HALF_CIRCLE;
@@ -60,7 +60,7 @@ namespace Framework
             double latitudeInMeters = latInRadians * EARTH_RADIUS;
             double longitudeInMeters = lonInRadians * EARTH_RADIUS;
             
-            return new [] { latitudeInMeters, longitudeInMeters };
+            return (latitudeInMeters, longitudeInMeters);
         }
     }
 }

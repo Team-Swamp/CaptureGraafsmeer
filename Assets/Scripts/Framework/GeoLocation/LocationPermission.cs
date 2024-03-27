@@ -5,7 +5,7 @@ namespace Framework.GeoLocation
 {
     public abstract class LocationPermission : MonoBehaviour
     {
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             if (Permission.HasUserAuthorizedPermission(Permission.FineLocation))
                 return;

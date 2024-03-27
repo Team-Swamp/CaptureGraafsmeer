@@ -9,9 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Set up GITHUB_TOKEN
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - uses: DeNA/unity-meta-check@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
           enable_pr_comment: true
           pr_comment_lang: en
           pr_comment_send_success: false

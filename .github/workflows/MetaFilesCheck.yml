@@ -14,5 +14,5 @@ jobs:
           enable_pr_comment: true
           pr_comment_lang: en
           pr_comment_send_success: false
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          # GITHUB_TOKEN: ${{ secrets.TOKEN }}
           pr_comment_pull_number: 0

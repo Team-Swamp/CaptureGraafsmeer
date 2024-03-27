@@ -2,6 +2,7 @@ name: Meta Files Check
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+
 jobs:
   sonarcloud:
     name: PR Decoration

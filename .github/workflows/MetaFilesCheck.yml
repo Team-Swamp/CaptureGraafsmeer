@@ -5,7 +5,7 @@ on:
 
 jobs:
   sonarcloud:
-    name: PR Decoration
+    name: Meta files check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,5 +14,5 @@ jobs:
           enable_pr_comment: true
           pr_comment_lang: en
           pr_comment_send_success: false
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
           pr_comment_pull_number: 0

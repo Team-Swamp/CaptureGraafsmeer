@@ -11,8 +11,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: DeNA/unity-meta-check@v3
         with:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
           enable_pr_comment: true
           pr_comment_lang: en
           pr_comment_send_success: false
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
           pr_comment_pull_number: 0

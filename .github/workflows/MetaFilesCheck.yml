@@ -9,10 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          unity-meta-check --fix --safe_directories "Assets" --ignore_case --ignore_submodules_and_nested
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - uses: DeNA/unity-meta-check@v3
         with:
           enable_pr_comment: true
@@ -27,3 +23,5 @@ jobs:
           ignore_submodules_and_nested: false
           enable_autofix: false
           enable_junit: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}

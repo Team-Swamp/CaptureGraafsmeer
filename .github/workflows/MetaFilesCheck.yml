@@ -10,6 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
+          # Install the Unity Meta Check tool
+          wget https://github.com/dwalton3/unity-meta-check/releases/download/v2.1.1/unity-meta-check.phar
+          chmod +x unity-meta-check.phar
+          sudo mv unity-meta-check.phar /usr/local/bin/unity-meta-check
+
+          # Run the Unity Meta Check tool
           unity-meta-check --fix --safe_directories "Assets"
       - uses: DeNA/unity-meta-check@v3
         with:

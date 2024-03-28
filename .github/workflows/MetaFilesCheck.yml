@@ -23,5 +23,6 @@ jobs:
           ignore_submodules_and_nested: false
           enable_autofix: false
           enable_junit: false
+          autofix_globs: |
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}

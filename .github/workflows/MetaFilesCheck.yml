@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           # Install the Unity Meta Check tool
-          wget https://github.com/dwalton3/unity-meta-check/releases/download/v2.1.1/unity-meta-check.phar
+          wget https://github.com/dwalton3/unity-meta-check/releases/download/v2.3.0/unity-meta-check.phar
           chmod +x unity-meta-check.phar
           sudo mv unity-meta-check.phar /usr/local/bin/unity-meta-check
 

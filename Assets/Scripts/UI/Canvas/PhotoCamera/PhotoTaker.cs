@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 using Framework.PhoneCamera;
@@ -21,18 +20,15 @@ namespace UI.Canvas.PhoneCamera
         
         private void Awake() => FindCamera();
 
+        private void Start() => lastPhoto.texture = photoData.LoadTexture();
+
         private void OnDisable()
         {
             if (_webcamTexture != null
                 && _webcamTexture.isPlaying)
                 _webcamTexture.Stop();
         }
-
-        private void Start()
-        {
-            lastPhoto.texture = photoData.LoadTexture();
-        }
-
+        
         /// <summary>
         /// Will start the assign camera to play and will apply it to the live camera image.
         /// </summary>
@@ -49,15 +45,10 @@ namespace UI.Canvas.PhoneCamera
         {
             texture2D = CaptureFrame(_webcamTexture);
             photo.texture = texture2D;
-            lastPhoto.texture = texture2D;
+            photoData.SaveTexture(texture2D);
+            lastPhoto.texture = photoData.LoadTexture();
             
             OnDisable();
-        }
-
-        public void SavePhoto()
-        {
-            PhotoData newData = photoData;
-            photoData.SaveTexture(texture2D);
         }
         
         private void FindCamera()

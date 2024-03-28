@@ -16,7 +16,7 @@ namespace UI.Canvas.PhoneCamera
         [SerializeField] private PhotoData photoData;
         
         private WebCamTexture _webcamTexture;
-        private Texture2D texture2D;
+        private Texture2D _currentPhoto;
         
         private void Awake() => FindCamera();
 
@@ -43,9 +43,9 @@ namespace UI.Canvas.PhoneCamera
         /// </summary>
         public void TakePhoto()
         {
-            texture2D = CaptureFrame(_webcamTexture);
-            photo.texture = texture2D;
-            photoData.SaveTexture(texture2D);
+            _currentPhoto = CaptureFrame(_webcamTexture);
+            photoData.SaveTexture(_currentPhoto);
+            photo.texture = photoData.LoadTexture();
             lastPhoto.texture = photoData.LoadTexture();
             
             OnDisable();
@@ -64,15 +64,15 @@ namespace UI.Canvas.PhoneCamera
             Debug.LogError(NO_CAMERA_ERROR);
         }
         
-        private static Texture2D CaptureFrame(WebCamTexture webcamTexture)
+        private static Texture2D CaptureFrame(WebCamTexture liveTexture)
         {
-            Texture2D texture = new Texture2D(webcamTexture.width, webcamTexture.height);
-            Color[] pixels = webcamTexture.GetPixels();
+            Texture2D currentTexture = new Texture2D(liveTexture.width, liveTexture.height);
+            Color[] pixels = liveTexture.GetPixels();
             
-            texture.SetPixels(pixels);
-            texture.Apply();
+            currentTexture.SetPixels(pixels);
+            currentTexture.Apply();
             
-            return texture;
+            return currentTexture;
         }
     }
 }

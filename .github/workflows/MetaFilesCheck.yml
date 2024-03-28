@@ -6,7 +6,7 @@ on:
 jobs:
   sonarcloud:
     name: Meta files check
-    runs-on: ubuntu-latest-${{ runner.os }}-builder-1604
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: DeNA/unity-meta-check@v3
@@ -23,6 +23,5 @@ jobs:
           ignore_submodules_and_nested: false
           enable_autofix: false
           enable_junit: false
-          autofix_globs: |
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}

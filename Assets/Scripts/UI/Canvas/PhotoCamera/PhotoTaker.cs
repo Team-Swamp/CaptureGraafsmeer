@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 using Framework.PhoneCamera;
+using Framework.ScriptableObjects;
 
 namespace UI.Canvas.PhoneCamera
 {
@@ -11,11 +13,11 @@ namespace UI.Canvas.PhoneCamera
         
         [SerializeField] private RawImage liveCamera;
         [SerializeField] private RawImage photo;
+        [SerializeField] private RawImage lastPhoto;
+        [SerializeField] private PhotoData photoData;
         
         private WebCamTexture _webcamTexture;
-        private Texture2D _photo;
-
-        public Texture2D GetPhoto() => _photo;
+        private Texture2D texture2D;
         
         private void Awake() => FindCamera();
 
@@ -24,6 +26,11 @@ namespace UI.Canvas.PhoneCamera
             if (_webcamTexture != null
                 && _webcamTexture.isPlaying)
                 _webcamTexture.Stop();
+        }
+
+        private void Start()
+        {
+            lastPhoto.texture = photoData.LoadTexture();
         }
 
         /// <summary>
@@ -40,10 +47,17 @@ namespace UI.Canvas.PhoneCamera
         /// </summary>
         public void TakePhoto()
         {
-            _photo = CaptureFrame(_webcamTexture);
-            photo.texture = _photo;
+            texture2D = CaptureFrame(_webcamTexture);
+            photo.texture = texture2D;
+            lastPhoto.texture = texture2D;
             
             OnDisable();
+        }
+
+        public void SavePhoto()
+        {
+            PhotoData newData = photoData;
+            photoData.SaveTexture(texture2D);
         }
         
         private void FindCamera()

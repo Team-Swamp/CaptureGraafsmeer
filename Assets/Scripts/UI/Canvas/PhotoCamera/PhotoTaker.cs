@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 using Framework.PhoneCamera;
 using Framework.ScriptableObjects;
-using UnityEngine.Events;
 
 namespace UI.Canvas.PhoneCamera
 {

@@ -2,15 +2,14 @@
 using UnityEngine;
 
 using FrameWork.Extensions;
-using Framework.GeoLocation;
 using Player;
 
-namespace Framework
+namespace Framework.GeoLocation
 {
     public sealed class CoordinatesTransform : LocationPermission
     {
-        private const float HALF_CIRCLE = 180;
-        private const double EARTH_RADIUS = 6378137;
+        private const int HALF_CIRCLE = 180;
+        private const int EARTH_RADIUS = 6378137;
         
         private static readonly Vector2 origin = new (52.356531f, 4.930800f);
 

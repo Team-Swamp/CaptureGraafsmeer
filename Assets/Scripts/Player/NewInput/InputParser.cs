@@ -51,7 +51,7 @@ namespace Player.NewInput
         {
             Ray ray = _mainCamera.ScreenPointToRay(GetMousePosition());
             Physics.Raycast(ray.origin, ray.direction * interactableRayDistance, out RaycastHit hit);
-
+            
             if (!hit.collider
                 || !hit.collider.CompareTag(INTERACTABLE_TAG))
                 return;

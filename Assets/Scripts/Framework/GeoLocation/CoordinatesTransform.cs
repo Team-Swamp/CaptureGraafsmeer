@@ -10,6 +10,7 @@ namespace Framework.GeoLocation
     {
         private const int HALF_CIRCLE = 180;
         private const int EARTH_RADIUS = 6378137;
+        private const string PLAYER_STATIC_ERROR = "The player is not a static CoordinatesTransform!";
         
         private static readonly Vector2 origin = new (52.356531f, 4.930800f);
 
@@ -23,6 +24,10 @@ namespace Framework.GeoLocation
         {
             if (isPlayer)
                 _player = GetComponent<LocationUpdater>();
+            
+            if(isStatic
+               && isPlayer)
+                Debug.LogError(PLAYER_STATIC_ERROR);
         }
 
         private void Start()

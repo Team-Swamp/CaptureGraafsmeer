@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 using Framework.PhoneCamera;
 using Framework.ScriptableObjects;
+using UnityEngine.Events;
 
 namespace UI.Canvas.PhoneCamera
 {
@@ -11,12 +12,16 @@ namespace UI.Canvas.PhoneCamera
         private const string NO_CAMERA_ERROR = "No webcam device found.";
         
         [SerializeField] private RawImage liveCamera;
-        [SerializeField] private RawImage photo;
         [SerializeField] private RawImage lastPhoto;
         [SerializeField] private PhotoData photoData;
         
         private WebCamTexture _webcamTexture;
         private Texture2D _currentPhoto;
+        
+        public PhotoData Data { get; set; }
+
+        [SerializeField] private UnityEvent onOpenCamera= new();
+        [SerializeField] private UnityEvent onPhotoTaken = new();
         
         private void Awake() => FindCamera();
 
@@ -36,6 +41,7 @@ namespace UI.Canvas.PhoneCamera
         {
             _webcamTexture.Play();
             liveCamera.texture = _webcamTexture;
+            onOpenCamera?.Invoke();
         }
         
         /// <summary>
@@ -45,10 +51,10 @@ namespace UI.Canvas.PhoneCamera
         {
             _currentPhoto = CaptureFrame(_webcamTexture);
             photoData.SaveTexture(_currentPhoto);
-            photo.texture = photoData.LoadTexture();
             lastPhoto.texture = photoData.LoadTexture();
             
             OnDisable();
+            onPhotoTaken?.Invoke();
         }
         
         private void FindCamera()

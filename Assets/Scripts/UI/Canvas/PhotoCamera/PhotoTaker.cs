@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
@@ -9,7 +10,8 @@ namespace UI.Canvas.PhoneCamera
 {
     public sealed class PhotoTaker : CameraPermission
     {
-        private const string NO_CAMERA_ERROR = "No webcam device found.";
+        private const string NO_CAMERA_ERROR = "No camera device found.";
+        private const string CAMERA_NOT_ACTIVE_ERROR = "The camera is not active at this moment.";
         
         [SerializeField] private RawImage liveCamera;
         [SerializeField] private RawImage lastPhoto;
@@ -49,6 +51,9 @@ namespace UI.Canvas.PhoneCamera
         /// </summary>
         public void TakePhoto()
         {
+            if (!_webcamTexture.isPlaying)
+                throw new Exception(CAMERA_NOT_ACTIVE_ERROR);
+            
             _currentPhoto = CaptureFrame(_webcamTexture);
             photoData.SaveTexture(_currentPhoto);
             lastPhoto.texture = photoData.LoadTexture();

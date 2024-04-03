@@ -12,7 +12,7 @@ namespace Framework.GeoLocation
         
         [SerializeField] private List<Transform> routePoints;
         [SerializeField] private LineRenderer route;
-        [SerializeField] private float closeRange = 5f;
+        [SerializeField, Range(1, 100)] private float closeRange = 5f;
         
         private Transform _nextPoint;
         

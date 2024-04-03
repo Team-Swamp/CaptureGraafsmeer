@@ -10,7 +10,7 @@ namespace Framework.GeoLocation
     {
         private const float INVOKE_DELAY = 0.1f;
 
-        [SerializeField] private UnityEvent withinRange = new UnityEvent();
+        [SerializeField] private UnityEvent withinRange = new ();
         
         [SerializeField] private List<Transform> routePoints;
         [SerializeField] private LineRenderer lineRenderer;
@@ -22,15 +22,14 @@ namespace Framework.GeoLocation
         {
             Invoke(nameof(InitLine), INVOKE_DELAY);
             _nextPoint = routePoints[1];
-            
         }
 
         private void Update()
         {
+            // here player poinmmt updating
+            
             if (Vector3.Distance(transform.position, _nextPoint.position) < closeRange)
-            {
-                withinRange?.Invoke();
-            }
+                RemoveLine();
         }
 
         public void RemoveLine()
@@ -39,16 +38,15 @@ namespace Framework.GeoLocation
             {
                 lineRenderer.enabled = false;
                 routePoints.Clear();
+                return;
             }
-            else
-            {
-                _nextPoint = routePoints[2];
-                routePoints.RemoveAt(0);
-                lineRenderer.positionCount = 0;
-                InitLine();
-            }
-
+            
+            _nextPoint = routePoints[2];
+            routePoints.RemoveAt(1);
+            lineRenderer.positionCount = 0;
+            InitLine();
         }
+        
         private void InitLine()
         {
             try

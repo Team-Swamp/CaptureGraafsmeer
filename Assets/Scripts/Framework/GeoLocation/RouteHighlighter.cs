@@ -9,53 +9,64 @@ namespace Framework.GeoLocation
     public sealed class RouteHighlighter : MonoBehaviour
     {
         private const float INVOKE_DELAY = 0.1f;
-
-        [SerializeField] private UnityEvent withinRange = new ();
         
         [SerializeField] private List<Transform> routePoints;
-        [SerializeField] private LineRenderer lineRenderer;
+        [SerializeField] private LineRenderer route;
         [SerializeField] private float closeRange = 5f;
         
-        [SerializeField] private Transform _nextPoint;
+        private Transform _nextPoint;
+        
+        [SerializeField] private UnityEvent onWithinRange = new UnityEvent();
+        [SerializeField] private UnityEvent onRouteDone = new UnityEvent();
+
+        private void Awake()
+        {
+            if (route == null)
+                route.GetComponent<LineRenderer>();
+        }
 
         private void Start()
         {
-            Invoke(nameof(InitLine), INVOKE_DELAY);
+            Invoke(nameof(UpdateLine), INVOKE_DELAY);
             _nextPoint = routePoints[1];
         }
 
         private void Update()
         {
-            // here player poinmmt updating
+            route.SetPosition(0, transform.position);
             
             if (Vector3.Distance(transform.position, _nextPoint.position) < closeRange)
+            {
+                onWithinRange?.Invoke();
                 RemoveLine();
+            }
         }
 
-        public void RemoveLine()
+        private void RemoveLine()
         {
             if (routePoints.Count <= 2)
             {
-                lineRenderer.enabled = false;
+                onRouteDone?.Invoke();
+                route.enabled = false;
                 routePoints.Clear();
                 return;
             }
             
-            _nextPoint = routePoints[2];
             routePoints.RemoveAt(1);
-            lineRenderer.positionCount = 0;
-            InitLine();
+            _nextPoint = routePoints[1];
+            route.positionCount = 0;
+            UpdateLine();
         }
         
-        private void InitLine()
+        private void UpdateLine()
         {
             try
             {
                 foreach (var point in routePoints)
                 {
-                    lineRenderer.positionCount++;
-                    int index = lineRenderer.positionCount - 1;
-                    lineRenderer.SetPosition(index, point.position);
+                    route.positionCount++;
+                    int index = route.positionCount - 1;
+                    route.SetPosition(index, point.position);
                     print(point);
                 }
             }

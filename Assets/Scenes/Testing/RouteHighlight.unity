@@ -1032,20 +1032,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dc126e88c35ad458ce76c5fdc9baa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  withinRange:
-    m_PersistentCalls:
-      m_Calls: []
   routePoints:
-  - {fileID: 1080759508}
+  - {fileID: 1729599581}
   - {fileID: 478465833}
   - {fileID: 786707681}
   - {fileID: 2142339442}
   - {fileID: 1353387836}
   - {fileID: 624098332}
   - {fileID: 1080759508}
-  lineRenderer: {fileID: 6586392290114352520}
+  route: {fileID: 6586392290114352520}
   closeRange: 5
-  _nextPoint: {fileID: 0}
+  onWithinRange:
+    m_PersistentCalls:
+      m_Calls: []
+  onRouteDone:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!120 &6586392290114352520
 LineRenderer:
   serializedVersion: 2

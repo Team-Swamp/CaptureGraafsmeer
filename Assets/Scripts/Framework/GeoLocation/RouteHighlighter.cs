@@ -39,7 +39,8 @@ namespace Framework.GeoLocation
                 throw new Exception(MORE_THEN_ONE_POINT_ERROR);
             }
             
-            routePoints.RemoveAt(0);
+            // routePoints.RemoveAt(0); // Tried to fix it
+            
             _nextPoint = routePoints[1];
             Invoke(nameof(UpdateLine), INVOKE_DELAY);
         }

@@ -38,9 +38,7 @@ namespace Framework.GeoLocation
                 _canUpdate = false;
                 throw new Exception(MORE_THEN_ONE_POINT_ERROR);
             }
-            
-            // routePoints.RemoveAt(0); // Tried to fix it
-            
+
             _nextPoint = routePoints[1];
             Invoke(nameof(UpdateLine), INVOKE_DELAY);
         }
@@ -49,10 +47,11 @@ namespace Framework.GeoLocation
         {
             if(!_canUpdate)
                 return;
-            
-            route.SetPosition(0, routePoints[0].position);
 
-            if (!(Vector3.Distance(transform.position, _nextPoint.position) < closeRange))
+            Vector3 playerPosition = routePoints[0].position;
+            route.SetPosition(0, playerPosition);
+
+            if (!(Vector3.Distance(playerPosition, _nextPoint.position) < closeRange))
                 return;
             
             onWithinRange?.Invoke();
@@ -66,6 +65,7 @@ namespace Framework.GeoLocation
                 onRouteDone?.Invoke();
                 route.enabled = false;
                 routePoints.Clear();
+                _canUpdate = false;
                 return;
             }
             

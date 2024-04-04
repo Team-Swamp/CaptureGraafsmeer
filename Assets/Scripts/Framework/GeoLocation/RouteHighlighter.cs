@@ -50,7 +50,7 @@ namespace Framework.GeoLocation
             if(!_canUpdate)
                 return;
             
-            route.SetPosition(0, transform.position);
+            route.SetPosition(0, routePoints[0].position);
 
             if (!(Vector3.Distance(transform.position, _nextPoint.position) < closeRange))
                 return;

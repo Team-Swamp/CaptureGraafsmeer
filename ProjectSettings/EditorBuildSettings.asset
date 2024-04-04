@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Testing/PhotoTaking.unity
     guid: 0feaa8ae9be8dbf4888c2fd21923d1f0
   - enabled: 1
-    path: Assets/Scenes/Testing/Map with photo.unity
-    guid: 5a9d09f118ef7f945acf54f1855e5c51
+    path: Assets/Scenes/Sprint1.unity
+    guid: 54551d5509f74c6458b94a9d3239d3cf
   m_configObjects: {}

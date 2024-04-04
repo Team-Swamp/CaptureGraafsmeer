@@ -8,6 +8,8 @@ namespace Framework.GeoLocation
     [RequireComponent(typeof(LineRenderer))]
     public sealed class RouteHighlighter : MonoBehaviour
     {
+        private const string NO_ROUTE_POINTS_ERROR = "There are no route points assaigned.";
+        private const string MORE_THEN_ONE_POINT_ERROR = "Need to assaign more then 1 route point.";
         private const float INVOKE_DELAY = 0.1f;
         
         [SerializeField] private List<Transform> routePoints;
@@ -15,31 +17,45 @@ namespace Framework.GeoLocation
         [SerializeField, Range(1, 100)] private float closeRange = 5f;
         
         private Transform _nextPoint;
+        private bool _canUpdate = true;
         
-        [SerializeField] private UnityEvent onWithinRange = new UnityEvent();
-        [SerializeField] private UnityEvent onRouteDone = new UnityEvent();
+        [SerializeField] private UnityEvent onWithinRange = new ();
+        [SerializeField] private UnityEvent onRouteDone = new ();
 
         private void Awake()
         {
+            if (routePoints.Count == 0)
+                throw new Exception(NO_ROUTE_POINTS_ERROR);
+            
             if (route == null)
                 route.GetComponent<LineRenderer>();
         }
 
         private void Start()
         {
-            Invoke(nameof(UpdateLine), INVOKE_DELAY);
+            if (routePoints.Count == 1)
+            {
+                _canUpdate = false;
+                throw new Exception(MORE_THEN_ONE_POINT_ERROR);
+            }
+
             _nextPoint = routePoints[1];
+            Invoke(nameof(UpdateLine), INVOKE_DELAY);
         }
 
         private void Update()
         {
-            route.SetPosition(0, transform.position);
+            if(!_canUpdate)
+                return;
+
+            Vector3 playerPosition = routePoints[0].position;
+            route.SetPosition(0, playerPosition);
+
+            if (!(Vector3.Distance(playerPosition, _nextPoint.position) < closeRange))
+                return;
             
-            if (Vector3.Distance(transform.position, _nextPoint.position) < closeRange)
-            {
-                onWithinRange?.Invoke();
-                RemoveLine();
-            }
+            onWithinRange?.Invoke();
+            RemoveLine();
         }
 
         private void RemoveLine()
@@ -49,6 +65,7 @@ namespace Framework.GeoLocation
                 onRouteDone?.Invoke();
                 route.enabled = false;
                 routePoints.Clear();
+                _canUpdate = false;
                 return;
             }
             

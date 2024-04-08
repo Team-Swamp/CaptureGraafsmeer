@@ -478,7 +478,7 @@ MonoBehaviour:
   title: {fileID: 1277935726048788375}
   info: {fileID: 7050641646650141399}
   data: {fileID: 0}
-  animationDuration: 1.5
+  animationDuration: 0.75
   animationCurve:
     serializedVersion: 2
     m_Curve:

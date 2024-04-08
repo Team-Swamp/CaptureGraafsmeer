@@ -29,16 +29,13 @@ namespace UI.Canvas.PhoneBook
             _rect = GetComponent<RectTransform>();
             SetProperties(data);
         }
-
-        public void SetProperties(PhotoData targetData)
-        {
-            photo.texture = targetData.LoadTexture();
-            title.text = targetData.title;
-            info.text = targetData.info;
-        }
+        
+        public void ForceClose() => _rect.localScale = _closed;
+        
+        public void ForceOpen() => _rect.localScale = Vector3.one;
 
         public void AnimatePage(bool isOpening)
-            => StartCoroutine(AnimateScale(isOpening ? Vector3.one : _closed));
+            => StartCoroutine(AnimateScale(isOpening ? _closed : Vector3.one));
 
         private IEnumerator AnimateScale(Vector3 targetScale)
         {
@@ -58,6 +55,13 @@ namespace UI.Canvas.PhoneBook
 
             if (targetScale == Vector3.zero)
                 gameObject.SetActive(false);
+        }
+        
+        private void SetProperties(PhotoData targetData)
+        {
+            photo.texture = targetData.LoadTexture();
+            title.text = targetData.title;
+            info.text = targetData.info;
         }
     }
 }

@@ -2,7 +2,7 @@ using FrameWork;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace UI.Menus
+namespace UI.Canvas.Menus
 {
     public sealed class SwitchMenus : MonoBehaviour
     {

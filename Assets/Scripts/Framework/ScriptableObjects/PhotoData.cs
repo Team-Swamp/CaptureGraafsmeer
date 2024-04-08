@@ -10,6 +10,9 @@ namespace Framework.ScriptableObjects
         private const string NO_TEXTURE_TO_SAVE = "No texture to save.";
         private const string NO_TEXTURE_TO_LOAD = "No texture data to load.";
         private const string SAVED_TEXTURE = "savedTexture.png";
+
+        public string title = "Object title";
+        [TextArea(3, 6)] public string info;
         
         private byte[] _textureBytes;
 
@@ -23,7 +26,7 @@ namespace Framework.ScriptableObjects
                 throw new Exception(NO_TEXTURE_TO_SAVE);
 
             _textureBytes = targetTexture.EncodeToPNG();
-            string filePath = Path.Combine(Application.persistentDataPath, SAVED_TEXTURE);
+            string filePath = Path.Combine(Application.persistentDataPath, name + "_" +  SAVED_TEXTURE);
             
             File.WriteAllBytes(filePath, _textureBytes);
         }
@@ -34,10 +37,15 @@ namespace Framework.ScriptableObjects
         /// <returns>The photo that is saved in memory</returns>
         public Texture2D LoadTexture()
         {
-            string filePath = Path.Combine(Application.persistentDataPath, SAVED_TEXTURE);
-            
+            string filePath = Path.Combine(Application.persistentDataPath, name + "_" + SAVED_TEXTURE);
+
             if (!File.Exists(filePath))
-                throw new Exception(NO_TEXTURE_TO_LOAD);
+            {
+                filePath = Path.Combine(Application.persistentDataPath, SAVED_TEXTURE);
+                
+                if (!File.Exists(filePath))
+                    throw new Exception(NO_TEXTURE_TO_LOAD);
+            }
 
             _textureBytes = File.ReadAllBytes(filePath);
             Texture2D loadedTexture = new Texture2D(2, 2);

@@ -7,6 +7,7 @@
 | [Definition of done](https://github.com/Team-Swamp/Codename-BDLMTW/wiki/Definition-of-done) | When is something done? Here's a list of criteria of the definition of done. |
 | [Functional Design](https://github.com/Team-Swamp/Codename-BDLMTW/wiki/Functional-Design) | A description about how to play the game |
 | [Git workflow](https://github.com/Team-Swamp/Codename-BDLMTW/wiki/Git-workflow) | This is our git workflow, with branch naming |
+| [Scrum](https://github.com/Team-Swamp/Codename-BDLMTW/wiki/Scrum) | A page with all our scrum notes and files |
 | [Software in use](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | Here's a list of the software we use to make this project |
 | [Technical Design](https://github.com/Team-Swamp/Codename-BDLMTW/wiki/Technical-Design) | An in depth explanation of how complex systems work in the game |
 | [Full code documentation](https://github.com/Team-Swamp/Codename-BDLMTW/wiki/Full-code-documentation) | The full documentation of each feature and class |

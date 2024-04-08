@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using Framework.PhoneCamera;
 using Framework.ScriptableObjects;
 
-namespace UI.Canvas.PhoneCamera
+namespace UI.Canvas.PhoneBook
 {
     public sealed class PhotoTaker : CameraPermission
     {

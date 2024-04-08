@@ -27,7 +27,14 @@ namespace UI.Canvas.PhoneBook
         private void Awake()
         {
             _rect = GetComponent<RectTransform>();
-            SetProperties(data);
+            SetProperties();
+        }
+        
+        public void SetProperties()
+        {
+            photo.texture = data.LoadTexture();
+            title.text = data.Title;
+            info.text = data.Info;
         }
         
         public void ForceClose() => _rect.localScale = _closed;
@@ -55,13 +62,6 @@ namespace UI.Canvas.PhoneBook
 
             if (targetScale == Vector3.zero)
                 gameObject.SetActive(false);
-        }
-        
-        private void SetProperties(PhotoData targetData)
-        {
-            photo.texture = targetData.LoadTexture();
-            title.text = targetData.title;
-            info.text = targetData.info;
         }
     }
 }

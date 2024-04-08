@@ -1295,6 +1295,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1155037414}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 6757927011554912677}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetProperties
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UI.Canvas.PhoneBook.Page, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
@@ -1496,6 +1508,18 @@ PrefabInstance:
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1155037414}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 6757927011554912676}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetProperties
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UI.Canvas.PhoneBook.Page, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
@@ -3328,11 +3352,11 @@ PrefabInstance:
       objectReference: {fileID: 1611850523}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3345,18 +3369,18 @@ PrefabInstance:
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1611850523}
+      objectReference: {fileID: 6757927011554912675}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetPhotoData
+      value: SetProperties
       objectReference: {fileID: 0}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UI.Canvas.PhoneCamera.PhotoTaker, Assembly-CSharp
+      value: UI.Canvas.PhoneBook.Page, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
@@ -3368,11 +3392,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Framework.ScriptableObjects.PhotoData, Assembly-CSharp
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3540,6 +3564,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1155037414}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 6757927011554912678}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetProperties
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UI.Canvas.PhoneBook.Page, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
@@ -3633,6 +3669,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1611850523}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 777966655}
@@ -3641,6 +3685,34 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1155037414}
     - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 6757927011554912679}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 2129618945}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetProperties
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: SetPhotoData
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UI.Canvas.PhoneBook.Page, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: Framework.PhoneCamera.PhotoInteractable, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
@@ -3648,11 +3720,30 @@ PrefabInstance:
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+--- !u!114 &2129618945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8151052682018885424, guid: 1abcb8ec1c6b55a4cb85cb3410812336, type: 3}
+  m_PrefabInstance: {fileID: 2129618944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848b40ac659c48878a7055e615a2dfe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3869015356337010549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3827,6 +3918,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e76b816bb274b23418c92a7679ed15ba, type: 3}
+--- !u!1 &6757927011554912675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4076915169103768238, guid: e76b816bb274b23418c92a7679ed15ba, type: 3}
+  m_PrefabInstance: {fileID: 6757927011554912674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6757927011554912676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 823845789281921621, guid: e76b816bb274b23418c92a7679ed15ba, type: 3}
+  m_PrefabInstance: {fileID: 6757927011554912674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6757927011554912677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2540701813156654077, guid: e76b816bb274b23418c92a7679ed15ba, type: 3}
+  m_PrefabInstance: {fileID: 6757927011554912674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6757927011554912678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4102716448032514779, guid: e76b816bb274b23418c92a7679ed15ba, type: 3}
+  m_PrefabInstance: {fileID: 6757927011554912674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6757927011554912679 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1643113392770088796, guid: e76b816bb274b23418c92a7679ed15ba, type: 3}
+  m_PrefabInstance: {fileID: 6757927011554912674}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea3fbec28944ff181c8bf5ddfeba5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8638803314692804847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3885,19 +4007,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422362989458044855, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000004729109
+      value: -0.00000004729109
       objectReference: {fileID: 0}
     - target: {fileID: 2422362989458044855, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000011490415
+      value: 0.000000011490415
       objectReference: {fileID: 0}
     - target: {fileID: 3905940548920388439, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000023645542
+      value: -0.000000023645542
       objectReference: {fileID: 0}
     - target: {fileID: 3905940548920388439, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000057452065
+      value: 0.0000000057452065
       objectReference: {fileID: 0}
     - target: {fileID: 4070547984105785384, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.y

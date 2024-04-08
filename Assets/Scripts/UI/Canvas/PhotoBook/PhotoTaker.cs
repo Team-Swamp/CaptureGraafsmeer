@@ -55,7 +55,11 @@ namespace UI.Canvas.PhoneBook
                 throw new Exception(CAMERA_NOT_ACTIVE_ERROR);
             
             _currentPhoto = CaptureFrame(_webcamTexture);
-            photoData.SaveTexture(_currentPhoto);
+            
+            if (!photoData.SaveTexture(_currentPhoto))
+                return;
+            
+            photoData.isVisited = true;
             lastPhoto.texture = photoData.LoadTexture();
             
             OnDisable();

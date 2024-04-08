@@ -84,7 +84,6 @@ namespace Framework.GeoLocation
                     route.positionCount++;
                     int index = route.positionCount - 1;
                     route.SetPosition(index, point.position);
-                    print(point);
                 }
             }
             catch (Exception e)

@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2798154196050552882}
   m_Layer: 0
-  m_Name: Frankendael Gate
+  m_Name: FrankendaelGate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

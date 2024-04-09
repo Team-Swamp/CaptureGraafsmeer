@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -16,18 +17,21 @@ namespace UI.Canvas.PhoneBook
         [SerializeField] private RawImage liveCamera;
         [SerializeField] private RawImage lastPhoto;
         [SerializeField] private PhotoData photoData;
+        [SerializeField] private Texture2D defaultTex;
         
         private WebCamTexture _webcamTexture;
         private Texture2D _currentPhoto;
+        private PhotoInteractable _currentInteractable;
         
         public PhotoData Data { get; set; }
+        public Texture2D DefaultTex => defaultTex;
 
         [SerializeField] private UnityEvent onOpenCamera= new();
         [SerializeField] private UnityEvent onPhotoTaken = new();
         
         private void Awake() => FindCamera();
 
-        private void Start() => lastPhoto.texture = photoData.LoadTexture();
+        // private void Start() => lastPhoto.texture = photoData.LoadTexture();
 
         private void OnDisable()
         {
@@ -51,20 +55,52 @@ namespace UI.Canvas.PhoneBook
         /// </summary>
         public void TakePhoto()
         {
+            // StartCoroutine(Wajow());
+            // return;
+            
             if (!_webcamTexture.isPlaying)
                 throw new Exception(CAMERA_NOT_ACTIVE_ERROR);
             
+            if (_currentInteractable == null)
+            {
+                Debug.LogWarning("Current interactable not set. Cannot take photo.");
+                return;
+            }
+            
             _currentPhoto = CaptureFrame(_webcamTexture);
             
-            if (!photoData.SaveTexture(_currentPhoto))
+            if (!_currentInteractable.SaveTexture(_currentPhoto))
                 return;
+
+            // StartCoroutine(Wajow());
+            // return;
             
-            photoData.isVisited = true;
-            lastPhoto.texture = photoData.LoadTexture();
+            Debug.Log(_currentInteractable.name);
+            Yes();
+            lastPhoto.texture = _currentInteractable.GetTexture();
             
-            OnDisable();
             onPhotoTaken?.Invoke();
+            OnDisable();
         }
+
+        private IEnumerator Wajow()
+        {
+            yield return new WaitForSeconds(3);
+                
+            Debug.Log(_currentInteractable.name);
+            Yes();
+            lastPhoto.texture = _currentInteractable.GetTexture();
+            
+            onPhotoTaken?.Invoke();
+            OnDisable();
+        }
+
+        public void Yes()
+        {
+            _currentInteractable.IsVisited = true;
+        }
+
+        public void SetCurrentPhotoInteractable(PhotoInteractable target) => _currentInteractable = target;
         
         private void FindCamera()
         {

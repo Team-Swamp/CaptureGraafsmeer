@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using Framework.ScriptableObjects;
+using Framework.PhoneCamera;
 
 namespace UI.Canvas.PhoneBook
 {
@@ -16,9 +17,10 @@ namespace UI.Canvas.PhoneBook
         [SerializeField] private RawImage photo;
         [SerializeField] private TMP_Text title;
         [SerializeField] private TMP_Text info;
+        [SerializeField] private PhotoInteractable interactable;
 
         [Header("Data")]
-        [SerializeField] private PhotoData data;
+        [SerializeReference] private PhotoData data;
         [SerializeField] private float animationDuration;
         [SerializeField] private AnimationCurve animationCurve;
 
@@ -32,9 +34,11 @@ namespace UI.Canvas.PhoneBook
         
         public void SetProperties()
         {
-            photo.texture = data.LoadTexture();
             title.text = data.Title;
-            info.text = data.Info;
+            var a = interactable.GetTexture();
+            
+            photo.texture = a;
+            info.text = interactable.GetInfo();
         }
         
         public void ForceClose() => _rect.localScale = _closed;

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -16,8 +16,7 @@ namespace Framework.ScriptableObjects
         
         [SerializeField] private string title = "Object title";
         [SerializeField, TextArea(3, 6)] private string info ;
-
-        public Texture2D a;
+        
         private byte[] _textureBytes;
 
         public (string, string) Info => (info, TAKE_PHOTO);
@@ -43,12 +42,35 @@ namespace Framework.ScriptableObjects
 
             return true;
         }
+        
+        public async Task<bool> SaveTextureAsync(Texture2D targetTexture)
+        {
+            if (!targetTexture)
+            {
+                Debug.LogError(NO_TEXTURE_TO_SAVE);
+                return false;
+            }
+
+            _textureBytes = targetTexture.EncodeToPNG();
+            string filePath = Path.Combine(Application.persistentDataPath, SAVED_TEXTURE);
+
+            try
+            {
+                await File.WriteAllBytesAsync(filePath, _textureBytes);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Failed to save texture: {e.Message}");
+                return false;
+            }
+        }
 
         /// <summary>
         /// Load the texture from the saved byte array
         /// </summary>
         /// <returns>The photo that is saved in memory</returns>
-        public void LoadTexture()
+        public Texture2D LoadTexture()
         {
             string filePath = Path.Combine(Application.persistentDataPath, name + "_" + SAVED_TEXTURE);
 
@@ -64,25 +86,25 @@ namespace Framework.ScriptableObjects
             _textureBytes = loadingBytes.Result;
             Texture2D loadedTexture = new Texture2D(2, 2);
             loadedTexture.LoadImage(_textureBytes);
-            a = loadedTexture;
+            return loadedTexture;
         }
         
-        public async Task LoadTextureAsync()
+        public async Task<Texture2D> LoadTextureAsync()
         {
             string filePath = Path.Combine(Application.persistentDataPath, name + "_" + SAVED_TEXTURE);
 
             if (!File.Exists(filePath))
             {
                 filePath = Path.Combine(Application.persistentDataPath, SAVED_TEXTURE);
-
+                
                 if (!File.Exists(filePath))
                     throw new Exception(NO_TEXTURE_TO_LOAD);
             }
-
-            byte[] textureBytes = await File.ReadAllBytesAsync(filePath);
+            
+            byte[] loadingBytes = await File.ReadAllBytesAsync(filePath);
             Texture2D loadedTexture = new Texture2D(2, 2);
-            loadedTexture.LoadImage(textureBytes);
-            a = loadedTexture;
+            loadedTexture.LoadImage(loadingBytes);
+            return loadedTexture;
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -13,8 +12,6 @@ namespace Framework.PhoneCamera
     {
         [SerializeField] private PhotoTaker parent;
         [SerializeReference] private PhotoData data;
-
-        private bool _isFirstTime = true;
         
         public PhotoData Data => data;
         public PhotoTaker Parent => parent;
@@ -42,50 +39,12 @@ namespace Framework.PhoneCamera
         }
 
         public bool SaveTexture(Texture2D target) => data.SaveTexture(target);
+
+        public async Task<bool> SaveTextureAsync(Texture2D target) => await data.SaveTextureAsync(target);
         
-        public async IAsyncEnumerable<Texture2D> GetTextureAsync()
-        {
-            if (!IsVisited)
-            {
-                yield return parent.DefaultTex;
-                yield break;
-            }
-
-            while (true)
-            {
-                await data.LoadTextureAsync();
-
-                if (data.a != parent.DefaultTex 
-                    && parent.Data == data)
-                {
-                    yield return data.a;
-                    yield break;
-                }
-
-                // Add a small delay before checking again to avoid tight loop
-                await Task.Delay(100); // Adjust delay as needed
-            }
-        }
-        
-        public Texture2D GetTexture()
-        {
-            if (!IsVisited)
-                return parent.DefaultTex;
-            
-            while (true)
-            {
-                data.LoadTexture();
-                
-                if(data.a != parent.DefaultTex
-                   && parent.Data == data)
-                    break;
-            }
-
-            if (_isFirstTime)
-                return GetTexture();
-            
-            _isFirstTime = false;
-            return data.a;
-        }
+        public async Task<Texture2D> GetTextureAsync() => !IsVisited 
+            ? parent.DefaultTex 
+            : await data.LoadTextureAsync();
     }
 }
+

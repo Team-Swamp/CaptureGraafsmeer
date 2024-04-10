@@ -35,9 +35,7 @@ namespace UI.Canvas.PhoneBook
         public void SetProperties()
         {
             title.text = data.Title;
-            var a = interactable.GetTexture();
-            
-            photo.texture = a;
+            photo.texture = interactable.GetTextureAsync().Result;
             info.text = interactable.GetInfo();
         }
         

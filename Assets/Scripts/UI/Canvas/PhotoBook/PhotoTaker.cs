@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -31,8 +32,6 @@ namespace UI.Canvas.PhoneBook
         
         private void Awake() => FindCamera();
 
-        // private void Start() => lastPhoto.texture = photoData.LoadTexture();
-
         private void OnDisable()
         {
             if (_webcamTexture != null
@@ -53,11 +52,13 @@ namespace UI.Canvas.PhoneBook
         /// <summary>
         /// Captures the current frame and applies it to the photo image.
         /// </summary>
-        public void TakePhoto()
+        public async void TakePhoto()
         {
-            // StartCoroutine(Wajow());
-            // return;
-            
+            await TakePhotouwrgebu();
+        }
+        
+        private async Task TakePhotouwrgebu()
+        {
             if (!_webcamTexture.isPlaying)
                 throw new Exception(CAMERA_NOT_ACTIVE_ERROR);
             
@@ -69,27 +70,12 @@ namespace UI.Canvas.PhoneBook
             
             _currentPhoto = CaptureFrame(_webcamTexture);
             
-            if (!_currentInteractable.SaveTexture(_currentPhoto))
+            if(! await _currentInteractable.SaveTextureAsync(_currentPhoto))
                 return;
-
-            // StartCoroutine(Wajow());
-            // return;
             
             Debug.Log(_currentInteractable.name);
             Yes();
-            lastPhoto.texture = _currentInteractable.GetTexture();
-            
-            onPhotoTaken?.Invoke();
-            OnDisable();
-        }
-
-        private IEnumerator Wajow()
-        {
-            yield return new WaitForSeconds(3);
-                
-            Debug.Log(_currentInteractable.name);
-            Yes();
-            lastPhoto.texture = _currentInteractable.GetTexture();
+            lastPhoto.texture = _currentInteractable.GetTextureAsync().Result;
             
             onPhotoTaken?.Invoke();
             OnDisable();

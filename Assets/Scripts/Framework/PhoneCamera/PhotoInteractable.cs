@@ -57,7 +57,7 @@ namespace Framework.PhoneCamera
             }
 
             _textureBytes = targetTexture.EncodeToJPG();
-            string filePath = Path.Combine(Application.persistentDataPath, name + "_" +  SAVED_TEXTURE);
+            string filePath = Path.Combine(Application.persistentDataPath, name + "_" + SAVED_TEXTURE);
             File.WriteAllBytes(filePath, _textureBytes);
             
             return true;
@@ -66,7 +66,7 @@ namespace Framework.PhoneCamera
         /// <summary>
         /// Get the texture to show, if this is visited it will show the made photo, otherwise the default texture
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns text for text block depending if the photo has been taken or not</returns>
         public Texture2D GetTexture() => !IsVisited 
             ? parent.DefaultTex 
             : LoadTexture();
@@ -87,6 +87,7 @@ namespace Framework.PhoneCamera
             _textureBytes = loadingBytes;
             Texture2D loadedTexture = new Texture2D(2, 2);
             loadedTexture.LoadImage(_textureBytes);
+            
             return loadedTexture;
         }
     }

@@ -11,8 +11,9 @@ namespace UI.Canvas.PhoneBook
     public sealed class PhotoTaker : CameraPermission
     {
         private const string NO_CAMERA_ERROR = "No camera device found.";
-        private const string CAMERA_NOT_ACTIVE_ERROR = "The camera is not active at this moment.";
         private const string NO_PHOTO_INTERACTABLE_ERROR = "Current interactable not set. Cannot take photo.";
+        private const string CAMERA_NOT_ACTIVE_ERROR = "The camera is not active at this moment.";
+        private const string UNABLE_TO_SAVE_PHOTO_ERROR = "Unable to save the photo of PhotoInteractable: ";
         
         [SerializeField] private RawImage liveCamera;
         [SerializeField] private RawImage lastPhoto;
@@ -62,9 +63,9 @@ namespace UI.Canvas.PhoneBook
                 throw new Exception(NO_PHOTO_INTERACTABLE_ERROR);
             
             _currentPhoto = CaptureFrame(_webcamTexture);
-            
-            if(!_currentInteractable.SaveTexture(_currentPhoto))
-                return;
+
+            if (!_currentInteractable.SaveTexture(_currentPhoto))
+                throw new Exception(UNABLE_TO_SAVE_PHOTO_ERROR + _currentInteractable.name);
             
             _currentInteractable.IsVisited = true;
             lastPhoto.texture = _currentInteractable.GetTexture();
@@ -82,14 +83,11 @@ namespace UI.Canvas.PhoneBook
         private void FindCamera()
         {
             WebCamDevice[] devices = WebCamTexture.devices;
+
+            if (devices.Length <= 0)
+                throw new Exception(NO_CAMERA_ERROR);
             
-            if (devices.Length > 0)
-            {
-                _webcamTexture = new WebCamTexture(devices[0].name);
-                return;
-            }
-            
-            Debug.LogError(NO_CAMERA_ERROR);
+            _webcamTexture = new WebCamTexture(devices[0].name);
         }
         
         private Texture2D CaptureFrame(WebCamTexture liveTexture)

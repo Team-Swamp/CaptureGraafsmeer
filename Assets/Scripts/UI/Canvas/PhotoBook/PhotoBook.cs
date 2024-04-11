@@ -69,7 +69,7 @@ namespace UI.Canvas.PhoneBook
 
         private void CheckButtonsUsability()
         {
-            if (_currentPage== 0)
+            if (_currentPage == 0)
                 previousButton.SetActive(false);
             
             if(_currentPage == pages.Length)

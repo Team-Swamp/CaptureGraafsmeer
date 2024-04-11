@@ -31,8 +31,10 @@ namespace UI.Canvas.PhoneBook
         private void Awake()
         {
             _rect = GetComponent<RectTransform>();
-            SetProperties();
             interactable.ParentPage = this;
+            title.text = data.Title;
+            
+            SetProperties();
         }
         
         /// <summary>
@@ -40,7 +42,6 @@ namespace UI.Canvas.PhoneBook
         /// </summary>
         public void SetProperties()
         {
-            title.text = data.Title;
             photo.texture = interactable.GetTexture();
             info.text = interactable.GetInfo();
         }
@@ -73,13 +74,11 @@ namespace UI.Canvas.PhoneBook
                 float timeLeft = Mathf.Clamp01(elapsedTime / animationDuration);
                 float curveValue = animationCurve.Evaluate(timeLeft);
                 _rect.localScale = Vector3.Lerp(initialScale, targetScale, curveValue);
+                
                 yield return null;
             }
 
             _rect.localScale = targetScale;
-
-            if (targetScale == Vector3.zero)
-                gameObject.SetActive(false);
         }
     }
 }

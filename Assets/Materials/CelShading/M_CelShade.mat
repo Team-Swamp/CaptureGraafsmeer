@@ -114,7 +114,7 @@ Material:
     - _ShadowSize: 0.73
     - _ShadowThreshold: 0.5
     - _Shadow_Brightness: 0.6
-    - _Shadow_Size: 0.64
+    - _Shadow_Size: 0.55
     - _Shadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0

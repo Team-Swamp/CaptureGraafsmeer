@@ -23,16 +23,21 @@ namespace Framework.PhoneCamera
         
         public Page ParentPage { get; set; }
 
+        /// <summary>
+        /// Set this PhotoInteractable as the current in the PhotoTaker
+        /// </summary>
         public void SetPhotoData()
         {
             parent.SetCurrentPhotoInteractable(this);
             
             if(parent.Data != data)
                 parent.Data = data;
-            
-            print($"Set {name} as current"); // temp
         }
 
+        /// <summary>
+        /// Get the text to show in the page, if visited will show the text for it, otherwise the default text
+        /// </summary>
+        /// <returns></returns>
         public string GetInfo()
         {
             (string info, string takePhoto) = data.Info;
@@ -58,6 +63,10 @@ namespace Framework.PhoneCamera
             return true;
         }
         
+        /// <summary>
+        /// Get the texture to show, if this is visited it will show the made photo, otherwise the default texture
+        /// </summary>
+        /// <returns></returns>
         public Texture2D GetTexture() => !IsVisited 
             ? parent.DefaultTex 
             : LoadTexture();

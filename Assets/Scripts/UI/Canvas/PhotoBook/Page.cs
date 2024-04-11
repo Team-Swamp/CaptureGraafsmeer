@@ -34,9 +34,10 @@ namespace UI.Canvas.PhoneBook
             SetProperties();
             interactable.ParentPage = this;
         }
-
-        public string yes() => data.name;
         
+        /// <summary>
+        /// Set the title, photo and info text of this page
+        /// </summary>
         public void SetProperties()
         {
             title.text = data.Title;
@@ -44,10 +45,20 @@ namespace UI.Canvas.PhoneBook
             info.text = interactable.GetInfo();
         }
         
+        /// <summary>
+        /// Closes this page, without questions
+        /// </summary>
         public void ForceClose() => _rect.localScale = _closed;
         
+        /// <summary>
+        /// Opens this page, without questions
+        /// </summary>
         public void ForceOpen() => _rect.localScale = Vector3.one;
 
+        /// <summary>
+        /// Calls the animation fot the page, if it's open it will close, otherwise it will go form close to open
+        /// </summary>
+        /// <param name="isOpening">Is the page open or not</param>
         public void AnimatePage(bool isOpening)
             => StartCoroutine(AnimateScale(isOpening ? _closed : Vector3.one));
 

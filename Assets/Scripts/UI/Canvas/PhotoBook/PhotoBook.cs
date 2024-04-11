@@ -1,5 +1,4 @@
-﻿using Framework.PhoneCamera;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace UI.Canvas.PhoneBook
 {
@@ -17,6 +16,9 @@ namespace UI.Canvas.PhoneBook
 
         private void OnEnable() => SetupPhotoBook();
 
+        /// <summary>
+        /// Opens the next page with animation
+        /// </summary>
         public void OpenNextPage()
         {
             if(_currentPage == pages.Length - 2)
@@ -30,6 +32,9 @@ namespace UI.Canvas.PhoneBook
             pages[_currentPage].ForceOpen();
         }
 
+        /// <summary>
+        /// Close the current page with animation
+        /// </summary>
         public void CloseCurrentPage()
         {
             if (_currentPage - 2 == -1)
@@ -42,17 +47,17 @@ namespace UI.Canvas.PhoneBook
             pages[_currentPage].AnimatePage(false);
         }
 
+        /// <summary>
+        /// Finds the correct page and set its properties
+        /// </summary>
         public void SetCurrentPageProperties()
         {
-            var p = photoTaker.CurrentPhotoInteractable;
+            var photoTakerInteractable = photoTaker.CurrentPhotoInteractable;
             
             foreach (var page in pages)
             {
-                if(page.GetPhotoInteractable != p)
-                    continue;
-
-                print($"The page of {page.GetPhotoInteractable.ParentPage.yes()} has been updated.");
-                page.GetPhotoInteractable.ParentPage.SetProperties();
+                if(page.GetPhotoInteractable == photoTakerInteractable)
+                    page.GetPhotoInteractable.ParentPage.SetProperties();
             }
         }
 

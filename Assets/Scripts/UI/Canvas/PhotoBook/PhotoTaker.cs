@@ -12,10 +12,10 @@ namespace UI.Canvas.PhoneBook
     {
         private const string NO_CAMERA_ERROR = "No camera device found.";
         private const string CAMERA_NOT_ACTIVE_ERROR = "The camera is not active at this moment.";
+        private const string NO_PHOTO_INTERACTABLE_ERROR = "Current interactable not set. Cannot take photo.";
         
         [SerializeField] private RawImage liveCamera;
         [SerializeField] private RawImage lastPhoto;
-        [SerializeField] private PhotoData photoData;
         [SerializeField] private Texture2D defaultTex;
         
         private WebCamTexture _webcamTexture;
@@ -59,19 +59,13 @@ namespace UI.Canvas.PhoneBook
                 throw new Exception(CAMERA_NOT_ACTIVE_ERROR);
             
             if (_currentInteractable == null)
-            {
-                Debug.LogWarning("Current interactable not set. Cannot take photo.");
-                return;
-            }
+                throw new Exception(NO_PHOTO_INTERACTABLE_ERROR);
             
             _currentPhoto = CaptureFrame(_webcamTexture);
-
-            var a = _currentInteractable.SaveTexture(_currentPhoto);
             
-            if(!a)
+            if(!_currentInteractable.SaveTexture(_currentPhoto))
                 return;
             
-            Debug.Log(_currentInteractable.name);
             _currentInteractable.IsVisited = true;
             lastPhoto.texture = _currentInteractable.GetTexture();
             
@@ -79,6 +73,10 @@ namespace UI.Canvas.PhoneBook
             OnDisable();
         }
 
+        /// <summary>
+        /// Set the target interactable as the current
+        /// </summary>
+        /// <param name="target">The target to set as current</param>
         public void SetCurrentPhotoInteractable(PhotoInteractable target) => _currentInteractable = target;
         
         private void FindCamera()

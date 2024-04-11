@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using Slider = UnityEngine.UI.Slider;
 
-namespace UI.Menus
+namespace UI.Canvas.Menus
 {
     public sealed class SettingsMenu : MonoBehaviour
     {

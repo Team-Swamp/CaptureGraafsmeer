@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Framework.PhoneCamera;
+using UnityEngine;
 
 namespace UI.Canvas.PhoneBook
 {
@@ -7,6 +8,8 @@ namespace UI.Canvas.PhoneBook
         [SerializeField] private Page[] pages;
         [SerializeField] private GameObject nextButton;
         [SerializeField] private GameObject previousButton;
+
+        [SerializeField] private PhotoTaker photoTaker;
 
         private int _currentPage;
 
@@ -41,8 +44,16 @@ namespace UI.Canvas.PhoneBook
 
         public void SetCurrentPageProperties()
         {
-            print($"The page of {pages[_currentPage].yes()} has been updated.");
-            pages[_currentPage].SetProperties();
+            var p = photoTaker.CurrentPhotoInteractable;
+            
+            foreach (var page in pages)
+            {
+                if(page.GetPhotoInteractable != p)
+                    continue;
+
+                print($"The page of {page.GetPhotoInteractable.ParentPage.yes()} has been updated.");
+                page.GetPhotoInteractable.ParentPage.SetProperties();
+            }
         }
 
         private void SetupPhotoBook()

@@ -26,10 +26,13 @@ namespace UI.Canvas.PhoneBook
 
         private RectTransform _rect;
 
+        public PhotoInteractable GetPhotoInteractable => interactable;
+
         private void Awake()
         {
             _rect = GetComponent<RectTransform>();
             SetProperties();
+            interactable.ParentPage = this;
         }
 
         public string yes() => data.name;

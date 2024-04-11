@@ -23,7 +23,10 @@ namespace UI.Canvas.PhoneBook
         private PhotoInteractable _currentInteractable;
         
         public PhotoData Data { get; set; }
+        
         public Texture2D DefaultTex => defaultTex;
+        
+        public PhotoInteractable CurrentPhotoInteractable => _currentInteractable;
 
         [SerializeField] private UnityEvent onOpenCamera= new();
         [SerializeField] private UnityEvent onPhotoTaken = new();

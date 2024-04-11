@@ -20,6 +20,8 @@ namespace Framework.PhoneCamera
         private byte[] _textureBytes;
         
         public bool IsVisited { get; set; }
+        
+        public Page ParentPage { get; set; }
 
         public void SetPhotoData()
         {

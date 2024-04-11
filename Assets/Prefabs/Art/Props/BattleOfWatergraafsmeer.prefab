@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4451154201940160608
+--- !u!1 &4492037296471638592
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1865923631721689339}
-  - component: {fileID: 8599182009847826883}
-  - component: {fileID: 5049179460911733983}
+  - component: {fileID: 1287612104055508078}
+  - component: {fileID: 3297682706847472848}
+  - component: {fileID: 8273269954088236093}
   m_Layer: 0
-  m_Name: FrankendaelGate
+  m_Name: BattleOfWatergraafsmeer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1865923631721689339
+--- !u!4 &1287612104055508078
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4451154201940160608}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 4492037296471638592}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8599182009847826883
+--- !u!33 &3297682706847472848
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4451154201940160608}
-  m_Mesh: {fileID: 9042771077998628582, guid: 4445b9e681dba5e42835cc409c9a854f, type: 3}
---- !u!23 &5049179460911733983
+  m_GameObject: {fileID: 4492037296471638592}
+  m_Mesh: {fileID: 9042771077998628582, guid: 40fa3f56a9f63d6448abd6e976e06057, type: 3}
+--- !u!23 &8273269954088236093
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4451154201940160608}
+  m_GameObject: {fileID: 4492037296471638592}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0ef3593f3556e6240a5de708d394c1e9, type: 2}
+  - {fileID: 2100000, guid: 302254f66154c5846abaff5cbbc19e5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

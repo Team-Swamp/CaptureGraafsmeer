@@ -31,11 +31,13 @@ namespace UI.Canvas.PhoneBook
             _rect = GetComponent<RectTransform>();
             SetProperties();
         }
+
+        public string yes() => data.name;
         
         public void SetProperties()
         {
             title.text = data.Title;
-            photo.texture = interactable.GetTextureAsync().Result;
+            photo.texture = interactable.GetTexture();
             info.text = interactable.GetInfo();
         }
         

@@ -39,6 +39,12 @@ namespace UI.Canvas.PhoneBook
             pages[_currentPage].AnimatePage(false);
         }
 
+        public void SetCurrentPageProperties()
+        {
+            print($"The page of {pages[_currentPage].yes()} has been updated.");
+            pages[_currentPage].SetProperties();
+        }
+
         private void SetupPhotoBook()
         {
             CheckButtonsUsability();

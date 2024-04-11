@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -52,12 +50,7 @@ namespace UI.Canvas.PhoneBook
         /// <summary>
         /// Captures the current frame and applies it to the photo image.
         /// </summary>
-        public async void TakePhoto()
-        {
-            await TakePhotouwrgebu();
-        }
-        
-        private async Task TakePhotouwrgebu()
+        public void TakePhoto()
         {
             if (!_webcamTexture.isPlaying)
                 throw new Exception(CAMERA_NOT_ACTIVE_ERROR);
@@ -69,21 +62,18 @@ namespace UI.Canvas.PhoneBook
             }
             
             _currentPhoto = CaptureFrame(_webcamTexture);
+
+            var a = _currentInteractable.SaveTexture(_currentPhoto);
             
-            if(! await _currentInteractable.SaveTextureAsync(_currentPhoto))
+            if(!a)
                 return;
             
             Debug.Log(_currentInteractable.name);
-            Yes();
-            lastPhoto.texture = _currentInteractable.GetTextureAsync().Result;
+            _currentInteractable.IsVisited = true;
+            lastPhoto.texture = _currentInteractable.GetTexture();
             
             onPhotoTaken?.Invoke();
             OnDisable();
-        }
-
-        public void Yes()
-        {
-            _currentInteractable.IsVisited = true;
         }
 
         public void SetCurrentPhotoInteractable(PhotoInteractable target) => _currentInteractable = target;
@@ -101,7 +91,7 @@ namespace UI.Canvas.PhoneBook
             Debug.LogError(NO_CAMERA_ERROR);
         }
         
-        private static Texture2D CaptureFrame(WebCamTexture liveTexture)
+        private Texture2D CaptureFrame(WebCamTexture liveTexture)
         {
             Texture2D currentTexture = new Texture2D(liveTexture.width, liveTexture.height);
             Color[] pixels = liveTexture.GetPixels();

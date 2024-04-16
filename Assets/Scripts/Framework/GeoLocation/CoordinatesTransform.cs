@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 using FrameWork.Extensions;
@@ -17,8 +18,10 @@ namespace Framework.GeoLocation
         [SerializeField] private Vector2 coordinates;
         [SerializeField] private bool isStatic;
         [SerializeField] private bool isPlayer;
+        [SerializeField, Range(1, 25)] private float lerpTime;
 
         private LocationUpdater _player;
+        private bool _isReactive;
 
         private void Awake()
         {
@@ -50,10 +53,12 @@ namespace Framework.GeoLocation
             targetPosition.Subtract(origin);
             (double latitude, double longitude) = ConvertToMeters(targetPosition.x, -targetPosition.y);
             
-            transform.position = new Vector3(
-                (float) latitude, 
-                0,
-                (float) longitude);
+            Vector3 finalTargetPosition = new Vector3((float)latitude, 0, (float)longitude);
+
+            if (_isReactive)
+                return;
+            
+            StartCoroutine(LerpPosition(finalTargetPosition));
         }
 
         private (double, double) ConvertToMeters(double latitude, double longitude)
@@ -65,6 +70,23 @@ namespace Framework.GeoLocation
             double longitudeInMeters = lonInRadians * EARTH_RADIUS;
             
             return (latitudeInMeters, longitudeInMeters);
+        }
+        
+        private IEnumerator LerpPosition(Vector3 targetPosition)
+        {
+            _isReactive = true;
+            float timeElapsed = 0f;
+            Vector3 startPosition = transform.position;
+
+            while (timeElapsed < lerpTime)
+            {
+                transform.position = Vector3.Lerp(startPosition, targetPosition, timeElapsed / lerpTime);
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            transform.position = targetPosition;
+            _isReactive = false;
         }
     }
 }

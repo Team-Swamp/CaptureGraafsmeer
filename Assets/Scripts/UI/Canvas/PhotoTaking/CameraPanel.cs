@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 
 using Framework.ScriptableObjects;
-using UnityEngine.Serialization;
 
 namespace UI.Canvas.PhotoTaking
 {
@@ -14,10 +13,10 @@ namespace UI.Canvas.PhotoTaking
         /// <summary>
         /// Fills the camera panel with data from the given scriptable object
         /// </summary>
-        /// <param name="photoData"> The scriptable object used to get data </param>
-        public void SetPanelData(PhotoData photoData)
+        /// <param name="targetPhotoData"> The scriptable object used to get data </param>
+        public void SetPanelData(PhotoData targetPhotoData)
         {
-            pointOfInterestName.text = photoData.Title;
+            pointOfInterestName.text = targetPhotoData.Title;
             //to do: set image from scriptable object
         }
     }   

@@ -15,6 +15,7 @@
 | Outside links| Description | Notes |
 | ---------|----------|----------|
 | [Briefing File](https://mediacollegeamsterdam.sharepoint.com/:w:/r/teams/SDGAexamen20232024/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7B431e5b10-8085-4cba-a27a-0a1ff22450c9%7D&wdOrigin=TEAMS-MAGLEV.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1710932166547&web=1) | The file for the assignment from Gemeente Amsterdam | Only accessible if allowed in Media College Teams. |
+| [Debriefing File](https://mediacollegeamsterdam.sharepoint.com/:w:/r/teams/SDGAexamen20232024-Team02/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7B76e49567-cec6-46d6-b59b-3bf8da3d27bc%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1713356014423&web=1) | Our debriefing of the assignment | Only accessible if allowed in Media College Teams. |
 | [GitHub repo](https://github.com/Team-Swamp/Codename-BDLMTW) | The GitHub repo of our project. |  |
 | [Trello board](https://trello.com/b/9nVWXrSX/examen-trello) | The Trello board of our project. |  |
 | [Style guide](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | Style guide for the project. |  |

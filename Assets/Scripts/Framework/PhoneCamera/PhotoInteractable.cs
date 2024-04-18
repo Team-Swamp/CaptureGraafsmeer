@@ -4,7 +4,8 @@ using UnityEngine;
 
 using FrameWork;
 using Framework.ScriptableObjects;
-using UI.Canvas.PhoneBook;
+using UI.Canvas.PhotoBookSystem;
+using UI.Canvas.PhotoTaking;
 
 namespace Framework.PhoneCamera
 {

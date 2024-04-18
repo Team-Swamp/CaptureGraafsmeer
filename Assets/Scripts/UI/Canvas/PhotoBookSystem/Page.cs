@@ -3,10 +3,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-using Framework.ScriptableObjects;
 using Framework.PhoneCamera;
+using Framework.ScriptableObjects;
 
-namespace UI.Canvas.PhoneBook
+namespace UI.Canvas.PhotoBookSystem
 {
     [RequireComponent(typeof(RectTransform))]
     public sealed class Page : MonoBehaviour

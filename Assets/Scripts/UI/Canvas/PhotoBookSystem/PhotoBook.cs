@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
-namespace UI.Canvas.PhoneBook
+using UI.Canvas.PhotoTaking;
+
+namespace UI.Canvas.PhotoBookSystem
 {
     public sealed class PhotoBook : MonoBehaviour
     {

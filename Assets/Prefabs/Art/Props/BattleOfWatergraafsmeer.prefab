@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1287612104055508078}
   - component: {fileID: 3297682706847472848}
   - component: {fileID: 8273269954088236093}
+  - component: {fileID: 3728908996795209909}
   m_Layer: 0
   m_Name: BattleOfWatergraafsmeer
-  m_TagString: Untagged
+  m_TagString: CullAble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3728908996795209909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4492037296471638592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848b40ac659c48878a7055e615a2dfe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  parent: {fileID: 0}
+  data: {fileID: 0}

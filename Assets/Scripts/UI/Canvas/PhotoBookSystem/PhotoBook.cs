@@ -1,5 +1,6 @@
-﻿using UI.Canvas.PhotoTaking;
-using UnityEngine;
+﻿using UnityEngine;
+
+using UI.Canvas.PhotoTaking;
 
 namespace UI.Canvas.PhotoBookSystem
 {

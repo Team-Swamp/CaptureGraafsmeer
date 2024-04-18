@@ -5,11 +5,15 @@ using Framework.ScriptableObjects;
 
 namespace UI.Canvas.PhotoTaking
 {
-    public class CameraPanel : MonoBehaviour
+    public sealed class CameraPanel : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI buildingName;
+        [SerializeField] private TMP_Text buildingName;
         [SerializeField] private Texture2D buildingRender;
 
+        /// <summary>
+        /// Fills the camera panel with data from the given scriptable object
+        /// </summary>
+        /// <param name="photoData"> The scriptable object used to get data </param>
         public void FillPanelData(PhotoData photoData)
         {
             buildingName.text = photoData.Title;

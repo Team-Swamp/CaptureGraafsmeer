@@ -1,9 +1,10 @@
 ﻿using System.Collections;
-using Framework.PhoneCamera;
-using Framework.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
+using Framework.PhoneCamera;
+using Framework.ScriptableObjects;
 
 namespace UI.Canvas.PhotoBookSystem
 {

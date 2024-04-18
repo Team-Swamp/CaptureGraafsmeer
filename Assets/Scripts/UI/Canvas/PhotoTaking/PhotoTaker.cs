@@ -1,9 +1,10 @@
 ﻿using System;
-using Framework.PhoneCamera;
-using Framework.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+
+using Framework.PhoneCamera;
+using Framework.ScriptableObjects;
 
 namespace UI.Canvas.PhotoTaking
 {

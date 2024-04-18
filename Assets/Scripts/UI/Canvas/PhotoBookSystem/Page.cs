@@ -1,12 +1,11 @@
 ﻿using System.Collections;
+using Framework.PhoneCamera;
+using Framework.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-using Framework.ScriptableObjects;
-using Framework.PhoneCamera;
-
-namespace UI.Canvas.PhoneBook
+namespace UI.Canvas.PhotoBookSystem
 {
     [RequireComponent(typeof(RectTransform))]
     public sealed class Page : MonoBehaviour

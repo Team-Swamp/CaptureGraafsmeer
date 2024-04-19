@@ -307,7 +307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -19, y: 9.999878}
+  m_AnchoredPosition: {x: -19, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &1014790983877634577
@@ -554,7 +554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &778539174259520993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -572,9 +572,9 @@ RectTransform:
   - {fileID: 8629987040098092044}
   - {fileID: 7813318143475993898}
   - {fileID: 5938063927566782259}
+  - {fileID: 7677807898157644991}
   - {fileID: 5939541186754062706}
   - {fileID: 1915870387254827317}
-  - {fileID: 7677807898157644991}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -595,14 +595,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df886a0e72c64c22b94352389c88b915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p_nextButton: {fileID: 2821711409278857997}
+  p_previousButton: {fileID: 7887878854827234471}
+  p_closeButton: {fileID: 3316804055409704694}
+  photoTaker: {fileID: 0}
   pages:
   - {fileID: 1643113392770088796}
   - {fileID: 2939658921999269189}
   - {fileID: 3703753570493346915}
   - {fileID: 1966632165263947211}
   - {fileID: 2931876717711029552}
-  nextButton: {fileID: 2821711409278857997}
-  previousButton: {fileID: 7887878854827234471}
 --- !u!1 &7478193927725453594
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,7 +777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 13, y: 10}
+  m_AnchoredPosition: {x: 13, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &6045553139934435259
@@ -1282,7 +1284,7 @@ PrefabInstance:
     - target: {fileID: 2926231120967784990, guid: c4e5124615253674a87e767a31deceb9, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 62f87c354842b0b4390cb22b9794baf3, type: 2}
+      objectReference: {fileID: 11400000, guid: 6de2cc43b1e0b6441af25994b5155377, type: 2}
     - target: {fileID: 4087031345833428352, guid: c4e5124615253674a87e767a31deceb9, type: 3}
       propertyPath: m_Name
       value: Page (3)

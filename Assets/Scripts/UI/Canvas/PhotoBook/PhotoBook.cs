@@ -1,16 +1,13 @@
 ﻿using UnityEngine;
 
+using Framework.PhoneCamera;
+
 namespace UI.Canvas.PhoneBook
 {
-    public sealed class PhotoBook : MonoBehaviour
+    public sealed class PhotoBook : PageHolder
     {
-        [SerializeField] private Page[] pages;
-        [SerializeField] private GameObject nextButton;
-        [SerializeField] private GameObject previousButton;
-
         [SerializeField] private PhotoTaker photoTaker;
-
-        private int _currentPage;
+        [SerializeField] private Page[] pages;
 
         private void Awake() => gameObject.SetActive(false);
 
@@ -21,15 +18,11 @@ namespace UI.Canvas.PhoneBook
         /// </summary>
         public void OpenNextPage()
         {
-            if(_currentPage == pages.Length - 2)
-                nextButton.SetActive(false);
+            SetNextItem(pages.Length);
             
-            if(!previousButton.activeSelf)
-                previousButton.SetActive(true);
-            
-            pages[_currentPage].AnimatePage(true);
-            _currentPage++;
-            pages[_currentPage].ForceOpen();
+            pages[p_currentIndex].AnimatePage(true);
+            p_currentIndex++;
+            pages[p_currentIndex].ForceOpen();
         }
 
         /// <summary>
@@ -37,22 +30,22 @@ namespace UI.Canvas.PhoneBook
         /// </summary>
         public void CloseCurrentPage()
         {
-            if (_currentPage - 2 == -1)
-                previousButton.SetActive(false);
-            
-            if(!nextButton.activeSelf)
-                nextButton.SetActive(true);
-            
-            _currentPage--;
-            pages[_currentPage].AnimatePage(false);
+            SetPreviousItem();
+            pages[p_currentIndex].AnimatePage(false);
         }
 
         /// <summary>
         /// Finds the correct page and set its properties
         /// </summary>
-        public void SetCurrentPageProperties()
+        public void SetCurrentPageProperties() => SetCurrentItem(null);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="isIncreasing"></param>
+        protected override void SetCurrentItem(bool? isIncreasing)
         {
-            var photoTakerInteractable = photoTaker.CurrentPhotoInteractable;
+            PhotoInteractable photoTakerInteractable = photoTaker.CurrentPhotoInteractable;
             
             foreach (var page in pages)
             {
@@ -60,20 +53,11 @@ namespace UI.Canvas.PhoneBook
                     page.GetPhotoInteractable.ParentPage.SetProperties();
             }
         }
-
+        
         private void SetupPhotoBook()
         {
-            CheckButtonsUsability();
+            CheckButtonsUsability(pages.Length);
             ViewPages();
-        }
-
-        private void CheckButtonsUsability()
-        {
-            if (_currentPage == 0)
-                previousButton.SetActive(false);
-            
-            if(_currentPage == pages.Length)
-                nextButton.SetActive(false);
         }
 
         private void ViewPages()
@@ -83,7 +67,7 @@ namespace UI.Canvas.PhoneBook
                 page.ForceClose();
             }
             
-            pages[_currentPage].ForceOpen();
+            pages[p_currentIndex].ForceOpen();
         }
     }
 }

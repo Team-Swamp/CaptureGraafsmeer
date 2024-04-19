@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
 using Framework.PhoneCamera;
+using UI.Canvas.PhotoTaking;
 
-namespace UI.Canvas.PhoneBook
+namespace UI.Canvas.PhotoBookSystem
 {
     public sealed class PhotoBook : PageHolder
     {

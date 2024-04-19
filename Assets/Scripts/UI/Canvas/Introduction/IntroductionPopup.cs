@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,17 +13,25 @@ namespace UI.Canvas.Introduction
         private const string NOT_SAME_LENGHT_ERROR = "infos and images need to be the same ";
         private readonly Vector3 _openScale = new (0.8f, 0.8f, 1);
 
+        [Header("Refrences")]
         [SerializeField] private TMP_Text infoText;
-        [SerializeField] private TMP_Text pageNumber;
         [SerializeField] private RawImage image;
         [SerializeField] private GameObject nextButton;
         [SerializeField] private GameObject previousButton;
         [SerializeField] private GameObject closeButton;
-        
+
+        [Header("Dots")]
+        [SerializeField] private Transform dotsParent;
+        [SerializeField] private GameObject dot;
+        [SerializeField] private Color unselectedDot = new (0.6313726f, 0.6313726f, 0.6313726f);
+        [SerializeField] private Color selectedDot = new (0.8901961f, 0.02352941f, 0.07450981f);
+
+        [Header("Infos")]
         [SerializeField, Range(0.1f, 1)] private float animationDuration;
         [SerializeField, TextArea(3, 6)] private string[] infos;
         [SerializeField] private Texture2D[] images;
         
+        private List<Image> _dots =  new();
         private RectTransform _rect;
         private int _currentInfo;
 
@@ -39,7 +48,8 @@ namespace UI.Canvas.Introduction
             if(_currentInfo == infos.Length)
                 nextButton.SetActive(false);
             
-            SetInfo();
+            InitPaginationDots();
+            SetInfo(null);
             closeButton.SetActive(false);
         }
 
@@ -77,7 +87,7 @@ namespace UI.Canvas.Introduction
             if(_currentInfo == images.Length - 1)
                 closeButton.SetActive(true);
             
-            SetInfo();
+            SetInfo(true);
         }
         
         public void GetBackInfo()
@@ -93,15 +103,41 @@ namespace UI.Canvas.Introduction
             
             closeButton.SetActive(false);
             _currentInfo--;
-            SetInfo();
+            SetInfo(false);
         }
 
-        private void SetInfo()
+        private void SetInfo(bool ?isIncreasing)
         {
             infoText.text = infos[_currentInfo];
             image.texture = images[_currentInfo];
+            _dots[_currentInfo].color = selectedDot;
             
-            pageNumber.text = _currentInfo + 1 + "/" + images.Length;
+            switch (isIncreasing)
+            {
+                case null:
+                    return;
+                case true:
+                    _dots[_currentInfo - 1].color = unselectedDot;
+                    break;
+                default:
+                    _dots[_currentInfo + 1].color = unselectedDot;
+                    break;
+            }
+        }
+
+        private void InitPaginationDots()
+        {
+            int lenght = images.Length;
+            
+            for (int i = 0; i < lenght; i++)
+            {
+                GameObject currentDot = Instantiate(dot);
+                currentDot.transform.parent = dotsParent;
+                _dots.Add(currentDot.GetComponent<Image>());
+                _dots[i].color = unselectedDot;
+            }
+
+            _dots[0].color = selectedDot;
         }
 
         private IEnumerator AnimateScale(Vector3 targetScale)

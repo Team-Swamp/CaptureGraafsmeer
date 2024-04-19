@@ -1852,15 +1852,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b172da29fe94ccbb08273e2ea519bb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p_nextButton: {fileID: 1430390526}
+  p_previousButton: {fileID: 393726535}
+  p_closeButton: {fileID: 710281974}
   infoText: {fileID: 963162764}
   image: {fileID: 52971850}
-  nextButton: {fileID: 1430390526}
-  previousButton: {fileID: 393726535}
-  closeButton: {fileID: 710281974}
   dotsParent: {fileID: 266104299}
   dot: {fileID: 7082385657242981370, guid: ad46bd599c86377499603f359c3edf38, type: 3}
-  unselectedCircle: {r: 0.6313726, g: 0.6313726, b: 0.6313726, a: 1}
-  selectedCircle: {r: 0.8901961, g: 0.023529412, b: 0.07450981, a: 1}
+  unselectedDot: {r: 0.6313726, g: 0.6313726, b: 0.6313726, a: 1}
+  selectedDot: {r: 0.8901961, g: 0.02352941, b: 0.07450981, a: 1}
   animationDuration: 0.5
   infos:
   - rghjksuigbersiubgikesrbghubshugbsyuiorbg

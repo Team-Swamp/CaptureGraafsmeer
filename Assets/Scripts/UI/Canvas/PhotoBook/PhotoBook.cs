@@ -40,9 +40,9 @@ namespace UI.Canvas.PhoneBook
         public void SetCurrentPageProperties() => SetCurrentItem(null);
 
         /// <summary>
-        /// 
+        /// Set the current item to display.
         /// </summary>
-        /// <param name="isIncreasing"></param>
+        /// <param name="isIncreasing">Not used here, should be NULL</param>
         protected override void SetCurrentItem(bool? isIncreasing)
         {
             PhotoInteractable photoTakerInteractable = photoTaker.CurrentPhotoInteractable;

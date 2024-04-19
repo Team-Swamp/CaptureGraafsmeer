@@ -4,30 +4,31 @@ namespace UI.Canvas
 {
     public abstract class PageHolder : MonoBehaviour
     {
-        [SerializeField] protected GameObject nextButton;
-        [SerializeField] protected GameObject previousButton;
-        [SerializeField] protected GameObject closeButton;
+        [Header("Buttons")]
+        [SerializeField] protected GameObject p_nextButton;
+        [SerializeField] protected GameObject p_previousButton;
+        [SerializeField] protected GameObject p_closeButton;
         
         protected int p_currentIndex;
         
         /// <summary>
-        /// 
+        /// Set the next item to display, so also check the buttons visibility
         /// </summary>
-        /// <param name="length"></param>
+        /// <param name="length">The length of the list that is getting checked for the next button.</param>
         protected void SetNextItem(int length)
         {
             if(length == p_currentIndex)
                 return;
 
             if(p_currentIndex == length - 2)
-                nextButton.SetActive(false);
+                p_nextButton.SetActive(false);
             
-            if(!previousButton.activeSelf)
-                previousButton.SetActive(true);
+            if(!p_previousButton.activeSelf)
+                p_previousButton.SetActive(true);
         }
 
         /// <summary>
-        /// 
+        /// Set the previous item to display, so also check the buttons visibility. Plus decreases p_currentIndex.
         /// </summary>
         protected void SetPreviousItem()
         {
@@ -35,31 +36,31 @@ namespace UI.Canvas
                 return;
 
             if (p_currentIndex - 2 == -1)
-                previousButton.SetActive(false);
+                p_previousButton.SetActive(false);
             
-            if(!nextButton.activeSelf)
-                nextButton.SetActive(true);
+            if(!p_nextButton.activeSelf)
+                p_nextButton.SetActive(true);
             
             p_currentIndex--;
         }
 
         /// <summary>
-        /// 
+        /// Check if the buttons should be visibility or not
         /// </summary>
-        /// <param name="length"></param>
+        /// <param name="length">The length of the list that is getting checked for the next button.</param>
         protected void CheckButtonsUsability(int length)
         {
             if (p_currentIndex == 0)
-                previousButton.SetActive(false);
+                p_previousButton.SetActive(false);
         
             if(p_currentIndex == length)
-                nextButton.SetActive(false);
+                p_nextButton.SetActive(false);
         }
 
         /// <summary>
-        /// 
+        /// Set the current item to display.
         /// </summary>
-        /// <param name="isIncreasing"></param>
+        /// <param name="isIncreasing">Is the current item the next or previous?</param>
         protected abstract void SetCurrentItem(bool ?isIncreasing);
     }
 }

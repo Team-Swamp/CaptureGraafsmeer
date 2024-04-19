@@ -8,14 +8,14 @@ using UnityEngine.UI;
 namespace UI.Canvas.Introduction
 {
     [RequireComponent(typeof(RectTransform))]
-    public sealed class IntroductionPopup : PageHolder
+    public sealed class IntroductionPopup : PageHolder, IScalable
     {
         private const string NOT_SAME_LENGHT_ERROR = "infos and images need to be the same ";
 
         private readonly Vector3 _openScale = new(0.8f, 0.8f, 1);
         private readonly List<Image> _dots = new();
 
-        [Header("Refrences")]
+        [Header("References")]
         [SerializeField] private TMP_Text infoText;
         [SerializeField] private RawImage image;
 
@@ -43,23 +43,27 @@ namespace UI.Canvas.Introduction
 
             InitPaginationDots();
             SetCurrentItem(null);
-            closeButton.SetActive(false);
+            p_closeButton.SetActive(false);
         }
-        
-        private IEnumerator AnimateScale(Vector3 targetScale)
+
+        /// <summary>
+        /// Scales the pop-up form nothing to almost full display, or otherwise
+        /// </summary>
+        /// <param name="targetScale">The target scale to be sized as</param>
+        IEnumerator IScalable.AnimateScale(Vector3 targetScale)
         {
             Vector3 initialScale = _rect.localScale;
             float elapsedTime = 0f;
-
+        
             while (elapsedTime < animationDuration)
             {
                 elapsedTime += Time.deltaTime;
                 float currentTime = Mathf.Clamp01(elapsedTime / animationDuration);
                 _rect.localScale = Vector3.Lerp(initialScale, targetScale, currentTime);
-
+        
                 yield return null;
             }
-
+        
             _rect.localScale = targetScale;
         }
 
@@ -69,7 +73,7 @@ namespace UI.Canvas.Introduction
         public void Open()
         {
             StopAllCoroutines();
-            StartCoroutine(AnimateScale(_openScale));
+            StartCoroutine(((IScalable) this).AnimateScale(_openScale));
         }
 
         /// <summary>
@@ -78,16 +82,25 @@ namespace UI.Canvas.Introduction
         public void Close()
         {
             StopAllCoroutines();
-            StartCoroutine(AnimateScale(Vector3.zero));
+            StartCoroutine(((IScalable) this).AnimateScale(Vector3.zero));
         }
 
+        /// <summary>
+        /// Get the next info for displacement.
+        /// </summary>
         public void GetNextInfo()
         {
             SetNextItem(images.Length);
             p_currentIndex++;
             SetCurrentItem(true);
+            
+            if(p_currentIndex == images.Length - 1)
+                p_closeButton.SetActive(true);
         }
 
+        /// <summary>
+        /// Get the previous info for displacement.
+        /// </summary>
         public void GetBackInfo()
         {
             SetPreviousItem();
@@ -95,9 +108,10 @@ namespace UI.Canvas.Introduction
         }
 
         /// <summary>
-        /// 
+        /// Set the current item to display. Plus changes pagination dots colors.
         /// </summary>
-        /// <param name="isIncreasing"></param>
+        /// <param name="isIncreasing">When true it will change the previous dot as unselected and otherwise.
+        /// If null it does nothing with dots color.</param>
         protected override void SetCurrentItem(bool? isIncreasing)
         {
             infoText.text = infos[p_currentIndex];

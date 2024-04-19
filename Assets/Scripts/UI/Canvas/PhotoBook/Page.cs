@@ -9,7 +9,7 @@ using Framework.PhoneCamera;
 namespace UI.Canvas.PhoneBook
 {
     [RequireComponent(typeof(RectTransform))]
-    public sealed class Page : MonoBehaviour
+    public sealed class Page : MonoBehaviour, IScalable
     {
         private readonly Vector3 _closed = new (0, 1, 1);
         
@@ -61,9 +61,9 @@ namespace UI.Canvas.PhoneBook
         /// </summary>
         /// <param name="isOpening">Is the page open or not</param>
         public void AnimatePage(bool isOpening)
-            => StartCoroutine(AnimateScale(isOpening ? _closed : Vector3.one));
+            => StartCoroutine(((IScalable) this).AnimateScale(isOpening ? _closed : Vector3.one));
 
-        private IEnumerator AnimateScale(Vector3 targetScale)
+        IEnumerator IScalable.AnimateScale(Vector3 targetScale)
         {
             Vector3 initialScale = _rect.localScale;
             float elapsedTime = 0f;

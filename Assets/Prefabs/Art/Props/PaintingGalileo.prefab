@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8610256137277142453}
   m_Layer: 0
   m_Name: PaintingGalileo
-  m_TagString: CullAble
+  m_TagString: Cullable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -5,7 +5,7 @@ namespace Environment
     [RequireComponent(typeof(Camera))]
     public sealed class FrustumCulling : MonoBehaviour
     {
-        private const string CULL_ABLE_TAG = "CullAble";
+        private const string CULL_ABLE_TAG = "Cullable";
         
         private GameObject[] _cullAbleObjects;
         private Renderer[] _cachedRenderers;
@@ -36,8 +36,26 @@ namespace Environment
             
             for (int i = 0; i < length; i++)
             {
-                _cullAbleObjects[i].SetActive(GeometryUtility.TestPlanesAABB(planes, _cachedRenderers[i].bounds));
+                bool isVisible = GeometryUtility.TestPlanesAABB(planes, _cachedRenderers[i].bounds);
+                
+                OcclusionCulling(ref isVisible, i);
+                
+                _cullAbleObjects[i].SetActive(isVisible);
             }
+        }
+
+        private void OcclusionCulling(ref bool isVisible, int i)
+        {
+            if (!isVisible) 
+                return;
+            
+            Vector3 direction = _cullAbleObjects[i].transform.position - _this.transform.position;
+            float distance = direction.magnitude;
+            RaycastHit hit;
+                
+            if (Physics.Raycast(_this.transform.position, direction, out hit, distance)
+                && hit.transform != _cullAbleObjects[i].transform)
+                isVisible = false;
         }
     }
 }

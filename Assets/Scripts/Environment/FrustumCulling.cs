@@ -37,23 +37,25 @@ namespace Environment
             for (int i = 0; i < length; i++)
             {
                 bool isVisible = GeometryUtility.TestPlanesAABB(planes, _cachedRenderers[i].bounds);
-                if (isVisible)
-                {
-                    // Cast a ray from the camera to the object's center
-                    Vector3 direction = _cullAbleObjects[i].transform.position - _this.transform.position;
-                    float distance = direction.magnitude;
-                    RaycastHit hit;
-                    if (Physics.Raycast(_this.transform.position, direction, out hit, distance))
-                    {
-                        // If the ray hits something other than the object itself, it's not visible
-                        if (hit.transform!= _cullAbleObjects[i].transform)
-                        {
-                            isVisible = false;
-                        }
-                    }
-                }
+                
+                OcclusionCulling(ref isVisible, i);
+                
                 _cullAbleObjects[i].SetActive(isVisible);
             }
+        }
+
+        private void OcclusionCulling(ref bool isVisible, int i)
+        {
+            if (!isVisible) 
+                return;
+            
+            Vector3 direction = _cullAbleObjects[i].transform.position - _this.transform.position;
+            float distance = direction.magnitude;
+            RaycastHit hit;
+                
+            if (Physics.Raycast(_this.transform.position, direction, out hit, distance)
+                && hit.transform != _cullAbleObjects[i].transform)
+                isVisible = false;
         }
     }
 }

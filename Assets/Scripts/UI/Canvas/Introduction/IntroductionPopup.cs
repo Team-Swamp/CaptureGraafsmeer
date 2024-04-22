@@ -44,6 +44,8 @@ namespace UI.Canvas.Introduction
             InitPaginationDots();
             SetCurrentItem(null);
             p_closeButton.SetActive(false);
+            
+            _rect.localScale = Vector3.zero;
         }
 
         /// <summary>

@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 6754375515165342733}
   - component: {fileID: 661976107336787925}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Next
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 7464373280499332538}
   - component: {fileID: 4399777715642194841}
   m_Layer: 5
-  m_Name: BUtton (1)
+  m_Name: Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -538,6 +538,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &6032113520376433366
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &778539174259520993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -564,7 +576,7 @@ RectTransform:
   m_GameObject: {fileID: 6032113520376433366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.9629629, y: 2.9629629, z: 2.9629629}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7788308245561853279}
@@ -753,7 +765,7 @@ GameObject:
   - component: {fileID: 7581559294051988719}
   - component: {fileID: 3960584565847829511}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1457,6 +1469,18 @@ PrefabInstance:
     - target: {fileID: 7798458782566640241, guid: c4e5124615253674a87e767a31deceb9, type: 3}
       propertyPath: m_SizeDelta.y
       value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 7798458782566640241, guid: c4e5124615253674a87e767a31deceb9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7798458782566640241, guid: c4e5124615253674a87e767a31deceb9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7798458782566640241, guid: c4e5124615253674a87e767a31deceb9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7798458782566640241, guid: c4e5124615253674a87e767a31deceb9, type: 3}
       propertyPath: m_LocalPosition.x

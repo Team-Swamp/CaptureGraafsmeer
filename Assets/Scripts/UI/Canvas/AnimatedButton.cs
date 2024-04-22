@@ -1,13 +1,16 @@
 using System.Collections;
-using FrameWork.Extensions;
 using UnityEngine;
+
+using FrameWork.Extensions;
 
 namespace UI.Canvas
 {
     [RequireComponent(typeof(RectTransform))]
     public sealed class AnimatedButton : MonoBehaviour
     {
-        [SerializeField] private Vector2 dir;
+        private readonly Vector3 setPosition = new (0, 125, 0);
+        
+        [SerializeField] private Vector2 direction;
         [SerializeField] private float animationDuration;
         [SerializeField] private AnimationCurve animationCurve;
 
@@ -17,13 +20,21 @@ namespace UI.Canvas
         private void Awake() => _rect = GetComponent<RectTransform>();
 
         /// <summary>
-        /// Yes
+        /// Resets the button the to beginning state, without questions
+        /// </summary>
+        public void ForceReset()
+        {
+            _rect.localPosition = setPosition;
+            _isAtBeginPosition = true;
+        }
+        
+        /// <summary>
+        /// If the button is at the begin position it will move to the target position, otherwise in reverse.
         /// </summary>
         public void TogglePlacement()
         {
-            Vector3 a = dir;
-            StartCoroutine(AnimateScale(_isAtBeginPosition ? a : a.Invert()));
-
+            Vector3 dir = direction;
+            StartCoroutine(AnimateScale(_isAtBeginPosition ? dir : dir.Invert()));
             _isAtBeginPosition = !_isAtBeginPosition;
         }
         
@@ -31,7 +42,6 @@ namespace UI.Canvas
         {
             Vector3 initialPosition = _rect.localPosition;
             Vector3 targetPosition = initialPosition + addVector;
-
             float elapsedTime = 0f;
 
             while (elapsedTime < animationDuration)

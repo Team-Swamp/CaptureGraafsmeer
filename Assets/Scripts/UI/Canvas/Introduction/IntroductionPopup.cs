@@ -140,15 +140,7 @@ namespace UI.Canvas.Introduction
             for (int i = 0; i < lenght; i++)
             {
                 GameObject currentDot = Instantiate(dot, dotsParent, false);
-
-                bool b = currentDot.TryGetComponent(out Image dotImage);
-                if (!b)
-                {
-                    _rect.localScale = Vector3.one;
-                    break;
-                }
-                
-                _dots.Add(dotImage);
+                _dots.Add(currentDot.GetComponent<Image>());
                 _dots[i].color = unselectedDot;
             }
 

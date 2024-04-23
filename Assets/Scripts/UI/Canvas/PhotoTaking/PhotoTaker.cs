@@ -46,6 +46,10 @@ namespace UI.Canvas.PhotoTaking
         /// </summary>
         public void StartCamera() => ApplyCamera(liveCamera);
 
+        /// <summary>
+        /// Will start the assign camera to play and will apply it to the target image.
+        /// </summary>
+        /// <param name="targetImage">Target image to be the live camera</param>
         public void StartCamera(RawImage targetImage) => ApplyCamera(targetImage);
 
         private void ApplyCamera(RawImage targetImage)

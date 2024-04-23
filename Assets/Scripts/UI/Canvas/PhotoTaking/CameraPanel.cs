@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 using Framework.ScriptableObjects;
-using UnityEngine.UI;
 
 namespace UI.Canvas.PhotoTaking
 {

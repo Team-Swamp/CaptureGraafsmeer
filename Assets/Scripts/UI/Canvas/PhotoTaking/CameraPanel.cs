@@ -21,7 +21,7 @@ namespace UI.Canvas.PhotoTaking
         public void SetPanelData(PhotoData targetPhotoData)
         {
             pointOfInterestName.text = targetPhotoData.Title;
-            // to do: set image from scriptable object
+            // to do: set render from scriptable object
             taker.StartCamera(background);
         }
     }   

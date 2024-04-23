@@ -66,15 +66,15 @@ MonoBehaviour:
   dot: {fileID: 7082385657242981370, guid: ad46bd599c86377499603f359c3edf38, type: 3}
   unselectedDot: {r: 0.6313726, g: 0.6313726, b: 0.6313726, a: 1}
   selectedDot: {r: 0.8901961, g: 0.02352941, b: 0.07450981, a: 1}
+  activeDelay: 3.5
   animationDuration: 0.5
-  infos:
-  - rghjksuigbersiubgikesrbghubshugbsyuiorbg
-  - gbhrevyuigerhbjegrvtyiguhlbfjvretyiygufhbjvderytgufhjversytgufhjvdretgyuhbfjvrtyufhjvretyukfhvjdryetgufjbhvdcertyugkfhvdjertyjgukfhvjrtyu
-  - ntr
-  images:
-  - {fileID: 2800000, guid: 7b232796fb53acd4c8e576b6a9b818e6, type: 3}
-  - {fileID: 2800000, guid: 3acc55b466108bc48aff76dd0b7555a0, type: 3}
-  - {fileID: 2800000, guid: ce9f7031e2e71b6429c0e2e2981d7630, type: 3}
+  pages:
+  - info: rghjksuigbersiubgikesrbghubshugbsyuiorbg
+    image: {fileID: 2800000, guid: 7b232796fb53acd4c8e576b6a9b818e6, type: 3}
+  - info: gbhrevyuigerhbjegrvtyiguhlbfjvretyiygufhbjvderytgufhjversytgufhjvdretgyuhbfjvrtyufhjvretyukfhvjdryetgufjbhvdcertyugkfhvdjertyjgukfhvjrtyu
+    image: {fileID: 2800000, guid: 3acc55b466108bc48aff76dd0b7555a0, type: 3}
+  - info: ntr
+    image: {fileID: 2800000, guid: ce9f7031e2e71b6429c0e2e2981d7630, type: 3}
 --- !u!1 &1315768961894539965
 GameObject:
   m_ObjectHideFlags: 0

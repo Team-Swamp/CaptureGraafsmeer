@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 using FrameWork.Structs;
 
@@ -29,13 +30,12 @@ namespace UI.Canvas.Introduction
         [SerializeField, Range(0.1f, 1)] private float animationDuration;
         [SerializeField] private IntroductionPage[] pages;
 
+        [Header("Events")]
+        [SerializeField] private UnityEvent onFirstShow = new();
+
         private RectTransform _rect;
 
-        private void Awake()
-        {
-            _rect = GetComponent<RectTransform>();
-            Invoke(nameof(Activate), activeDelay);
-        }
+        private void Awake() => _rect = GetComponent<RectTransform>();
 
         private void Start()
         {
@@ -43,6 +43,7 @@ namespace UI.Canvas.Introduction
             InitPaginationDots();
             SetCurrentItem(null);
             p_closeButton.SetActive(false);
+            Invoke(nameof(Activate), activeDelay);
             
             _rect.localScale = Vector3.zero;
         }
@@ -138,14 +139,27 @@ namespace UI.Canvas.Introduction
 
             for (int i = 0; i < lenght; i++)
             {
-                GameObject currentDot = Instantiate(dot, dotsParent, true);
-                _dots.Add(currentDot.GetComponent<Image>());
+                GameObject currentDot = Instantiate(dot, dotsParent, false);
+
+                bool b = currentDot.TryGetComponent(out Image dotImage);
+                if (!b)
+                {
+                    _rect.localScale = Vector3.one;
+                    break;
+                }
+                
+                _dots.Add(dotImage);
                 _dots[i].color = unselectedDot;
             }
 
             _dots[0].color = selectedDot;
         }
-
-        private void Activate() => gameObject.SetActive(true);
+        
+        private void Activate()
+        {
+            gameObject.SetActive(true);
+            Open();
+            onFirstShow?.Invoke();
+        }
     }
 }

@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+
+using FrameWork.Structs;
 
 namespace UI.Canvas.Introduction
 {
     [RequireComponent(typeof(RectTransform))]
     public sealed class IntroductionPopup : PageHolder, IScalable
     {
-        private const string NOT_SAME_LENGHT_ERROR = "infos and images need to be the same ";
-
         private readonly Vector3 _openScale = new(0.8f, 0.8f, 1);
         private readonly List<Image> _dots = new();
 
@@ -25,10 +25,13 @@ namespace UI.Canvas.Introduction
         [SerializeField] private Color unselectedDot = new(0.6313726f, 0.6313726f, 0.6313726f);
         [SerializeField] private Color selectedDot = new(0.8901961f, 0.02352941f, 0.07450981f);
 
-        [Header("Infos")]
+        [Header("Attributes")]
+        [SerializeField, Range(0.1f, 10)] private float activeDelay;
         [SerializeField, Range(0.1f, 1)] private float animationDuration;
-        [SerializeField, TextArea(3, 6)] private string[] infos;
-        [SerializeField] private Texture2D[] images;
+        [SerializeField] private IntroductionPage[] pages;
+
+        [Header("Events")]
+        [SerializeField] private UnityEvent onFirstShow = new();
 
         private RectTransform _rect;
 
@@ -36,14 +39,13 @@ namespace UI.Canvas.Introduction
 
         private void Start()
         {
-            if (images.Length != infos.Length)
-                throw new Exception(NOT_SAME_LENGHT_ERROR);
-
-            CheckButtonsUsability(images.Length);
-
+            CheckButtonsUsability(pages.Length);
             InitPaginationDots();
             SetCurrentItem(null);
             p_closeButton.SetActive(false);
+            Invoke(nameof(Activate), activeDelay);
+            
+            _rect.localScale = Vector3.zero;
         }
 
         /// <summary>
@@ -90,11 +92,11 @@ namespace UI.Canvas.Introduction
         /// </summary>
         public void GetNextInfo()
         {
-            SetNextItem(images.Length);
+            SetNextItem(pages.Length);
             p_currentIndex++;
             SetCurrentItem(true);
             
-            if(p_currentIndex == images.Length - 1)
+            if(p_currentIndex == pages.Length - 1)
                 p_closeButton.SetActive(true);
         }
 
@@ -114,8 +116,8 @@ namespace UI.Canvas.Introduction
         /// If null it does nothing with dots color.</param>
         protected override void SetCurrentItem(bool? isIncreasing)
         {
-            infoText.text = infos[p_currentIndex];
-            image.texture = images[p_currentIndex];
+            infoText.text = pages[p_currentIndex].Info();
+            image.texture = pages[p_currentIndex].Image();
             _dots[p_currentIndex].color = selectedDot;
 
             switch (isIncreasing)
@@ -133,16 +135,23 @@ namespace UI.Canvas.Introduction
 
         private void InitPaginationDots()
         {
-            int lenght = images.Length;
+            int lenght = pages.Length;
 
             for (int i = 0; i < lenght; i++)
             {
-                GameObject currentDot = Instantiate(dot, dotsParent, true);
+                GameObject currentDot = Instantiate(dot, dotsParent, false);
                 _dots.Add(currentDot.GetComponent<Image>());
                 _dots[i].color = unselectedDot;
             }
 
             _dots[0].color = selectedDot;
+        }
+        
+        private void Activate()
+        {
+            gameObject.SetActive(true);
+            Open();
+            onFirstShow?.Invoke();
         }
     }
 }

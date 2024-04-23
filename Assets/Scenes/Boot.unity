@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadSceneInAwake: 1
-  sceneToLoad: Photobook
+  sceneToLoad: All UI
 --- !u!4 &696677677
 Transform:
   m_ObjectHideFlags: 0

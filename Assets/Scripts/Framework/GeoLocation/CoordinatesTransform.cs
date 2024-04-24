@@ -33,8 +33,14 @@ namespace Framework.GeoLocation
                 Debug.LogError(PLAYER_STATIC_ERROR);
         }
 
-        private void Start()
+        /// <summary>
+        /// Ask for the location of the device form its inheritance
+        /// and will place the CoordinatesTransform once to the correct location
+        /// </summary>
+        protected override void Start()
         {
+            base.Start();
+            
             if (isStatic)
                 UpdateLocation(null);
         }

@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using Framework.PhoneCamera;
 using Framework.ScriptableObjects;
 
 namespace UI.Canvas.PhotoTaking
 {
-    public sealed class CameraPanel : MonoBehaviour
+    public sealed class CameraPanel : CameraPermission
     {
         [SerializeField] private PhotoTaker taker;
         [SerializeField] private RawImage background;

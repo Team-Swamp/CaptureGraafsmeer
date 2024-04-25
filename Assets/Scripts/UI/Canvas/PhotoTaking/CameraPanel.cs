@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 using Framework.PhoneCamera;
@@ -11,7 +9,6 @@ namespace UI.Canvas.PhotoTaking
     public sealed class CameraPanel : CameraPermission
     {
         [SerializeField] private PhotoTaker taker;
-        [SerializeField] private RawImage background;
         [SerializeField] private TMP_Text pointOfInterestName;
         [SerializeField] private Texture2D pointOfInterestRender;
         [SerializeField] private RenderTexture renderTexture;
@@ -25,7 +22,7 @@ namespace UI.Canvas.PhotoTaking
         public void SetPanelData(PhotoData targetPhotoData)
         {
             pointOfInterestName.text = targetPhotoData.Title;
-            taker.StartCamera(background);
+            taker.StartCamera();
         }
         private void Update()
         {

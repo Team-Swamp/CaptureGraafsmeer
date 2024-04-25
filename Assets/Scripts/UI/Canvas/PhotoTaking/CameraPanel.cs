@@ -13,6 +13,7 @@ namespace UI.Canvas.PhotoTaking
         [SerializeField] private RawImage background;
         [SerializeField] private TMP_Text pointOfInterestName;
         [SerializeField] private Texture2D pointOfInterestRender;
+        [SerializeField] private RenderTexture renderTexture;
 
         /// <summary>
         /// Fills the camera panel with data from the given scriptable object
@@ -23,6 +24,11 @@ namespace UI.Canvas.PhotoTaking
             pointOfInterestName.text = targetPhotoData.Title;
             // to do: set render from scriptable object
             taker.StartCamera(background);
+        }
+        private void Update()
+        {
+            if(taker.WebcamTexture && taker.WebcamTexture.isPlaying)
+                Graphics.Blit(taker.WebcamTexture, renderTexture);
         }
     }   
 }

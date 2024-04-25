@@ -18,6 +18,7 @@ namespace UI.Canvas.PhotoTaking
         [SerializeField] private RawImage liveCamera;
         [SerializeField] private RawImage lastPhoto;
         [SerializeField] private Texture2D defaultTex;
+        [SerializeField] private RenderTexture renderTexture;
         
         private WebCamTexture _webcamTexture;
         private Texture2D _currentPhoto;
@@ -33,6 +34,11 @@ namespace UI.Canvas.PhotoTaking
         [SerializeField] private UnityEvent onPhotoTaken = new();
         
         private void Awake() => FindCamera();
+
+        private void Update()
+        {
+            Graphics.Blit(_webcamTexture, renderTexture);
+        }
 
         private void OnDisable()
         {

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
+  m_Name: PieterNieuwlandCollege
+  m_EditorClassIdentifier: 
+  title: PieterNieuwlandCollege
+  info: Het Pieter Nieuwland College is een Amsterdamse openbare school voor voortgezet
+    onderwijs. Deze school, gelegen aan Nobelweg 4-6 in Amsterdam-Oost biedt havo-,
+    vwo-, en vwo-plus-onderwijs. Het staat bekend als een multiculturele zwarte school
+    op Christelijke leest.

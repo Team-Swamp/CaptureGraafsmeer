@@ -20,7 +20,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Testing/Photobook.unity
     guid: 3b695b9067e3d5a42842ff8b4e1845df
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing/All UI.unity
     guid: 566b0f67b586b4443a757f21168fff5d
+  - enabled: 1
+    path: Assets/Scenes/Sprint2.unity
+    guid: 08f3e7140ee9dd0498b1a8f7f30dcec2
   m_configObjects: {}

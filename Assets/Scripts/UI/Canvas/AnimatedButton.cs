@@ -8,7 +8,7 @@ namespace UI.Canvas
     [RequireComponent(typeof(RectTransform))]
     public sealed class AnimatedButton : MonoBehaviour
     {
-        private readonly Vector3 setPosition = new (0, 125, 0);
+        private readonly Vector3 resetPosition = new (0, 100, 0);
         
         [SerializeField] private Vector2 direction;
         [SerializeField] private float animationDuration;
@@ -24,7 +24,7 @@ namespace UI.Canvas
         /// </summary>
         public void ForceReset()
         {
-            _rect.localPosition = setPosition;
+            _rect.localPosition = resetPosition;
             _isAtBeginPosition = true;
         }
         

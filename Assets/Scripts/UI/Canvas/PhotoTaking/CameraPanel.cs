@@ -30,6 +30,7 @@ namespace UI.Canvas.PhotoTaking
         private void Update()
         {
             WebCamTexture currentCameraTexture = taker.CameraTexture;
+            
             if(_isActive 
                && currentCameraTexture 
                && currentCameraTexture.isPlaying)

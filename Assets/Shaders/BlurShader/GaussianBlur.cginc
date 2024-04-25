@@ -1,4 +1,10 @@
-void GaussianBlur_float(UnityTexture2D Texture, float2 UV, float Blur, UnitySamplerState Sampler, out float3 Out_RGB, out float Out_Alpha)
+void GaussianBlur_float(
+	UnityTexture2D Texture,
+	float2 UV,
+	float Blur,
+	UnitySamplerState Sampler,
+	out float3 Out_RGB,
+	out float Out_Alpha)
 {
 	float4 col = float4(0.0, 0.0, 0.0, 0.0);
 	float kernelSum = 0.0;

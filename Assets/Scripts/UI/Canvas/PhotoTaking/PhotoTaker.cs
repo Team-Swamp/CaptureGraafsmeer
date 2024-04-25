@@ -37,7 +37,8 @@ namespace UI.Canvas.PhotoTaking
 
         private void Update()
         {
-            Graphics.Blit(_webcamTexture, renderTexture);
+            if(_webcamTexture && _webcamTexture.isPlaying)
+                Graphics.Blit(_webcamTexture, renderTexture);
         }
 
         private void OnDisable()

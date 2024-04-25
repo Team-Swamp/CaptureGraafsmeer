@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -15,6 +16,8 @@ namespace UI.Canvas.PhotoTaking
         [SerializeField] private Texture2D pointOfInterestRender;
         [SerializeField] private RenderTexture renderTexture;
 
+        private bool _isActive;
+
         /// <summary>
         /// Fills the camera panel with data from the given scriptable object
         /// </summary>
@@ -22,13 +25,19 @@ namespace UI.Canvas.PhotoTaking
         public void SetPanelData(PhotoData targetPhotoData)
         {
             pointOfInterestName.text = targetPhotoData.Title;
-            // to do: set render from scriptable object
             taker.StartCamera(background);
         }
         private void Update()
         {
-            if(taker.WebcamTexture && taker.WebcamTexture.isPlaying)
-                Graphics.Blit(taker.WebcamTexture, renderTexture);
+            WebCamTexture currentCameraTexture = taker.CameraTexture;
+            if(_isActive 
+               && currentCameraTexture 
+               && currentCameraTexture.isPlaying)
+                Graphics.Blit(taker.CameraTexture, renderTexture);
         }
+
+        private void OnEnable() => _isActive = true;
+
+        private void OnDisable() => _isActive = false;
     }   
 }

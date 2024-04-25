@@ -18,11 +18,11 @@ namespace UI.Canvas.PhotoTaking
         [SerializeField] private RawImage liveCamera;
         [SerializeField] private RawImage lastPhoto;
         [SerializeField] private Texture2D defaultTex;
-        
-        private WebCamTexture _webcamTexture;
+
         private Texture2D _currentPhoto;
         private PhotoInteractable _currentInteractable;
         
+        public WebCamTexture CameraTexture { get; private set; }
         public PhotoData Data { get; set; }
         
         public Texture2D DefaultTex => defaultTex;
@@ -36,9 +36,9 @@ namespace UI.Canvas.PhotoTaking
 
         private void OnDisable()
         {
-            if (_webcamTexture != null
-                && _webcamTexture.isPlaying)
-                _webcamTexture.Stop();
+            if (CameraTexture != null
+                && CameraTexture.isPlaying)
+                CameraTexture.Stop();
         }
         
         /// <summary>
@@ -54,8 +54,8 @@ namespace UI.Canvas.PhotoTaking
 
         private void ApplyCamera(RawImage targetImage)
         {
-            _webcamTexture.Play();
-            targetImage.texture = _webcamTexture;
+            CameraTexture.Play();
+            targetImage.texture = CameraTexture;
             onOpenCamera?.Invoke();
         }
         
@@ -64,13 +64,13 @@ namespace UI.Canvas.PhotoTaking
         /// </summary>
         public void TakePhoto()
         {
-            if (!_webcamTexture.isPlaying)
+            if (!CameraTexture.isPlaying)
                 throw new Exception(CAMERA_NOT_ACTIVE_ERROR);
             
             if (_currentInteractable == null)
                 throw new Exception(NO_PHOTO_INTERACTABLE_ERROR);
             
-            _currentPhoto = CaptureFrame(_webcamTexture);
+            _currentPhoto = CaptureFrame(CameraTexture);
 
             if (!_currentInteractable.SaveTexture(_currentPhoto))
                 throw new Exception(UNABLE_TO_SAVE_PHOTO_ERROR + _currentInteractable.name);
@@ -95,7 +95,7 @@ namespace UI.Canvas.PhotoTaking
             if (devices.Length <= 0)
                 throw new Exception(NO_CAMERA_ERROR);
             
-            _webcamTexture = new WebCamTexture(devices[0].name);
+            CameraTexture = new WebCamTexture(devices[0].name);
         }
         
         private Texture2D CaptureFrame(WebCamTexture liveTexture)

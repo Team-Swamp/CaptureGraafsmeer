@@ -1289,6 +1289,10 @@ PrefabInstance:
       propertyPath: taker
       value: 
       objectReference: {fileID: 8996900943379555394}
+    - target: {fileID: 5948877039694761891, guid: dd70516a987b9db4a9f30219e6076712, type: 3}
+      propertyPath: renderTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 28623a025a89ab94ba6caccdcad33212, type: 2}
     - target: {fileID: 6655122656143946491, guid: dd70516a987b9db4a9f30219e6076712, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

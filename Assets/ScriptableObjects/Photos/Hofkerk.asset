@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: Hofkerk
   m_EditorClassIdentifier: 
+  render: {fileID: 2800000, guid: b204a5b0c0c36434db7de24ed6dca227, type: 3}
   title: Hofkerk
   info: De Parochiekerk van de Heilige Martelaren van Gorcum is een rooms-katholieke
     kerk in Amsterdam-Watergraafsmeer. Zij maakt als "Hofkerk" deel uit van het door

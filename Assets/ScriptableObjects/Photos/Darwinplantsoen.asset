@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: Darwinplantsoen
   m_EditorClassIdentifier: 
+  render: {fileID: 2800000, guid: e7ee34d029c1d8f42b987b49c7e01938, type: 3}
   title: Darwinplantsoen
   info: De Bloementuin van Darwin bevind zich in het darwinplantsoen in Amsterdam-Oost.
     De tuin bevat meer dan 270 planten soorten wat onderhouden word door vrijwillegers.

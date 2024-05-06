@@ -19,6 +19,8 @@ namespace UI.Canvas
 
         private void Awake() => _rect = GetComponent<RectTransform>();
 
+        private void Start() => _rect.localPosition = resetPosition;
+
         /// <summary>
         /// Resets the button the to beginning state, without questions
         /// </summary>

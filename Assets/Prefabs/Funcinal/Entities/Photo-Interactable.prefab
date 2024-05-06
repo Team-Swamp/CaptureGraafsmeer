@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8151052682018885424}
   - component: {fileID: 6841538159795881547}
   m_Layer: 0
-  m_Name: Photo interacatable
+  m_Name: Photo-Interactable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,3 +199,4 @@ MonoBehaviour:
   coordinates: {x: 0, y: 0}
   isStatic: 1
   isPlayer: 0
+  lerpTime: 0

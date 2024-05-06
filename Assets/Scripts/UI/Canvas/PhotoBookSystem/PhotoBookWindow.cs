@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using System.IO;
+
 using Framework.GeoLocation;
 using Framework.PhoneCamera;
 using Framework.ScriptableObjects;
@@ -71,6 +72,8 @@ namespace UI.Canvas.PhotoBookSystem
                 currentPage = newPage.GetComponent<Page>();
                 currentPage.SetData(currentData);
                 
+                Debug.LogWarning("You need to refrence the page in the photobook pages list!");
+                
                 Debug.Log(newPage.transform.position);
             }
             else
@@ -84,8 +87,9 @@ namespace UI.Canvas.PhotoBookSystem
             Debug.Log("Function executed with string: " + newObjectName);
 
             GameObject parentObject = GameObject.Find("Photo maker");
+            GameObject panel = GameObject.Find("CameraPanel");
             
-            if(!parentObject)
+            if(!panel)
                 return;
             
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(INTERACTABLE);
@@ -97,11 +101,14 @@ namespace UI.Canvas.PhotoBookSystem
                 newObject.GetComponent<PhotoInteractable>().ParentPage = currentPage;
                 newObject.GetComponent<PhotoInteractable>().SetPhotoTaker(parentObject.GetComponent<PhotoTaker>());
                 newObject.GetComponent<PhotoInteractable>().SetPhotoData(currentData);
+                newObject.GetComponent<PhotoInteractable>().SetPanel(panel.GetComponent<CameraPanel>());
                 
                 newObject.GetComponent<CoordinatesTransform>().SetCords(vectorField);
                 
-                currentPage.SetInteractable(newObject.GetComponent<PhotoInteractable>());
-
+                
+                
+                // currentPage.SetInteractable(newObject.GetComponent<PhotoInteractable>());
+                Debug.LogWarning("You need to refrence the interactable in the page!");
                 
                 Debug.Log(newObject.transform.position);
             }

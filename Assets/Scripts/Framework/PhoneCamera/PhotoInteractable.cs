@@ -16,6 +16,7 @@ namespace Framework.PhoneCamera
         private const string SAVED_TEXTURE = "savedTexture.png";
         
         [SerializeField] private PhotoTaker parent;
+        [SerializeField] private CameraPanel panel;
         [SerializeReference] private PhotoData data;
         
         private byte[] _textureBytes;
@@ -24,6 +25,13 @@ namespace Framework.PhoneCamera
         
         public Page ParentPage { get; set; }
 
+        public void ActiveInteract()
+        {
+            panel.SetPanelData(data);
+            panel.gameObject.SetActive(true);
+            SetPhotoData();
+        }
+        
         /// <summary>
         /// Set this PhotoInteractable as the current in the PhotoTaker
         /// </summary>
@@ -80,6 +88,11 @@ namespace Framework.PhoneCamera
         public void SetPhotoTaker(PhotoTaker photoTaker)
         {
             parent = photoTaker;
+        }
+        
+        public void SetPanel(CameraPanel target)
+        {
+            panel = target;
         }
         
         private Texture2D LoadTexture()

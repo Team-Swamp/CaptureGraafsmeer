@@ -34,6 +34,11 @@ namespace Framework.PhoneCamera
             if(parent.Data != data)
                 parent.Data = data;
         }
+        
+        public void SetPhotoData(PhotoData targetData)
+        {
+            data = targetData;
+        }
 
         /// <summary>
         /// Get the text to show in the page, if visited will show the text for it, otherwise the default text
@@ -71,6 +76,11 @@ namespace Framework.PhoneCamera
         public Texture2D GetTexture() => !IsVisited 
             ? parent.DefaultTex 
             : LoadTexture();
+
+        public void SetPhotoTaker(PhotoTaker photoTaker)
+        {
+            parent = photoTaker;
+        }
         
         private Texture2D LoadTexture()
         {

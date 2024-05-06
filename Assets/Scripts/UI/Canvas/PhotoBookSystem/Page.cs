@@ -63,6 +63,10 @@ namespace UI.Canvas.PhotoBookSystem
         public void AnimatePage(bool isOpening)
             => StartCoroutine(((IScalable) this).AnimateScale(isOpening ? _closed : Vector3.one));
 
+        public void SetData(PhotoData target) => data = target;
+        
+        public void SetInteractable(PhotoInteractable target) => interactable = target;
+        
         IEnumerator IScalable.AnimateScale(Vector3 targetScale)
         {
             Vector3 initialScale = _rect.localScale;

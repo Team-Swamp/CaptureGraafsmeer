@@ -24,6 +24,7 @@ namespace UI.Canvas.PhotoBookSystem
         private const string NAME_FIELD = "Name for new page:";
         private const string INFO_FIELD = "Info for new page:";
         private const string CORDS_FIELD = "Vector2 coordinates field:";
+        private const string TEXTURE_FIELD = "Render texture for interactable ->";
         private const string BUTTON_TEXT = "Make new page!";
         private const string SCRIPTABLE_OBJECT_SUFFIX = ".asset";
         private const string INVALID_CHARACTERS = "^[a-zA-Z0-9 ]+$";
@@ -31,14 +32,16 @@ namespace UI.Canvas.PhotoBookSystem
         private const string NAME_NEEDED_ERROR = "There is a name needed!";
         private const string INVALID_NAME_ERROR = "Invalid input for the name field.";
         private const string PHOTO_BOOK_REFERENCE_WARNING = "You need to reference the page in the photobook pages list!";
+        private const string TEXTURE_WARNING = "Do not click on this, only drag and drop a texture! ^^";
         private const string PHOTO_INTERACTABLE_REFERENCE_WARNING = "You need to reference the interactable in the page!";
         
-        private static readonly Vector2 WINDOW_SIZE = new (400f, 310f);
+        private static readonly Vector2 WINDOW_SIZE = new (400f, 375f);
         
-        private bool _needsRepaint = false;
+        private bool _needsRepaint;
         private string _newObjectName = "Default Text";
         private string _info = "Info";
         private Vector2 _cords = Vector2.zero;
+        private Texture2D _interactableTexture;
         private Page _currentPage;
         private PhotoData _currentData;
         private GUIStyle _greenButtonStyle;
@@ -60,6 +63,13 @@ namespace UI.Canvas.PhotoBookSystem
                 GUILayout.Label(INFO_FIELD + SPACE + _info);
                 GUILayout.Space(MARGIN);
                 GUILayout.Label(CORDS_FIELD + SPACE + _cords);
+                GUILayout.Space(MARGIN);
+                
+                if(_interactableTexture == null)
+                    GUILayout.Label(TEXTURE_FIELD + SPACE + "NULL");
+                else
+                    GUILayout.Label(TEXTURE_FIELD + SPACE + _interactableTexture.name);
+                
                 GUILayout.Space(MARGIN);
                 UnRequestRepaint();
                 return;
@@ -84,6 +94,8 @@ namespace UI.Canvas.PhotoBookSystem
             _info = EditorGUILayout.TextArea(_info, GUILayout.Height(100));
             GUILayout.Space(MARGIN);
             _cords = EditorGUILayout.Vector2Field(CORDS_FIELD, _cords);
+            GUILayout.Space(MARGIN);
+            TextureField(TEXTURE_FIELD, ref _interactableTexture);
             GUILayout.Space(MARGIN);
             
             if(InvalidInput())
@@ -174,6 +186,27 @@ namespace UI.Canvas.PhotoBookSystem
             AssetDatabase.SaveAssets();
 
             _currentData = newData;
+        }
+        
+        private void TextureField(string label, ref Texture2D texture)
+        {
+            GUILayout.BeginHorizontal();
+            GUILayout.Label(label);
+            texture = (Texture2D)EditorGUILayout.ObjectField(texture, typeof(Texture2D), false);
+            GUILayout.EndHorizontal();
+            
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            GUIStyle centeredLabelStyle = new (EditorStyles.boldLabel)
+            {
+                normal =
+                {
+                    textColor = Color.yellow
+                }
+            };
+            GUILayout.Label(TEXTURE_WARNING, centeredLabelStyle);
+            GUILayout.FlexibleSpace();
+            GUILayout.EndHorizontal();
         }
         
         private void RequestRepaint() => _needsRepaint = true;

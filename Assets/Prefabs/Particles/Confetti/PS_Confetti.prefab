@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2017507477727926068}
   - component: {fileID: 4675403900940730758}
   m_Layer: 0
-  m_Name: Confetti Particles
+  m_Name: PS_Confetti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

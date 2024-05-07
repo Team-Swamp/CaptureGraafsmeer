@@ -12,7 +12,7 @@ namespace Framework.PhoneCamera
         private const int ASK_PERMISSION_DELAY = 6;
         private const string CAMERA_PERMISSION = Permission.Camera;
 
-        private void Start() => Invoke(nameof(AskPermission), ASK_PERMISSION_DELAY);
+        protected virtual void Start() => Invoke(nameof(AskPermission), ASK_PERMISSION_DELAY);
 
         /// <summary>
         /// Will ask the device camera, will be used inherited classes

@@ -15,6 +15,12 @@ namespace UI.Canvas.PhotoTaking
 
         private bool _isActive;
 
+        private new void Start()
+        {
+            base.Start();
+            gameObject.SetActive(false);
+        }
+        
         /// <summary>
         /// Fills the camera panel with data from the given scriptable object
         /// </summary>

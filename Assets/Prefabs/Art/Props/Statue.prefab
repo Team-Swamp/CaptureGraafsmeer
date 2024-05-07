@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3543804314999701234}
   m_Layer: 0
   m_Name: Statue
-  m_TagString: Untagged
+  m_TagString: Cullable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

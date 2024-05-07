@@ -8,7 +8,7 @@ namespace Framework.ScriptableObjects
         private const string TAKE_PHOTO = "Maak een foto om hier over te leren.";
         
         [SerializeField] private string title = "Object title";
-        [SerializeField, TextArea(3, 6)] private string info ;
+        [SerializeField, TextArea(3, 6)] private string info;
 
         public (string, string) Info
         {

@@ -25,6 +25,9 @@ namespace Framework.PhoneCamera
         
         public Page ParentPage { get; set; }
 
+        /// <summary>
+        /// Will show the camera panel and will set the data correctly
+        /// </summary>
         public void ActiveInteract()
         {
             panel.SetPanelData(data);
@@ -41,11 +44,6 @@ namespace Framework.PhoneCamera
             
             if(parent.Data != data)
                 parent.Data = data;
-        }
-        
-        public void SetPhotoData(PhotoData targetData)
-        {
-            data = targetData;
         }
 
         /// <summary>
@@ -85,15 +83,23 @@ namespace Framework.PhoneCamera
             ? parent.DefaultTex 
             : LoadTexture();
 
-        public void SetPhotoTaker(PhotoTaker photoTaker)
-        {
-            parent = photoTaker;
-        }
+        /// <summary>
+        /// Set the PhotoData to a new data set.
+        /// </summary>
+        /// <param name="targetData">The target data</param>
+        public void SetPhotoData(PhotoData targetData) => data = targetData;
         
-        public void SetPanel(CameraPanel target)
-        {
-            panel = target;
-        }
+        /// <summary>
+        /// Set the parent to a PhotoTaker.
+        /// </summary>
+        /// <param name="photoTaker">The target PhotoTaker</param>
+        public void SetPhotoTaker(PhotoTaker photoTaker) => parent = photoTaker;
+        
+        /// <summary>
+        /// Set the CameraPanel reference to a CameraPanel.
+        /// </summary>
+        /// <param name="target">The target CameraPanel</param>
+        public void SetPanel(CameraPanel target) => panel = target;
         
         private Texture2D LoadTexture()
         {

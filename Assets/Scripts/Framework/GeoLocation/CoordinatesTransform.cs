@@ -53,11 +53,12 @@ namespace Framework.GeoLocation
             UpdateLocation(isPlayer ? _player.GetLiveLocation() : null);
         }
 
-        public void SetCords(Vector2 cords)
-        {
-            coordinates = cords;
-        }
-
+        /// <summary>
+        /// Set the coordinates to a new value.
+        /// </summary>
+        /// <param name="targetCords">The target coordinates</param>
+        public void SetCords(Vector2 targetCords) => coordinates = targetCords;
+        
         private void UpdateLocation(Vector2 ?pos)
         {
             Vector2 targetPosition = pos ?? new Vector2(coordinates.x, coordinates.y);

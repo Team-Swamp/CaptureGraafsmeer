@@ -13,10 +13,8 @@ namespace Framework.GeoLocation
         private const int EARTH_RADIUS = 6378137;
         private const string PLAYER_STATIC_ERROR = "The player is not a static CoordinatesTransform!";
         
-        private static readonly Vector2 origin = new (52.356531f, 4.9308f); // start location
-        private static readonly Vector2 centerOfMap = new (52.34882038222732f, 4.932121111542392f); // center of the map
+        private static readonly Vector2 origin = new (52.356531f, 4.9308f);
 
-        public Vector2 scaleFactor = Vector2.one;
         [SerializeField] private Vector2 coordinates;
         [SerializeField] private bool isStatic;
         [SerializeField] private bool isPlayer;
@@ -67,7 +65,6 @@ namespace Framework.GeoLocation
             targetPosition.Subtract(origin);
             (double latitude, double longitude) = ConvertToMeters(targetPosition.x, -targetPosition.y);
             Vector3 finalTargetPosition = new Vector3((float)latitude, 0, (float)longitude);
-            // finalTargetPosition -= new Vector3(8732505f,0,-335234.969f);
 
             if (_isReactive)
                 return;
@@ -77,64 +74,10 @@ namespace Framework.GeoLocation
 
         private (double, double) ConvertToMeters(double latitude, double longitude)
         {
-            // Blackbox V4
-            double latInRadians = latitude * Math.PI / HALF_CIRCLE;
-            double lonInRadians = longitude * Math.PI / HALF_CIRCLE;
-            
-            double latitudeInMeters = latInRadians * EARTH_RADIUS * scaleFactor.x;
-            double longitudeInMeters = lonInRadians * EARTH_RADIUS * scaleFactor.y;
+            double latitudeInMeters = latitude * Math.PI / HALF_CIRCLE * EARTH_RADIUS;
+            double longitudeInMeters = longitude * Math.PI / HALF_CIRCLE * EARTH_RADIUS;
 
             return (latitudeInMeters, longitudeInMeters);
-            
-            // // Blackbox V3
-            // double lonInRadians = longitude * Math.PI / HALF_CIRCLE;
-            //
-            // double mercatorLatitude = Math.Log(Math.Tan((90 + latitude) * Math.PI / 360)) * EARTH_RADIUS;
-            // double mercatorLongitude = lonInRadians * EARTH_RADIUS;
-            //
-            // return (mercatorLatitude, mercatorLongitude);
-            
-            // // Blackbox V2
-            // double a = 6378137.0; // WGS84 semi-major axis
-            // double f = (a - 6356752.3142) / a; // WGS84 flattening
-            //
-            // double latInRadians = latitude * Math.PI / HALF_CIRCLE;
-            // double lonInRadians = longitude * Math.PI / HALF_CIRCLE;
-            //
-            // double sinLat = Math.Sin(latInRadians);
-            // double cosLat = Math.Cos(latInRadians);
-            //
-            // double latitudeInMeters = a * (1 - f) * Math.Log((1 + sinLat) / (1 - sinLat)) / 2;
-            // double longitudeInMeters = a * lonInRadians * Math.Cos(latInRadians);
-            //
-            // // Apply Mercator projection
-            // latitudeInMeters = Math.Log(Math.Tan(Math.PI / 4 + latitudeInMeters / (2 * a))) * a;
-            //
-            // return (latitudeInMeters, longitudeInMeters);
-            
-            // // Blackbox V1
-            // double a = 6378137.0; // WGS84 semi-major axis
-            // double b = 6356752.3142; // WGS84 semi-minor axis
-            // double f = (a - b) / a; // WGS84 flattening
-            //
-            // double latInRadians = latitude * Math.PI / HALF_CIRCLE;
-            // double lonInRadians = longitude * Math.PI / HALF_CIRCLE;
-            //
-            // double sinLat = Math.Sin(latInRadians);
-            //
-            // double latitudeInMeters = a * (1 - f) * Math.Log((1 + sinLat) / (1 - sinLat)) / 2;
-            // double longitudeInMeters = a * lonInRadians * Math.Cos(latInRadians);
-            //
-            // return (latitudeInMeters, longitudeInMeters);
-            
-            // // Mine
-            // double latInRadians = latitude * Math.PI / HALF_CIRCLE;
-            // double lonInRadians = longitude * Math.PI / HALF_CIRCLE;
-            //
-            // double latitudeInMeters = latInRadians * EARTH_RADIUS;
-            // double longitudeInMeters = lonInRadians * EARTH_RADIUS;
-            //
-            // return (latitudeInMeters, longitudeInMeters);
         }
         
         private IEnumerator LerpPosition(Vector3 targetPosition)

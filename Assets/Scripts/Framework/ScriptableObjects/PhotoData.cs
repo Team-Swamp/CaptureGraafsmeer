@@ -9,12 +9,16 @@ namespace Framework.ScriptableObjects
 
         [SerializeField] private Texture render;
         [SerializeField] private string title = "Object title";
-        [SerializeField, TextArea(3, 6)] private string info ;
+        [SerializeField, TextArea(3, 6)] private string info;
 
         public Texture Render => render;
-        
-        public (string, string) Info => (info, TAKE_PHOTO);
-        
-        public string Title => title;
+
+        public (string, string) Info
+        {
+            get => (info, TAKE_PHOTO);
+            set => info = value.Item1;
+        }
+
+        public string Title { get => title; set => title = value; }
     }
 }

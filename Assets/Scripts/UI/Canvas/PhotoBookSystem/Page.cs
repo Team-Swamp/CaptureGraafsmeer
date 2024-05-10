@@ -31,7 +31,6 @@ namespace UI.Canvas.PhotoBookSystem
         private void Awake()
         {
             _rect = GetComponent<RectTransform>();
-            interactable.ParentPage = this;
             title.text = data.Title;
             
             SetProperties();
@@ -63,6 +62,12 @@ namespace UI.Canvas.PhotoBookSystem
         public void AnimatePage(bool isOpening)
             => StartCoroutine(((IScalable) this).AnimateScale(isOpening ? _closed : Vector3.one));
 
+        /// <summary>
+        /// Set the PhotoData to a new data set.
+        /// </summary>
+        /// <param name="target">The target data</param>
+        public void SetData(PhotoData target) => data = target;
+        
         IEnumerator IScalable.AnimateScale(Vector3 targetScale)
         {
             Vector3 initialScale = _rect.localScale;

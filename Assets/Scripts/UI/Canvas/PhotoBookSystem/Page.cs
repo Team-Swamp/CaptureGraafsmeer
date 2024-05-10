@@ -15,6 +15,7 @@ namespace UI.Canvas.PhotoBookSystem
         
         [Header("References")]
         [SerializeField] private RawImage photo;
+        [SerializeField] private RawImage pointOfInterestRender;
         [SerializeField] private TMP_Text title;
         [SerializeField] private TMP_Text info;
         [SerializeField] private PhotoInteractable interactable;
@@ -43,6 +44,7 @@ namespace UI.Canvas.PhotoBookSystem
         {
             photo.texture = interactable.GetTexture();
             info.text = interactable.GetInfo();
+            pointOfInterestRender.texture = data.Render;
         }
         
         /// <summary>

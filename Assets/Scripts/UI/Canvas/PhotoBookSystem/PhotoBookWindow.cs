@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+
+using UnityEditor;
 using UnityEngine;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -178,7 +180,7 @@ namespace UI.Canvas.PhotoBookSystem
 
             newData.Title = _newObjectName;
             newData.Info = (_info, null);
-            // todo: photodata renders
+            newData.Render = _interactableTexture;
             
             string path = DIRECTORY_PATH + _newObjectName + SCRIPTABLE_OBJECT_SUFFIX;
             
@@ -266,3 +268,5 @@ namespace UI.Canvas.PhotoBookSystem
         }
     }
 }
+
+#endif

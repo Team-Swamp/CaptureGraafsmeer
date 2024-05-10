@@ -11,8 +11,6 @@ namespace Framework.ScriptableObjects
         [SerializeField] private string title = "Object title";
         [SerializeField, TextArea(3, 6)] private string info;
 
-        public Texture Render => render;
-
         public (string, string) Info
         {
             get => (info, TAKE_PHOTO);
@@ -20,5 +18,7 @@ namespace Framework.ScriptableObjects
         }
 
         public string Title { get => title; set => title = value; }
+        
+        public Texture Render { get => render; set => render = value; }
     }
 }

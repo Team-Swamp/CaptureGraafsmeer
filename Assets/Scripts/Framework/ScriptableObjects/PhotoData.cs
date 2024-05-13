@@ -8,9 +8,14 @@ namespace Framework.ScriptableObjects
         private const string TAKE_PHOTO = "Maak een foto om hier over te leren.";
         
         [SerializeField] private string title = "Object title";
-        [SerializeField, TextArea(3, 6)] private string info ;
+        [SerializeField, TextArea(3, 6)] private string info;
 
-        public (string, string) Info => (info, TAKE_PHOTO);
-        public string Title => title;
+        public (string, string) Info
+        {
+            get => (info, TAKE_PHOTO);
+            set => info = value.Item1;
+        }
+
+        public string Title { get => title; set => title = value; }
     }
 }

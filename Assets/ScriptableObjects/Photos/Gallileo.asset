@@ -12,5 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: Gallileo
   m_EditorClassIdentifier: 
-  title: Object title
-  info: 
+  title: Gallilei Plantsoen
+  info: "Het plantsoen werd aangelegd nadat de gemeente Amsterdam in 1921 de buurgemeente
+    Watergraafsmeer had geannexeerd. Watergraafsmeer had wel enige bebouwing maar
+    die lag aan de doorgaande Middenweg en enkele bebouwing bijvoorbeeld aan de Nieuweweg;
+    een zijstraat van de Middenweg. Op een kaart uit 1909 is te zien dat men al wel
+    bezig was met de inrichting van de wijk, maar van het Galile\xEFplantsoen was
+    nog geen sprake. Wel was al een sloot gegraven, de Molenwetering. Als midden
+    jaren twintig Amsterdam hier een tuindorp wil inrichten komt er een nieuw stratenplan.
+    Aan weerszijden van de Molenwetering wordt een groenstrook aangelegd, dat per
+    raadsbesluit van 23 december 1927 met bijbehorende wegen wordt vernoemd naar
+    de Italiaanse wiskundige Galileo Galile\xEF. Meerdere straten zijn hier vernoemd
+    naar wetenschappers."

@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: VillaBons
   m_EditorClassIdentifier: 
-  title: Object title
-  info: 
+  title: BSO Villa Bons
+  info: Villa Bons is een echte Villa. Deze BSO is lekker groot met veel keuze in
+    activiteiten voor kinderen. Kinderen zitten bij ons in een vaste groep met begeleiding
+    van enthousiaste en getalenteerde pedagogisch medewerkers. Midden in de Watergraafsmeer
+    komen hier veel vriend(innet)jes van 3 scholen met elkaar spelen.

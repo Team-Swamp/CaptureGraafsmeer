@@ -12,5 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: Sluis
   m_EditorClassIdentifier: 
-  title: Object title
-  info: 
+  title: Sluis
+  info: 'Sluis is een driedelig kunstwerk van Lon Pennock, staande in Amsterdam-Oost.
+
+    De
+    beeldengroep staat op de plaats waar de Kruislaan in een bocht overgaat in de
+    Rozenburglaan en waar een fietspad onder de Gooiseweg voert. Aan de oostzijde
+    van de groep is brug 168 te vinden, aan de westzijde Kruislaanbrug (brug 458),
+    waarover de Gooiseweg loopt. De groep bestaat uit drie metalen kolommen van verschillende
+    hoogte, breedte en diepte van cortenstaal. De kunstenaar hield zich op de vlakte
+    van wat het beeld weergeeft/de beelden weergeven, zelfs de titel is niet bij
+    het beeld terug te vinden.'

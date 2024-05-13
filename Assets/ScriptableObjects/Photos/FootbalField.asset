@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: FootbalField
   m_EditorClassIdentifier: 
-  title: Object title
-  info: 
+  title: AFC Taba Veld
+  info: "Taba is een springlevende voetbalvereniging in de Amsterdamse Watergraafsmeer.
+    Met een grote jeugdafdeling. Onze accommodatie bevindt zich op sportpark Drieburg
+    aan de Fizeaustraat 10, op slechts tien minuten van het centrum \u2013 niet ver
+    van station Amsterdam Amstel. We zijn prima bereikbaar per fiets, bus, tram,
+    trein, metro en auto.\r\n\rTaba beschikt over een grasveld en een kunstgrasveld
+    die bijzonder fraai zijn gelegen: beschut en omzoomd door hoge bomen \u2013 ver
+    verwijderd van de A1O, zodat voetballers en toeschouwers geen geluidshinder ondervinden.
+    Daarnaast kan er ook getraind en gespeeld worden op nabijgelegen kunstgrasvelden."

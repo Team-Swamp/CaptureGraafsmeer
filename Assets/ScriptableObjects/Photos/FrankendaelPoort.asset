@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: FrankendaelPoort
   m_EditorClassIdentifier: 
-  title: Object title
-  info: 
+  title: Frankendael Poort
+  info: "De Toegangspoort Frankendael is een bouwwerk in Amsterdam-Oost.\r\nToen
+    de familie Gildemeester hier begin 18e eeuw woonde, stond Huis Frankendael aan
+    de Middenweg in Watergraafsmeer. Tussen huis en weg liep een afwateringstocht
+    met daarover een brugconstructie, zoals te zien is op een prent van Dani\xEBl
+    Stopendaal uit 1725. Dat wordt in 1783 anders. De afwateringstocht wordt afgedamd
+    en er komt een toegang aan de weg. De dam wordt gevormd door keermuren van baksteen.
+    Daarop wordt een houten poort gezet in de Lodewijk XVI-stijl, als een soort triomfboog."

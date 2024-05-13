@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: TennisField
   m_EditorClassIdentifier: 
-  title: Object title
-  info: 
+  title: Tennis Veld
+  info: "Op een verborgen en rustig hofje midden in Amsterdam Oost tussen de Middenweg
+    en de Linnaeusparkweg liggen onze 3 hardcourt tennisbanen en het clubhuis. Het
+    Roomse hofje is ontworpen en gebouwd tussen 1924-1935, waarbij de tennisbanen
+    tussen de Hofkerk, het Claraklooster en een huizenblok in ligt. Een unieke locatie
+    in Amsterdam!\r\nDe laatste paar jaar is onder leiding van een enthousiast bestuur
+    de Vereniging uitgegroeid tot een club met veel activiteiten, KNLTB \xE9n interne
+    competities, toernooien voor de jeugd en senioren, tossavond/ochtend,  tennislessen
+    en verschillende feesten door het jaar heen. "

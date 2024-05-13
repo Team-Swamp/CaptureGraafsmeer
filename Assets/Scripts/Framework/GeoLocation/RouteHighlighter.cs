@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Framework.SaveLoadSystem;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,6 +17,7 @@ namespace Framework.GeoLocation
         [SerializeField] private List<Transform> routePoints;
         [SerializeField] private LineRenderer route;
         [SerializeField, Range(1, 100)] private float closeRange = 5f;
+        [SerializeField] private TMP_Text locationText;
         
         private Transform _nextPoint;
         private bool _canUpdate = true;
@@ -39,6 +42,20 @@ namespace Framework.GeoLocation
                 throw new Exception(MORE_THEN_ONE_POINT_ERROR);
             }
 
+            locationText.text = Saver.Instance.CheckpointsPassed.ToString();
+            int l = Saver.Instance.CheckpointsPassed + 1;
+            if (l > 0)
+            {
+                for (int i = l - 1; i >= 0; i--)
+                {
+                    if(i == 0)
+                        continue;
+                    
+                    if(i < l)
+                        routePoints.RemoveAt(i);
+                }
+            }
+            
             _nextPoint = routePoints[1];
             Invoke(nameof(UpdateLine), INVOKE_DELAY);
         }
@@ -73,6 +90,8 @@ namespace Framework.GeoLocation
             _nextPoint = routePoints[1];
             route.positionCount = 0;
             UpdateLine();
+            Saver.Instance.CheckpointsPassed++;
+            Debug.Log(Saver.Instance.CheckpointsPassed);
         }
         
         private void UpdateLine()

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,13 +10,11 @@ namespace Player.NewInput
         private const string INTERACTABLE_TAG = "Interactable";
         
         [SerializeField, Range(10, 100)] private float interactableRayDistance;
-        [SerializeField] private List<Transform> routePoints;
         
         private Camera _mainCamera;
         private PlayerInput _playerInput;
         private InputActionAsset _inputActionAsset;
         private InteractableObject _lastInteractable;
-        private int current;
         
         private void Awake()
         {
@@ -43,18 +40,11 @@ namespace Player.NewInput
         private void AddListeners()
         {
             _inputActionAsset["Interact"].performed += Interact;
-            _inputActionAsset["test"].performed += Player;
         }
 
         private void RemoveListeners()
         {
             _inputActionAsset["Interact"].performed -= Interact;
-        }
-
-        private void Player(InputAction.CallbackContext context)
-        {
-            gameObject.transform.position = routePoints[current].position;
-            current++;
         }
         
         private void Interact(InputAction.CallbackContext context)

@@ -46,7 +46,7 @@ namespace Player.NewInput
         {
             _inputActionAsset["Interact"].performed -= Interact;
         }
-        
+
         private void Interact(InputAction.CallbackContext context)
         {
             Ray ray = _mainCamera.ScreenPointToRay(GetMousePosition());

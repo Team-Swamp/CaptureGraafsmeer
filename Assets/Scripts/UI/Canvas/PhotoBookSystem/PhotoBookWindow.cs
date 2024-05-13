@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+
+using UnityEditor;
 using UnityEngine;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -266,3 +268,5 @@ namespace UI.Canvas.PhotoBookSystem
         }
     }
 }
+
+#endif

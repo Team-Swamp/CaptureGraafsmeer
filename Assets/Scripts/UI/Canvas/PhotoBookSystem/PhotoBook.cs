@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 using Framework.PhoneCamera;
+using Framework.SaveLoadSystem;
 using UI.Canvas.PhotoTaking;
 
 namespace UI.Canvas.PhotoBookSystem
@@ -10,7 +11,18 @@ namespace UI.Canvas.PhotoBookSystem
         [SerializeField] private PhotoTaker photoTaker;
         [SerializeField] private Page[] pages;
 
-        private void Awake() => gameObject.SetActive(false);
+        private void Awake()
+        {
+            int l = pages.Length;
+            
+            for (int i = 0; i < l; i++)
+            {
+                if (Saver.Instance.PhotoAmountMade >= i)
+                    pages[i].GetPhotoInteractable.IsVisited = true;
+            }
+            
+            gameObject.SetActive(false);
+        }
 
         private void OnEnable() => SetupPhotoBook();
 

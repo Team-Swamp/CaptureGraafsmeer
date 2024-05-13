@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 using Framework.PhoneCamera;
+using Framework.SaveLoadSystem;
 using Framework.ScriptableObjects;
 
 namespace UI.Canvas.PhotoTaking
@@ -76,6 +77,7 @@ namespace UI.Canvas.PhotoTaking
                 throw new Exception(UNABLE_TO_SAVE_PHOTO_ERROR + _currentInteractable.name);
             
             _currentInteractable.IsVisited = true;
+            Saver.Instance.PhotoAmountMade++;
             lastPhoto.texture = _currentInteractable.GetTexture();
             
             onPhotoTaken?.Invoke();

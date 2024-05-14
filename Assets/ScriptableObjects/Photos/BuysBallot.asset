@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: BuysBallot
   m_EditorClassIdentifier: 
   title: Buys Ballot
-  info: "Christophorus Henricus Dedericus Buis Ballot (schrijfwijze op de geboorteakte),
-    beter bekend als Buys Ballot, (Kloetinge, 10 oktober 1817 \u2013 Utrecht, 3 februari
-    1890) was een Nederlandse meteoroloog, scheikundige en natuurkundige. Buys Ballot
-    ontdekte een meteorologische wet voor de windrichting die naar hem werd genoemd:
-    de Wet van Buys Ballot. Hij was een van de personen die in 1854 aan de wieg van
-    het KNMI stonden."
+  info: 'Christophorus Henricus Dedericus Buis Ballot, beter bekend als Buys Ballot,
+    was een Nederlandse meteoroloog, scheikundige en natuurkundige. Buys Ballot ontdekte
+    een meteorologische wet voor de windrichting die naar hem werd genoemd: de Wet
+    van Buys Ballot. Hij was een van de personen die in 1854 aan de wieg van het
+    KNMI stonden.'

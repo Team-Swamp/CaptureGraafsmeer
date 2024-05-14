@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: FrankendaelPoort
   m_EditorClassIdentifier: 
   title: Frankendael Poort
-  info: 'De Toegangspoort Frankendael is een bouwwerk in Amsterdam-Oost.
-
-    Toen
-    de familie Gildemeester hier begin 18e eeuw woonde, stond Huis Frankendael aan
-    de Middenweg in Watergraafsmeer.'
+  info: De Toegangspoort Frankendael is een bouwwerk in Amsterdam-Oost. Toen de familie
+    Gildemeester hier begin 18e eeuw woonde, stond Huis Frankendael aan de Middenweg
+    in Watergraafsmeer.

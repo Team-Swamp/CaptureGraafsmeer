@@ -96,17 +96,17 @@ namespace Framework.GeoLocation
 
         private Vector3 BlendPlayerPosition(double latitude, double longitude)
         {
-            (CoordinatesTransform closeted, CoordinatesTransform secondCloseted) = FindTwoClosestGameObjects();
+            (CoordinatesTransform closeted, CoordinatesTransform secondCloseted, float weight) = FindTwoClosestGameObjects();
 
-            scaleFactor = scaleFactor.Multiply(closeted.scaleFactor)
-                .Midpoint(secondCloseted.scaleFactor);
+            Vector2 currentScaleFactor = closeted.scaleFactor;
+            currentScaleFactor = currentScaleFactor.WeightedAverage(secondCloseted.scaleFactor, weight);
             Vector3 finalPosition = new ((float) latitude, 0, (float) longitude);
-            finalPosition.Multiply(scaleFactor);
+            finalPosition.Multiply(currentScaleFactor);
             
             return finalPosition;
         }
         
-        private (CoordinatesTransform, CoordinatesTransform) FindTwoClosestGameObjects()
+        private (CoordinatesTransform, CoordinatesTransform, float) FindTwoClosestGameObjects()
         {
             CoordinatesTransform closest1 = null;
             CoordinatesTransform closest2 = null;
@@ -114,8 +114,9 @@ namespace Framework.GeoLocation
 
             foreach (var currentOtherTransform in others)
             {
-                float distance = Vector3.Distance(currentOtherTransform.gameObject.transform.position, transform.position);
-                
+                float distance = Vector3.Distance(currentOtherTransform.gameObject.transform.position, 
+                                                  transform.position);
+
                 if (distance < shortestDistance)
                 {
                     closest2 = closest1;
@@ -124,12 +125,12 @@ namespace Framework.GeoLocation
                 }
                 else if (closest2 == null
                          || distance < Vector3.Distance(closest2.transform.position, transform.position))
-                {
                     closest2 = currentOtherTransform;
-                }
             }
 
-            return (closest1, closest2);
+            float weight = 100f * shortestDistance / Vector3.Distance(closest1.gameObject.transform.position, 
+                                                                      closest2.gameObject.transform.position);
+            return (closest1, closest2, weight);
         }
         
         private IEnumerator LerpPosition(Vector3 targetPosition)

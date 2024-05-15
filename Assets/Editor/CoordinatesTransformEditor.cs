@@ -13,7 +13,9 @@ namespace Editor
         private SerializedProperty _isDebugTesting;
         private SerializedProperty _isPlayer;
         private SerializedProperty _lerp;
+        private SerializedProperty _update;
         private SerializedProperty _others;
+        private SerializedProperty text;
 
         /// <summary>
         /// Display every serialized variable, headers and space.
@@ -36,8 +38,11 @@ namespace Editor
             {
                 EditorGUILayout.LabelField("Player settings", EditorStyles.boldLabel);
                 EditorGUILayout.PropertyField(_lerp);
+                EditorGUILayout.PropertyField(_update);
                 EditorGUILayout.PropertyField(_others);
             }
+
+            EditorGUILayout.PropertyField(text);
             
             serializedObject.ApplyModifiedProperties();
         }
@@ -50,7 +55,9 @@ namespace Editor
             _isPlayer = serializedObject.FindProperty("isPlayer");
             _isDebugTesting = serializedObject.FindProperty("isDebugTesting");
             _lerp = serializedObject.FindProperty("lerpTime");
+            _update = serializedObject.FindProperty("updateTime");
             _others = serializedObject.FindProperty("others");
+            text = serializedObject.FindProperty("locationText");
         }
     }
 }

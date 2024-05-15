@@ -4,6 +4,7 @@ using UnityEngine;
 
 using FrameWork.Extensions;
 using Player;
+using TMPro;
 
 namespace Framework.GeoLocation
 {
@@ -22,7 +23,9 @@ namespace Framework.GeoLocation
         [SerializeField] private bool isPlayer;
         [SerializeField] private bool isDebugTesting;
         [SerializeField, Range(1, 25)] private float lerpTime = 2.5f;
+        [SerializeField, Range(1, 60)] private float updateTime = 2.5f;
         [SerializeField] private CoordinatesTransform[] others;
+        [SerializeField] private TMP_Text locationText;
 
         private LocationUpdater _player;
         private bool _isReactive;
@@ -77,8 +80,8 @@ namespace Framework.GeoLocation
             targetPosition.Subtract(origin);
             (double latitude, double longitude) = ConvertToMeters(targetPosition.x, -targetPosition.y);
             Vector3 finalTargetPosition = isPlayer
-                ? BlendPlayerPosition(latitude, longitude)
-                : new Vector3((float)latitude, 0, (float)longitude);
+                 ? BlendPlayerPosition(latitude, longitude)
+                 : new Vector3((float)latitude, 0, (float)longitude);
 
             if (_isReactive)
                 return;
@@ -100,8 +103,12 @@ namespace Framework.GeoLocation
 
             Vector2 currentScaleFactor = closeted.scaleFactor;
             currentScaleFactor = currentScaleFactor.WeightedAverage(secondCloseted.scaleFactor, weight);
-            Vector3 finalPosition = new ((float) latitude, 0, (float) longitude);
-            finalPosition.Multiply(currentScaleFactor);
+            locationText.text =
+                $"Current scale: {currentScaleFactor}\nClosested object: {closeted.name}\nClosested2 object: {secondCloseted.name}";
+            Vector3 finalPosition = new Vector3((float)latitude, 0, (float)longitude);
+    
+            finalPosition.x *= currentScaleFactor.x;
+            finalPosition.z *= currentScaleFactor.y;
             
             return finalPosition;
         }
@@ -115,7 +122,7 @@ namespace Framework.GeoLocation
             foreach (var currentOtherTransform in others)
             {
                 float distance = Vector3.Distance(currentOtherTransform.gameObject.transform.position, 
-                                                  transform.position);
+                    transform.position);
 
                 if (distance < shortestDistance)
                 {
@@ -123,13 +130,15 @@ namespace Framework.GeoLocation
                     closest1 = currentOtherTransform;
                     shortestDistance = distance;
                 }
-                else if (closest2 == null
-                         || distance < Vector3.Distance(closest2.transform.position, transform.position))
+                else if (closest2 == null 
+                         || Mathf.Approximately(distance, shortestDistance)
+                         || Vector3.Distance(currentOtherTransform.gameObject.transform.position, transform.position)
+                         < Vector3.Distance(closest2.gameObject.transform.position, transform.position))
                     closest2 = currentOtherTransform;
             }
 
-            float weight = 100f * shortestDistance / Vector3.Distance(closest1.gameObject.transform.position, 
-                                                                      closest2.gameObject.transform.position);
+            float weight = 100f * shortestDistance / Vector3.Distance(closest1.gameObject.transform.position,
+                closest2.gameObject.transform.position);
             return (closest1, closest2, weight);
         }
         
@@ -147,6 +156,11 @@ namespace Framework.GeoLocation
             }
 
             transform.position = targetPosition;
+            Invoke(nameof(ShouldUpdateLocation), updateTime);
+        }
+
+        private void ShouldUpdateLocation()
+        {
             _isReactive = false;
         }
     }

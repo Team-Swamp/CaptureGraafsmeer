@@ -50,5 +50,14 @@ namespace Framework.SaveLoadSystem
             if (PlayerPrefs.HasKey(ROUTE_KEY))
                 _checkpointsPassed = PlayerPrefs.GetInt(ROUTE_KEY);
         }
+
+        /// <summary>
+        /// This will reset the progress of the route and photos made
+        /// </summary>
+        public void ResetData()
+        {
+            PhotoAmountMade = 0;
+            CheckpointsPassed = 0;
+        }
     }
 }

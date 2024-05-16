@@ -44,7 +44,6 @@ namespace UI.Canvas.PhotoBookSystem
         public void SetProperties()
         {
             photo.texture = interactable.GetTexture();
-            Debug.Log(interactable.IsVisited);
             info.text = interactable.GetInfo();
             pointOfInterestRender.texture = data.Render;
         }

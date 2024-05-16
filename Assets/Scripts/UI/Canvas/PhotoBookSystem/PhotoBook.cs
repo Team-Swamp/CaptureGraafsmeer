@@ -78,9 +78,7 @@ namespace UI.Canvas.PhotoBookSystem
         {
             foreach (var page in pages)
             {
-                Debug.Log(page.name);
-                page.GetComponent<RectTransform>().localScale = new Vector3(0, 1, 1);
-                // page.ForceClose();
+                page.ForceClose();
             }
             
             pages[p_currentIndex].ForceOpen();

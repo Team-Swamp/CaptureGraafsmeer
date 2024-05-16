@@ -9,7 +9,6 @@ using UI.Canvas.PhotoTaking;
 
 namespace Framework.PhoneCamera
 {
-    [DefaultExecutionOrder(100000)]
     public sealed class PhotoInteractable : InteractableObject
     {
         private const string NO_TEXTURE_TO_SAVE = "No texture to save.";

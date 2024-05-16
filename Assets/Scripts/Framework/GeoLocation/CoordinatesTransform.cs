@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 using FrameWork.Extensions;
 using Player;
@@ -12,17 +13,23 @@ namespace Framework.GeoLocation
         private const int HALF_CIRCLE = 180;
         private const int EARTH_RADIUS = 6378137;
         private const string PLAYER_STATIC_ERROR = "The player is not a static CoordinatesTransform!";
+        private const string PLAYER_NO_OTHERS_ERROR = "The player needs to refrence other CoordinatesTransform! At least 2 are needed.";
         
-        private static readonly Vector2 origin = new (52.356531f, 4.930800f);
-
+        private static readonly Vector2 origin = new (52.356531f, 4.9308f);
+        
         [SerializeField] private Vector2 coordinates;
+        [SerializeField] private Vector2 scaleFactor = Vector2.one;
         [SerializeField] private bool isStatic;
         [SerializeField] private bool isPlayer;
-        [SerializeField, Range(1, 25)] private float lerpTime;
+        [SerializeField] private bool isDebugTesting;
+        [SerializeField, Range(1, 25)] private float lerpTime = 2.5f;
+        [SerializeField, Range(1, 60)] private float updateTime = 2.5f;
+        [SerializeField] private CoordinatesTransform[] others;
+        [SerializeField] private TMP_Text locationText;
 
         private LocationUpdater _player;
         private bool _isReactive;
-
+        
         private void Awake()
         {
             if (isPlayer)
@@ -43,10 +50,17 @@ namespace Framework.GeoLocation
             
             if (isStatic)
                 UpdateLocation(null);
+
+            if (isPlayer
+                && others.Length is 0 or <= 2)
+                throw new Exception(PLAYER_NO_OTHERS_ERROR);
         }
 
         private void Update()
         {
+            if (isDebugTesting)
+                UpdateLocation(null);
+            
             if(isStatic)
                 return;
             
@@ -64,8 +78,9 @@ namespace Framework.GeoLocation
             Vector2 targetPosition = pos ?? new Vector2(coordinates.x, coordinates.y);
             targetPosition.Subtract(origin);
             (double latitude, double longitude) = ConvertToMeters(targetPosition.x, -targetPosition.y);
-            
-            Vector3 finalTargetPosition = new Vector3((float)latitude, 0, (float)longitude);
+            Vector3 finalTargetPosition = isPlayer
+                 ? BlendPlayerPosition(latitude, longitude)
+                 : new Vector3((float)latitude, 0, (float)longitude);
 
             if (_isReactive)
                 return;
@@ -75,13 +90,55 @@ namespace Framework.GeoLocation
 
         private (double, double) ConvertToMeters(double latitude, double longitude)
         {
-            double latInRadians = latitude * Math.PI / HALF_CIRCLE;
-            double lonInRadians = longitude * Math.PI / HALF_CIRCLE;
-            
-            double latitudeInMeters = latInRadians * EARTH_RADIUS;
-            double longitudeInMeters = lonInRadians * EARTH_RADIUS;
-            
+            double latitudeInMeters = latitude * Math.PI / HALF_CIRCLE * EARTH_RADIUS * scaleFactor.x;
+            double longitudeInMeters = longitude * Math.PI / HALF_CIRCLE * EARTH_RADIUS * scaleFactor.y;
+
             return (latitudeInMeters, longitudeInMeters);
+        }
+
+        private Vector3 BlendPlayerPosition(double latitude, double longitude)
+        {
+            (CoordinatesTransform closeted, CoordinatesTransform secondCloseted, float weight) = FindTwoClosestGameObjects();
+
+            Vector2 currentScaleFactor = closeted.scaleFactor;
+            currentScaleFactor = currentScaleFactor.WeightedAverage(secondCloseted.scaleFactor, weight);
+            locationText.text =
+                $"Current scale: {currentScaleFactor}\nClosested object: {closeted.name}\nClosested2 object: {secondCloseted.name}";
+            Vector3 finalPosition = new Vector3((float)latitude, 0, (float)longitude);
+    
+            finalPosition.x *= currentScaleFactor.x;
+            finalPosition.z *= currentScaleFactor.y;
+            
+            return finalPosition;
+        }
+        
+        private (CoordinatesTransform, CoordinatesTransform, float) FindTwoClosestGameObjects()
+        {
+            CoordinatesTransform closest1 = null;
+            CoordinatesTransform closest2 = null;
+            float shortestDistance = float.MaxValue;
+
+            foreach (var currentOtherTransform in others)
+            {
+                float distance = Vector3.Distance(currentOtherTransform.gameObject.transform.position, 
+                    transform.position);
+
+                if (distance < shortestDistance)
+                {
+                    closest2 = closest1;
+                    closest1 = currentOtherTransform;
+                    shortestDistance = distance;
+                }
+                else if (closest2 == null 
+                         || Mathf.Approximately(distance, shortestDistance)
+                         || Vector3.Distance(currentOtherTransform.gameObject.transform.position, transform.position)
+                         < Vector3.Distance(closest2.gameObject.transform.position, transform.position))
+                    closest2 = currentOtherTransform;
+            }
+
+            float weight = 100f * shortestDistance / Vector3.Distance(closest1.gameObject.transform.position,
+                closest2.gameObject.transform.position);
+            return (closest1, closest2, weight);
         }
         
         private IEnumerator LerpPosition(Vector3 targetPosition)
@@ -98,7 +155,9 @@ namespace Framework.GeoLocation
             }
 
             transform.position = targetPosition;
-            _isReactive = false;
+            Invoke(nameof(ShouldUpdateLocation), updateTime);
         }
+
+        private void ShouldUpdateLocation() => _isReactive = false;
     }
 }

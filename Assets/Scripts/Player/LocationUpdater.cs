@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -8,8 +9,8 @@ namespace Player
     {
         private const string INPUT_ACTION_NAME= "<Device>/location";
         
-        [SerializeField] private MeshRenderer rend;
-        [SerializeField] private Material[] mats;
+        [FormerlySerializedAs("rend")] [SerializeField] private SpriteRenderer sprite;
+        [FormerlySerializedAs("mats")] [SerializeField] private Color[] colors;
         
         private InputAction _locationAction;
 
@@ -34,12 +35,12 @@ namespace Player
         /// </summary>
         private void Update()
         {
-            rend.material = Input.location.status switch
+            sprite.color = Input.location.status switch
             {
-                LocationServiceStatus.Running => mats[0],
-                LocationServiceStatus.Failed => mats[1],
-                LocationServiceStatus.Initializing => mats[2],
-                LocationServiceStatus.Stopped => mats[3],
+                LocationServiceStatus.Running => colors[0],
+                LocationServiceStatus.Failed => colors[1],
+                LocationServiceStatus.Initializing => colors[2],
+                LocationServiceStatus.Stopped => colors[3],
                 _ => throw new ArgumentOutOfRangeException()
             };
         }

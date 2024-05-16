@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
-  m_Name: Mavo
+  m_Name: Fountain
   m_EditorClassIdentifier: 
-  title: Mavo
-  info: De Amsterdamse MAVO is een reguliere school op Humanistische grondslag die
-    alleen mavo (theoretische leerweg) aanbied. De Amsterdamse MAVO leidt op tot
-    een niveau 4 opleiding op het mbo of een doorstroom naar de havo.
+  title: Fontein
+  info: Op het grote cirkelvormige plateau ligt een kleiner rond plateau. De 37 waterbundels
+    die in drie kransen uit het kleine plateau omhoogschieten, vormen het waterbeeld.
+    De middelste fontein komt, precies midden op het kruispunt van wegen, wel 6 meter
+    hoog.

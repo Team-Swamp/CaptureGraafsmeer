@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 using FrameWork.Extensions;
 using Player;
-using TMPro;
 
 namespace Framework.GeoLocation
 {
@@ -159,9 +159,6 @@ namespace Framework.GeoLocation
             Invoke(nameof(ShouldUpdateLocation), updateTime);
         }
 
-        private void ShouldUpdateLocation()
-        {
-            _isReactive = false;
-        }
+        private void ShouldUpdateLocation() => _isReactive = false;
     }
 }

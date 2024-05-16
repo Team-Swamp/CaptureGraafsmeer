@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: ChildcareFS
   m_EditorClassIdentifier: 
+  render: {fileID: 2800000, guid: 2a39acbb5c69eb64daee2e9747474ce3, type: 3}
   title: Kinderdag Verblijf
   info: "Ons kinderdagverblijf Fizeaustraat haalt het beste uit dit juweeltje van
     de Amsterdamse School. De fijne, lichte ruimtes op de begane grond zijn helemaal

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: Statue
   m_EditorClassIdentifier: 
+  render: {fileID: 2800000, guid: 212c7b403d8ffd7409ec2a12ef29a849, type: 3}
   title: Standbeeld Gemeente
   info: Hildo Krop maakte dit beeld in 1951 voor de telefooncentrale van de PTT aan
     de Pieter de Hoochstraat in Amsterdam Zuid. Het verbeeldt de gedachte als een

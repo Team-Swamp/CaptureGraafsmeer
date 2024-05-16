@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: Fountain
   m_EditorClassIdentifier: 
+  render: {fileID: 2800000, guid: 54e9d071ae02eb240967ffebf4ec4a88, type: 3}
   title: Fontein
   info: Op het grote cirkelvormige plateau ligt een kleiner rond plateau. De 37 waterbundels
     die in drie kransen uit het kleine plateau omhoogschieten, vormen het waterbeeld.

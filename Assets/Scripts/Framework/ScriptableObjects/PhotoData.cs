@@ -6,7 +6,8 @@ namespace Framework.ScriptableObjects
     public sealed class PhotoData : ScriptableObject
     {
         private const string TAKE_PHOTO = "Maak een foto om hier over te leren.";
-        
+
+        [SerializeField] private Texture render;
         [SerializeField] private string title = "Object title";
         [SerializeField, TextArea(3, 6)] private string info;
 
@@ -17,5 +18,7 @@ namespace Framework.ScriptableObjects
         }
 
         public string Title { get => title; set => title = value; }
+        
+        public Texture Render { get => render; set => render = value; }
     }
 }

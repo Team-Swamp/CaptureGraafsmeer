@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: PieterNieuwlandCollege
   m_EditorClassIdentifier: 
+  render: {fileID: 2800000, guid: 07a4624d5320a6e43a82413b2451a26f, type: 3}
   title: PieterNieuwlandCollege
   info: Het Pieter Nieuwland College is een Amsterdamse openbare school voor voortgezet
     onderwijs. Deze school, gelegen aan Nobelweg 4-6 in Amsterdam-Oost biedt havo-,

@@ -9,7 +9,8 @@ namespace UI.Canvas.PhotoBookSystem
     public sealed class PhotoBook : PageHolder
     {
         [SerializeField] private PhotoTaker photoTaker;
-        [SerializeField] private Page[] pages;
+        [SerializeField, Tooltip("This list should be the page child objects, but in reverse order because they are UI elements.")]
+        private Page[] pages;
 
         private void Awake()
         {

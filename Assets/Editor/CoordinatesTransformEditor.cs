@@ -15,7 +15,7 @@ namespace Editor
         private SerializedProperty _lerp;
         private SerializedProperty _update;
         private SerializedProperty _others;
-        private SerializedProperty text;
+        private SerializedProperty _text;
 
         /// <summary>
         /// Display every serialized variable, headers and space.
@@ -42,7 +42,7 @@ namespace Editor
                 EditorGUILayout.PropertyField(_others);
             }
 
-            EditorGUILayout.PropertyField(text);
+            EditorGUILayout.PropertyField(_text);
             
             serializedObject.ApplyModifiedProperties();
         }
@@ -57,7 +57,7 @@ namespace Editor
             _lerp = serializedObject.FindProperty("lerpTime");
             _update = serializedObject.FindProperty("updateTime");
             _others = serializedObject.FindProperty("others");
-            text = serializedObject.FindProperty("locationText");
+            _text = serializedObject.FindProperty("locationText");
         }
     }
 }

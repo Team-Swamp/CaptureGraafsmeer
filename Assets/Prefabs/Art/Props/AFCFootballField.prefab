@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2880090265260090576}
   - component: {fileID: 553872365111993779}
   m_Layer: 0
-  m_Name: FootballField
+  m_Name: AFCFootballField
   m_TagString: Cullable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

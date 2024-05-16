@@ -11,6 +11,7 @@
 | [Software in use](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | Here's a list of the software we use to make this project |
 | [Technical Design](https://github.com/Team-Swamp/Codename-BDLMTW/wiki/Technical-Design) | An in depth explanation of how complex systems work in the game |
 | [Full code documentation](https://github.com/Team-Swamp/Codename-BDLMTW/wiki/Full-code-documentation) | The full documentation of each feature and class |
+| [User testing](https://github.com/Team-Swamp/Codename-BDLMTW/wiki/User-testing) | User testing video's of the game |
 
 | Outside links| Description | Notes |
 | ---------|----------|----------|

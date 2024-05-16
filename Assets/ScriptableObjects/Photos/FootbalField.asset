@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
-  m_Name: Mavo
+  m_Name: FootbalField
   m_EditorClassIdentifier: 
-  render: {fileID: 2800000, guid: a5ff972aade6e1340b24f4af6525aeae, type: 3}
-  title: Mavo
-  info: De Amsterdamse MAVO is een reguliere school op Humanistische grondslag die
-    alleen mavo (theoretische leerweg) aanbied. De Amsterdamse MAVO leidt op tot
-    een niveau 4 opleiding op het mbo of een doorstroom naar de havo.
+  title: AFC Taba Veld
+  info: Lokale voetbalvereniging, in 1933 opgericht door sigarenhandelaren, met een
+    clubhuis en een bar.

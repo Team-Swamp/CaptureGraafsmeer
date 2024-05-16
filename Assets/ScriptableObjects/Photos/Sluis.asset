@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
-  m_Name: Mavo
+  m_Name: Sluis
   m_EditorClassIdentifier: 
-  render: {fileID: 2800000, guid: a5ff972aade6e1340b24f4af6525aeae, type: 3}
-  title: Mavo
-  info: De Amsterdamse MAVO is een reguliere school op Humanistische grondslag die
-    alleen mavo (theoretische leerweg) aanbied. De Amsterdamse MAVO leidt op tot
-    een niveau 4 opleiding op het mbo of een doorstroom naar de havo.
+  title: Sluis
+  info: 'Sluis is een driedelig kunstwerk van Lon Pennock, staande in Amsterdam-Oost.
+    Dit standbeeld staat op de plaats waar de Kruislaan in een bocht overgaat in
+    de Rozenburglaan en waar een fietspad onder de Gooiseweg voert. '

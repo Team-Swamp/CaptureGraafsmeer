@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+using Framework.SaveLoadSystem;
+
 namespace Framework.GeoLocation
 {
     [RequireComponent(typeof(LineRenderer))]
@@ -38,7 +40,20 @@ namespace Framework.GeoLocation
                 _canUpdate = false;
                 throw new Exception(MORE_THEN_ONE_POINT_ERROR);
             }
-
+            
+            int l = Saver.Instance.CheckpointsPassed + 1;
+            if (l > 0)
+            {
+                for (int i = l - 1; i >= 0; i--)
+                {
+                    if(i == 0)
+                        continue;
+                    
+                    if(i < l)
+                        routePoints.RemoveAt(i);
+                }
+            }
+            
             _nextPoint = routePoints[1];
             Invoke(nameof(UpdateLine), INVOKE_DELAY);
         }
@@ -73,6 +88,7 @@ namespace Framework.GeoLocation
             _nextPoint = routePoints[1];
             route.positionCount = 0;
             UpdateLine();
+            Saver.Instance.CheckpointsPassed++;
         }
         
         private void UpdateLine()

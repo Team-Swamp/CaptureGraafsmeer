@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
-  m_Name: Mavo
+  m_Name: ChildcareFS
   m_EditorClassIdentifier: 
-  render: {fileID: 2800000, guid: a5ff972aade6e1340b24f4af6525aeae, type: 3}
-  title: Mavo
-  info: De Amsterdamse MAVO is een reguliere school op Humanistische grondslag die
-    alleen mavo (theoretische leerweg) aanbied. De Amsterdamse MAVO leidt op tot
-    een niveau 4 opleiding op het mbo of een doorstroom naar de havo.
+  title: Kinderdag Verblijf
+  info: "Ons kinderdagverblijf Fizeaustraat haalt het beste uit dit juweeltje van
+    de Amsterdamse School. De fijne, lichte ruimtes op de begane grond zijn helemaal
+    voor de baby\u2019s. Ze hebben een eigen gang, waardoor we de rust kunnen cre\xEBren
+    die nodig is."

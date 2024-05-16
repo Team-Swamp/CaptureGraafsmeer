@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: Sluis
   m_EditorClassIdentifier: 
+  render: {fileID: 2800000, guid: 4cb56c5075896ab48b1b830719ee61d3, type: 3}
   title: Sluis
   info: 'Sluis is een driedelig kunstwerk van Lon Pennock, staande in Amsterdam-Oost.
     Dit standbeeld staat op de plaats waar de Kruislaan in een bocht overgaat in

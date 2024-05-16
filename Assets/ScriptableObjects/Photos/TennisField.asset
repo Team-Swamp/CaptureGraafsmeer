@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: TennisField
   m_EditorClassIdentifier: 
+  render: {fileID: 2800000, guid: a1f844d7affbc504cb5f8aeab4d2667d, type: 3}
   title: Tennis Veld
   info: Op een verborgen en rustig hofje midden in Amsterdam Oost tussen de Middenweg
     en de Linnaeusparkweg liggen onze 3 hardcourt tennisbanen en het clubhuis. Het

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: BuysBallot
   m_EditorClassIdentifier: 
+  render: {fileID: 2800000, guid: eb169649175d4634086148817c2a5f92, type: 3}
   title: Buys Ballot
   info: 'Christophorus Henricus Dedericus Buis Ballot, beter bekend als Buys Ballot,
     was een Nederlandse meteoroloog, scheikundige en natuurkundige. Buys Ballot ontdekte

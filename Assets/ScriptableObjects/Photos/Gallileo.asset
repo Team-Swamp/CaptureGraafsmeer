@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: Gallileo
   m_EditorClassIdentifier: 
+  render: {fileID: 2800000, guid: 8d070e7dcf8801f4c91c9087a696bcda, type: 3}
   title: Gallilei Plantsoen
   info: "Het plantsoen werd aangelegd nadat de gemeente Amsterdam in 1921 de buurgemeente
     Watergraafsmeer had geannexeerd. Op een kaart uit 1909 is te zien dat men al

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
   m_Name: VillaBons
   m_EditorClassIdentifier: 
+  render: {fileID: 2800000, guid: cd4b10e9a6591804ab4a90d48d0ddbd0, type: 3}
   title: BSO Villa Bons
   info: Villa Bons is een echte Villa. Deze BSO is lekker groot met veel keuze in
     activiteiten voor kinderen. Kinderen zitten bij ons in een vaste groep met begeleiding

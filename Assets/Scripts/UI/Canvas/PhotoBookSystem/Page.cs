@@ -33,6 +33,7 @@ namespace UI.Canvas.PhotoBookSystem
         {
             _rect = GetComponent<RectTransform>();
             title.text = data.Title;
+            interactable.ParentPage = this;
             
             SetProperties();
         }
@@ -43,6 +44,7 @@ namespace UI.Canvas.PhotoBookSystem
         public void SetProperties()
         {
             photo.texture = interactable.GetTexture();
+            Debug.Log(interactable.IsVisited);
             info.text = interactable.GetInfo();
             pointOfInterestRender.texture = data.Render;
         }

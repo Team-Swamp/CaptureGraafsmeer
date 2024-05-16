@@ -19,7 +19,7 @@ namespace Framework.GeoLocation
         
         [SerializeField] private Vector2 coordinates;
         [SerializeField] private Vector2 scaleFactor = Vector2.one;
-        [SerializeField] private bool isStatic;
+        [SerializeField] private bool isStatic = true;
         [SerializeField] private bool isPlayer;
         [SerializeField] private bool isDebugTesting;
         [SerializeField, Range(1, 25)] private float lerpTime = 2.5f;
@@ -71,8 +71,13 @@ namespace Framework.GeoLocation
         /// Set the coordinates to a new value.
         /// </summary>
         /// <param name="targetCords">The target coordinates</param>
-        public void SetCords(Vector2 targetCords) => coordinates = targetCords;
-        
+        /// <param name="targetScale">The target scale</param>>
+        public void SetCordsWithScale(Vector2 targetCords, Vector2 targetScale)
+        {
+            coordinates = targetCords;
+            scaleFactor = targetScale;
+        }
+
         private void UpdateLocation(Vector2 ?pos)
         {
             Vector2 targetPosition = pos ?? new Vector2(coordinates.x, coordinates.y);

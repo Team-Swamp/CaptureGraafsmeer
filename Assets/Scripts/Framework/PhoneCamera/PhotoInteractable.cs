@@ -9,6 +9,7 @@ using UI.Canvas.PhotoTaking;
 
 namespace Framework.PhoneCamera
 {
+    [DefaultExecutionOrder(100000)]
     public sealed class PhotoInteractable : InteractableObject
     {
         private const string NO_TEXTURE_TO_SAVE = "No texture to save.";
@@ -79,7 +80,7 @@ namespace Framework.PhoneCamera
         /// Get the texture to show, if this is visited it will show the made photo, otherwise the default texture
         /// </summary>
         /// <returns>Returns text for text block depending if the photo has been taken or not</returns>
-        public Texture2D GetTexture() => !IsVisited 
+        public Texture2D GetTexture() => !IsVisited
             ? parent.DefaultTex 
             : LoadTexture();
 

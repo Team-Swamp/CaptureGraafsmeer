@@ -24,6 +24,8 @@ namespace Editor
         {
             serializedObject.Update();
     
+            DrawScriptField();
+            
             EditorGUILayout.LabelField("Settings", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(_cords);
             EditorGUILayout.PropertyField(_scale);
@@ -40,9 +42,8 @@ namespace Editor
                 EditorGUILayout.PropertyField(_lerp);
                 EditorGUILayout.PropertyField(_update);
                 EditorGUILayout.PropertyField(_others);
+                EditorGUILayout.PropertyField(_text);
             }
-
-            EditorGUILayout.PropertyField(_text);
             
             serializedObject.ApplyModifiedProperties();
         }
@@ -58,6 +59,14 @@ namespace Editor
             _update = serializedObject.FindProperty("updateTime");
             _others = serializedObject.FindProperty("others");
             _text = serializedObject.FindProperty("locationText");
+        }
+        
+        private void DrawScriptField()
+        {
+            MonoScript script = MonoScript.FromMonoBehaviour((CoordinatesTransform)target);
+            EditorGUI.BeginDisabledGroup(true);
+            EditorGUILayout.ObjectField("Script", script, typeof(MonoScript), false);
+            EditorGUI.EndDisabledGroup();
         }
     }
 }

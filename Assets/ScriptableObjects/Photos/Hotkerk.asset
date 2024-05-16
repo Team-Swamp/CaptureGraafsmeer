@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
+  m_Name: Hotkerk
+  m_EditorClassIdentifier: 
+  render: {fileID: 2800000, guid: 979ef3ac06fa0d442a872dcbb26f45d0, type: 3}
+  title: Hotkerk
+  info: De Parochiekerk van de Heilige Martelaren van Gorcum is een rooms-katholieke
+    kerk in Amsterdam-Watergraafsmeer. Zij maakt als "Hofkerk" deel uit van het door
+    architect Alexander Kropholler ontworpen complex van de Linnaeushof.

@@ -52,8 +52,7 @@ namespace Framework.GeoLocation
                 UpdateLocation(null);
 
             if (isPlayer
-                && others.Length == 0
-                || others.Length <= 2)
+                && others.Length is 0 or <= 2)
                 throw new Exception(PLAYER_NO_OTHERS_ERROR);
         }
 

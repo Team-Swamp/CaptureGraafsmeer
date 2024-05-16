@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
+  m_Name: Fontein
+  m_EditorClassIdentifier: 
+  render: {fileID: 2800000, guid: 54e9d071ae02eb240967ffebf4ec4a88, type: 3}
+  title: Fontein
+  info: Op het grote cirkelvormige plateau ligt een kleiner rond plateau. De 37 waterbundels
+    die in drie kransen uit het kleine plateau omhoogschieten, vormen het waterbeeld.
+    De middelste fontein komt, precies midden op het kruispunt van wegen, wel 6 meter
+    hoog.

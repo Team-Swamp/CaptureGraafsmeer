@@ -33,6 +33,7 @@ namespace UI.Canvas.PhotoBookSystem
         {
             _rect = GetComponent<RectTransform>();
             title.text = data.Title;
+            interactable.ParentPage = this;
             
             SetProperties();
         }

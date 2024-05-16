@@ -32,6 +32,7 @@ namespace UI.Canvas.Introduction
 
         [Header("Events")]
         [SerializeField] private UnityEvent onFirstShow = new();
+        [SerializeField] private UnityEvent onReadIntroduction = new();
 
         private RectTransform _rect;
 
@@ -95,9 +96,12 @@ namespace UI.Canvas.Introduction
             SetNextItem(pages.Length);
             p_currentIndex++;
             SetCurrentItem(true);
-            
-            if(p_currentIndex == pages.Length - 1)
+
+            if (p_currentIndex == pages.Length - 1)
+            {
                 p_closeButton.SetActive(true);
+                onReadIntroduction?.Invoke();
+            }
         }
 
         /// <summary>

@@ -9,9 +9,7 @@ namespace Editor
     {
         private SerializedProperty _cords;
         private SerializedProperty _scale;
-        private SerializedProperty _isStatic;
-        private SerializedProperty _isDebugTesting;
-        private SerializedProperty _isPlayer;
+        private SerializedProperty _type;
         private SerializedProperty _lerp;
         private SerializedProperty _update;
         private SerializedProperty _others;
@@ -29,14 +27,9 @@ namespace Editor
             EditorGUILayout.LabelField("Settings", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(_cords);
             EditorGUILayout.PropertyField(_scale);
-            EditorGUILayout.PropertyField(_isStatic);
-            
-            // if (_isStatic.boolValue)
-                EditorGUILayout.PropertyField(_isDebugTesting);
-            
-            EditorGUILayout.PropertyField(_isPlayer);
+            EditorGUILayout.PropertyField(_type);
 
-            if (_isPlayer.boolValue)
+            if (_type.enumValueIndex is 2 or 3)
             {
                 EditorGUILayout.LabelField("Player settings", EditorStyles.boldLabel);
                 EditorGUILayout.PropertyField(_lerp);
@@ -52,9 +45,7 @@ namespace Editor
         {
             _cords = serializedObject.FindProperty("coordinates");
             _scale = serializedObject.FindProperty("scaleFactor");
-            _isStatic = serializedObject.FindProperty("isStatic");
-            _isPlayer = serializedObject.FindProperty("isPlayer");
-            _isDebugTesting = serializedObject.FindProperty("isDebugTesting");
+            _type = serializedObject.FindProperty("type");
             _lerp = serializedObject.FindProperty("lerpTime");
             _update = serializedObject.FindProperty("updateTime");
             _others = serializedObject.FindProperty("others");

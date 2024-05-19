@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 
 using FrameWork.Extensions;
+using Framework.Enums;
 using Player;
 
 namespace Framework.GeoLocation
@@ -12,16 +13,13 @@ namespace Framework.GeoLocation
     {
         private const int HALF_CIRCLE = 180;
         private const int EARTH_RADIUS = 6378137;
-        private const string PLAYER_STATIC_ERROR = "The player is not a static CoordinatesTransform!";
         private const string PLAYER_NO_OTHERS_ERROR = "The player needs to refrence other CoordinatesTransform! At least 2 are needed.";
         
         private static readonly Vector2 origin = new (52.356531f, 4.9308f);
         
         [SerializeField] private Vector2 coordinates;
         [SerializeField] private Vector2 scaleFactor = Vector2.one;
-        [SerializeField] private bool isStatic = true;
-        [SerializeField] private bool isPlayer;
-        [SerializeField] private bool isDebugTesting;
+        [SerializeField] private CoordinatesTransformType type;
         [SerializeField, Range(1, 25)] private float lerpTime = 2.5f;
         [SerializeField, Range(1, 60)] private float updateTime = 2.5f;
         [SerializeField] private CoordinatesTransform[] others;
@@ -32,12 +30,8 @@ namespace Framework.GeoLocation
         
         private void Awake()
         {
-            if (isPlayer)
+            if (type is CoordinatesTransformType.PLAYER or CoordinatesTransformType.PLAYER_DEBUG)
                 _player = GetComponent<LocationUpdater>();
-            
-            if(isStatic
-               && isPlayer)
-                Debug.LogError(PLAYER_STATIC_ERROR);
         }
 
         /// <summary>
@@ -48,23 +42,37 @@ namespace Framework.GeoLocation
         {
             base.Start();
             
-            if (isStatic)
+            if (type == CoordinatesTransformType.STATIC)
                 UpdateLocation(null);
 
-            if (isPlayer
+            if (type is CoordinatesTransformType.PLAYER or CoordinatesTransformType.PLAYER_DEBUG
                 && others.Length is 0 or <= 2)
                 throw new Exception(PLAYER_NO_OTHERS_ERROR);
         }
 
         private void Update()
         {
-            if (isDebugTesting)
+            if (type == CoordinatesTransformType.STATIC_DEBUG)
                 UpdateLocation(null);
             
-            if(isStatic)
+            if(type is CoordinatesTransformType.STATIC or CoordinatesTransformType.STATIC_DEBUG
+               || !_isReactive)
                 return;
-            
-            UpdateLocation(isPlayer ? isDebugTesting ? coordinates : _player.GetLiveLocation() : null);
+
+            switch (type)
+            {
+                case CoordinatesTransformType.PLAYER:
+                    UpdateLocation(_player.GetLiveLocation());
+                    break;
+                case CoordinatesTransformType.PLAYER_DEBUG:
+                    UpdateLocation(coordinates);
+                    break;
+                case CoordinatesTransformType.STATIC:
+                case CoordinatesTransformType.STATIC_DEBUG:
+                default:
+                    UpdateLocation(null);
+                    break;
+            }
         }
 
         /// <summary>
@@ -83,10 +91,10 @@ namespace Framework.GeoLocation
             Vector2 targetPosition = pos ?? new Vector2(coordinates.x, coordinates.y);
             targetPosition.Subtract(origin);
             (double latitude, double longitude) = ConvertToMeters(targetPosition.x, -targetPosition.y);
-            Vector3 finalTargetPosition = isPlayer
+            Vector3 finalTargetPosition = type is CoordinatesTransformType.PLAYER or CoordinatesTransformType.PLAYER_DEBUG
                  ? BlendPlayerPosition(latitude, longitude)
                  : new Vector3((float)latitude, 0, (float)longitude);
-
+            
             if (_isReactive)
                 return;
             
@@ -103,17 +111,18 @@ namespace Framework.GeoLocation
 
         private Vector3 BlendPlayerPosition(double latitude, double longitude)
         {
-            (CoordinatesTransform closeted, CoordinatesTransform secondCloseted, float weight) = FindTwoClosestGameObjects();
+            (CoordinatesTransform closest1, CoordinatesTransform closest2, float weight) = FindTwoClosestGameObjects();
+            Vector2 currentScaleFactor = Vector2.Lerp(closest1.scaleFactor, closest2.scaleFactor, weight);
 
-            Vector2 currentScaleFactor = closeted.scaleFactor;
-            currentScaleFactor = currentScaleFactor.WeightedAverage(secondCloseted.scaleFactor, weight);
-            locationText.text =
-                $"Current scale: {currentScaleFactor}\nClosested object: {closeted.name}\nClosested2 object: {secondCloseted.name}";
+            locationText.text = $"Current scale: {scaleFactor}\n" +
+                                $"Closest object: {closest1.name}\n" +
+                                $"Second closest object: {closest2.name}\n" +
+                                $"Weight: {weight}";
+
             Vector3 finalPosition = new Vector3((float)latitude, 0, (float)longitude);
-    
             finalPosition.x *= currentScaleFactor.x;
             finalPosition.z *= currentScaleFactor.y;
-            
+
             return finalPosition;
         }
         
@@ -122,35 +131,32 @@ namespace Framework.GeoLocation
             CoordinatesTransform closest1 = null;
             CoordinatesTransform closest2 = null;
             float shortestDistance = float.MaxValue;
+            float secondShortestDistance = float.MaxValue;
 
             foreach (var currentOtherTransform in others)
             {
-                float distance = Vector3.Distance(currentOtherTransform.gameObject.transform.position, 
-                    transform.position);
+                float distance = Vector2.Distance(currentOtherTransform.coordinates, coordinates);
 
                 if (distance < shortestDistance)
                 {
                     closest2 = closest1;
+                    secondShortestDistance = shortestDistance;
                     closest1 = currentOtherTransform;
                     shortestDistance = distance;
                 }
-                else if (closest2 == null 
-                         || Mathf.Approximately(distance, shortestDistance)
-                         || Vector3.Distance(currentOtherTransform.gameObject.transform.position, transform.position)
-                         < Vector3.Distance(closest2.gameObject.transform.position, transform.position))
+                else if (distance < secondShortestDistance)
+                {
                     closest2 = currentOtherTransform;
+                    secondShortestDistance = distance;
+                }
             }
+            
+            float weight = 100f * shortestDistance / (shortestDistance + secondShortestDistance);
+            weight = Mathf.Clamp(weight, 0, 100);
 
-            float weight = 100f * shortestDistance / Vector3.Distance(closest1.gameObject.transform.position,
-                closest2.gameObject.transform.position);
-            
-            if (weight < 0)
-                weight = 0;
-            else if (weight > 100)
-                weight = 100;
-            
             return (closest1, closest2, weight);
         }
+
         
         private IEnumerator LerpPosition(Vector3 targetPosition)
         {

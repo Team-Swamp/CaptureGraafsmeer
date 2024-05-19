@@ -64,7 +64,7 @@ namespace Framework.GeoLocation
             if(isStatic)
                 return;
             
-            UpdateLocation(isPlayer ? _player.GetLiveLocation() : null);
+            UpdateLocation(isPlayer ? isDebugTesting ? coordinates : _player.GetLiveLocation() : null);
         }
 
         /// <summary>
@@ -143,6 +143,12 @@ namespace Framework.GeoLocation
 
             float weight = 100f * shortestDistance / Vector3.Distance(closest1.gameObject.transform.position,
                 closest2.gameObject.transform.position);
+            
+            if (weight < 0)
+                weight = 0;
+            else if (weight > 100)
+                weight = 100;
+            
             return (closest1, closest2, weight);
         }
         

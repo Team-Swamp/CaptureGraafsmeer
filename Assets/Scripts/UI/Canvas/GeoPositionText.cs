@@ -13,20 +13,20 @@ namespace UI.Canvas
 
         private void Start()
         {
-            if (!Input.location.isEnabledByUser)
-            {
-                Destroy(locationText);
-                locationText = null;
-                throw new Exception(NO_LOCATION_ERROR);
-            }
+            // if (!Input.location.isEnabledByUser)
+            // {
+            //     Destroy(locationText);
+            //     locationText = null;
+            //     throw new Exception(NO_LOCATION_ERROR);
+            // }
 
             SetText(0, 0);
         }
 
         private void Update()
         {
-            if (player
-                && Input.location.status == LocationServiceStatus.Running)
+            if (player)
+                // && Input.location.status == LocationServiceStatus.Running)
                 SetText(player.position.x, player.position.z);
         }
 

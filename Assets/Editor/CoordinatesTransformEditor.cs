@@ -31,7 +31,7 @@ namespace Editor
             EditorGUILayout.PropertyField(_scale);
             EditorGUILayout.PropertyField(_isStatic);
             
-            if (_isStatic.boolValue)
+            // if (_isStatic.boolValue)
                 EditorGUILayout.PropertyField(_isDebugTesting);
             
             EditorGUILayout.PropertyField(_isPlayer);

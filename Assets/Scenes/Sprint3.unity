@@ -1507,6 +1507,10 @@ PrefabInstance:
       propertyPath: interactable
       value: 
       objectReference: {fileID: 2062374168}
+    - target: {fileID: 3739387082931237506, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3762881642748235205, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
       propertyPath: m_Name
       value: MainCanvas
@@ -1575,14 +1579,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6054707000004896473, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7437889857220485956, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
       propertyPath: interactable
       value: 
       objectReference: {fileID: 1635328372}
+    - target: {fileID: 8395031984742190678, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8896696852288704810, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 223758744}
+    - target: {fileID: 9153630600393500484, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2777,14 +2793,22 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.008642174
       objectReference: {fileID: 0}
-    - target: {fileID: 4070547984105785384, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.012216672
-      objectReference: {fileID: 0}
     - target: {fileID: 5497335927952231202, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: locationText
       value: 
       objectReference: {fileID: 536153549}
+    - target: {fileID: 5497335927952231202, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
+      propertyPath: coordinates.x
+      value: 52.35653
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497335927952231202, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
+      propertyPath: coordinates.y
+      value: 4.9308
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497335927952231202, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
+      propertyPath: isDebugTesting
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5497335927952231202, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: others.Array.data[0]
       value: 
@@ -2821,10 +2845,6 @@ PrefabInstance:
       propertyPath: others.Array.data[8]
       value: 
       objectReference: {fileID: 2034931582}
-    - target: {fileID: 5688119187598977341, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.005207609
-      objectReference: {fileID: 0}
     - target: {fileID: 6505507267890270945, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_Name
       value: Player

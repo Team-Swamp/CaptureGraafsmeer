@@ -350,9 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 52.35653, y: 4.9308}
   scaleFactor: {x: 1, y: 1}
-  isStatic: 1
-  isPlayer: 0
-  isDebugTesting: 0
+  type: 0
   lerpTime: 0
   updateTime: 2.5
   others: []
@@ -1018,9 +1016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 52.35653, y: 4.9308}
   scaleFactor: {x: 1, y: 1}
-  isStatic: 1
-  isPlayer: 0
-  isDebugTesting: 0
+  type: 0
   lerpTime: 0
   updateTime: 2.5
   others: []
@@ -2799,19 +2795,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422362989458044855, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.04210612
+      value: 0.042106193
       objectReference: {fileID: 0}
     - target: {fileID: 2422362989458044855, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.008642163
+      value: -0.008642179
       objectReference: {fileID: 0}
     - target: {fileID: 3905940548920388439, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.04210614
+      value: 0.042106178
       objectReference: {fileID: 0}
     - target: {fileID: 3905940548920388439, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.008642168
+      value: -0.008642174
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497335927952231202, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
+      propertyPath: type
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5497335927952231202, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: updateTime

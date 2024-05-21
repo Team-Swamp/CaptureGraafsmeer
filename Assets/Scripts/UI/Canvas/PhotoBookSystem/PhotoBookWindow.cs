@@ -26,7 +26,6 @@ namespace UI.Canvas.PhotoBookSystem
         private const string NAME_FIELD = "Name for new page:";
         private const string INFO_FIELD = "Info for new page:";
         private const string CORDS_FIELD = "Vector2 coordinates field:";
-        private const string SCALE_FIELD = "Vector2 scale factor field:";
         private const string TEXTURE_FIELD = "Render texture for interactable ->";
         private const string BUTTON_TEXT = "Make new page!";
         private const string SCRIPTABLE_OBJECT_SUFFIX = ".asset";
@@ -38,13 +37,12 @@ namespace UI.Canvas.PhotoBookSystem
         private const string TEXTURE_WARNING = "Do not click on this, only drag and drop a texture! ^^^^^";
         private const string PHOTO_INTERACTABLE_REFERENCE_WARNING = "You need to reference the interactable in the page!";
         
-        private static readonly Vector2 WINDOW_SIZE = new (400f, 400f);
+        private static readonly Vector2 WINDOW_SIZE = new (400f, 380f);
         
         private bool _needsRepaint;
         private string _newObjectName = "Default Text";
         private string _info = "Info";
         private Vector2 _cords = Vector2.zero;
-        private Vector2 _scale = Vector2.one;
         private Texture2D _interactableTexture;
         private Page _currentPage;
         private PhotoData _currentData;
@@ -67,8 +65,6 @@ namespace UI.Canvas.PhotoBookSystem
                 GUILayout.Label(INFO_FIELD + SPACE + _info);
                 GUILayout.Space(MARGIN);
                 GUILayout.Label(CORDS_FIELD + SPACE + _cords);
-                GUILayout.Space(MARGIN);
-                GUILayout.Label(SCALE_FIELD + SPACE + _scale);
                 GUILayout.Space(MARGIN);
                 
                 if(_interactableTexture == null)
@@ -100,8 +96,6 @@ namespace UI.Canvas.PhotoBookSystem
             _info = EditorGUILayout.TextArea(_info, GUILayout.Height(100));
             GUILayout.Space(MARGIN);
             _cords = EditorGUILayout.Vector2Field(CORDS_FIELD, _cords);
-            GUILayout.Space(MARGIN);
-            _scale = EditorGUILayout.Vector2Field(SCALE_FIELD, _scale);
             GUILayout.Space(MARGIN);
             TextureField(TEXTURE_FIELD, ref _interactableTexture);
             GUILayout.Space(MARGIN);
@@ -160,7 +154,7 @@ namespace UI.Canvas.PhotoBookSystem
                 GameObject newObject = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
                 newObject.name = _newObjectName;
 
-                newObject.GetComponent<CoordinatesTransform>().SetCordsWithScale(_cords, _scale);
+                newObject.GetComponent<CoordinatesTransform>().SetCords(_cords);
                 PhotoInteractable newInteractable = newObject.GetComponent<PhotoInteractable>();
                 
                 newInteractable.ParentPage = _currentPage;

@@ -35,6 +35,7 @@ namespace UI.Canvas.Introduction
         [SerializeField] private UnityEvent onReadIntroduction = new();
 
         private RectTransform _rect;
+        private bool _isFirstShow = true;
 
         private void Awake() => _rect = GetComponent<RectTransform>();
 
@@ -155,6 +156,11 @@ namespace UI.Canvas.Introduction
         {
             gameObject.SetActive(true);
             Open();
+
+            if (!_isFirstShow)
+                return;
+            
+            _isFirstShow = false;
             onFirstShow?.Invoke();
         }
     }

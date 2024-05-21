@@ -1,19 +1,24 @@
-﻿using UnityEditor;
+﻿using System.Linq;
+using UnityEditor;
 
 using Framework.GeoLocation;
 
 namespace Editor
 {
-    [CustomEditor(typeof(CoordinatesTransform))]
+    [CustomEditor(typeof(CoordinatesTransform)), CanEditMultipleObjects]
     public sealed class CoordinatesTransformEditor : UnityEditor.Editor
     {
+        private const string SETTINGS_HEADER = "Settings";
+        private const string PLAYER_SETTINGS_HEADER = "Player settings";
+        private const string CORDS = "coordinates";
+        private const string TYPE = "type";
+        private const string LERP_TIME = "lerpTime";
+        private const string UPDATE_TIME = "updateTime";
+        
         private SerializedProperty _cords;
-        private SerializedProperty _scale;
         private SerializedProperty _type;
         private SerializedProperty _lerp;
         private SerializedProperty _update;
-        private SerializedProperty _others;
-        private SerializedProperty _text;
 
         /// <summary>
         /// Display every serialized variable, headers and space.
@@ -24,18 +29,15 @@ namespace Editor
     
             DrawScriptField();
             
-            EditorGUILayout.LabelField("Settings", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField(SETTINGS_HEADER, EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(_cords);
-            EditorGUILayout.PropertyField(_scale);
             EditorGUILayout.PropertyField(_type);
 
-            if (_type.enumValueIndex is 2 or 3)
+            if (ShouldShowPlayerSettings())
             {
-                EditorGUILayout.LabelField("Player settings", EditorStyles.boldLabel);
+                EditorGUILayout.LabelField(PLAYER_SETTINGS_HEADER, EditorStyles.boldLabel);
                 EditorGUILayout.PropertyField(_lerp);
                 EditorGUILayout.PropertyField(_update);
-                EditorGUILayout.PropertyField(_others);
-                EditorGUILayout.PropertyField(_text);
             }
             
             serializedObject.ApplyModifiedProperties();
@@ -43,13 +45,10 @@ namespace Editor
         
         private void OnEnable()
         {
-            _cords = serializedObject.FindProperty("coordinates");
-            _scale = serializedObject.FindProperty("scaleFactor");
-            _type = serializedObject.FindProperty("type");
-            _lerp = serializedObject.FindProperty("lerpTime");
-            _update = serializedObject.FindProperty("updateTime");
-            _others = serializedObject.FindProperty("others");
-            _text = serializedObject.FindProperty("locationText");
+            _cords = serializedObject.FindProperty(CORDS);
+            _type = serializedObject.FindProperty(TYPE);
+            _lerp = serializedObject.FindProperty(LERP_TIME);
+            _update = serializedObject.FindProperty(UPDATE_TIME);
         }
         
         private void DrawScriptField()
@@ -59,5 +58,9 @@ namespace Editor
             EditorGUILayout.ObjectField("Script", script, typeof(MonoScript), false);
             EditorGUI.EndDisabledGroup();
         }
+        
+        private bool ShouldShowPlayerSettings()
+            => targets.Select(t => new SerializedObject(t)).Select(obj
+            => obj.FindProperty(TYPE)).Any(typeProp => typeProp.enumValueIndex is 2 or 3);
     }
 }

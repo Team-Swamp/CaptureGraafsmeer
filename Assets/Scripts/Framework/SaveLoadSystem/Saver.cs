@@ -45,8 +45,7 @@ namespace Framework.SaveLoadSystem
             base.Awake();
             
             if (PlayerPrefs.HasKey(PHOTO_KEY))
-                // _photoAmountMade = PlayerPrefs.GetInt(PHOTO_KEY);
-                _photoAmountMade = 9;
+                _photoAmountMade = PlayerPrefs.GetInt(PHOTO_KEY);
             
             if (PlayerPrefs.HasKey(ROUTE_KEY))
                 _checkpointsPassed = PlayerPrefs.GetInt(ROUTE_KEY);

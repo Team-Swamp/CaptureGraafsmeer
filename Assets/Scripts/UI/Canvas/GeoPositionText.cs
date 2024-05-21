@@ -1,5 +1,4 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 namespace UI.Canvas
@@ -10,23 +9,24 @@ namespace UI.Canvas
         
         [SerializeField] private Transform player;
         [SerializeField] private TMP_Text locationText;
-
+        
         private void Start()
         {
-            if (!Input.location.isEnabledByUser)
-            {
-                Destroy(locationText);
-                locationText = null;
-                throw new Exception(NO_LOCATION_ERROR);
-            }
+            // commented for testing
+            // if (!Input.location.isEnabledByUser)
+            // {
+            //     Destroy(locationText);
+            //     locationText = null;
+            //     throw new Exception(NO_LOCATION_ERROR);
+            // }
 
             SetText(0, 0);
         }
 
         private void Update()
         {
-            if (player
-                && Input.location.status == LocationServiceStatus.Running)
+            if (player)
+                // && Input.location.status == LocationServiceStatus.Running) // commented for testing
                 SetText(player.position.x, player.position.z);
         }
 

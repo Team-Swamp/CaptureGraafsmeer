@@ -71,23 +71,18 @@ MonoBehaviour:
   activeDelay: 3.5
   animationDuration: 0.5
   pages:
-  - info: 'Plaatje 1:
-
-      Loop in de digetale en echte wereld. Richting de punten
-      van intresse, zoals gebouwen en kunstbeelden.'
-    image: {fileID: 2800000, guid: 47229dae550146c4abf76929dcc50ff6, type: 3}
-  - info: 'Plaatje 2:
-
-      Klik op een punt van intresse als je er bij staat om
-      een foto te maken.
-
-'
-    image: {fileID: 2800000, guid: 47229dae550146c4abf76929dcc50ff6, type: 3}
-  - info: 'Plaatje 3:
-
-      Klik op de camera knop om een foto te maken. Of op de
-      "terug" knop om niet een foto te maken.'
-    image: {fileID: 2800000, guid: 47229dae550146c4abf76929dcc50ff6, type: 3}
+  - info: Loop in het echt en in de digitale Watergraafsmeer. Loop richting the rode
+      lijn, die helpt met de route belopen.
+    image: {fileID: 2800000, guid: 320380234d76a764f9c0f283e4cf987d, type: 3}
+  - info: Klik op de gebouwen, kunstwerken en parken. Dit doe je om er op te drukken
+      met je vinger.
+    image: {fileID: 2800000, guid: 82da40b6f837b4543948a514dde2f736, type: 3}
+  - info: Tijd om een foto maken. Je zal de naam zien waar je op drukte. Ben je klaar
+      om de foto maken, klik dan op de camera!
+    image: {fileID: 2800000, guid: 99d43d4b936b6654fb76e42a7d216ad0, type: 3}
+  - info: Foto goed gemaakt, dan zal het verschijnen in jouw fotoboek. Hierdoor kan
+      je er meer over te weten komen.
+    image: {fileID: 2800000, guid: 1be032895cfd1c74690a97d91092b52d, type: 3}
   onFirstShow:
     m_PersistentCalls:
       m_Calls: []
@@ -971,7 +966,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 600}
-  m_SizeDelta: {x: 900, y: 900}
+  m_SizeDelta: {x: 1200, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8129426307007820170
 CanvasRenderer:

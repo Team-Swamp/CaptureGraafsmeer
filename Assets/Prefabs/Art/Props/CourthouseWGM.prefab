@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3987859235533729367}
   m_Layer: 0
   m_Name: CourthouseWGM
-  m_TagString: Cullable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,4 +100,5 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 0}
+  panel: {fileID: 0}
   data: {fileID: 0}

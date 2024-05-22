@@ -800,24 +800,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24921be9b51241df8439c48c0cefafe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coordinates: {x: 0, y: 0}
-  scaleFactor: {x: 1, y: 1}
-  isStatic: 0
-  isPlayer: 1
-  isDebugTesting: 0
+  coordinates: {x: 52.35653, y: 4.9308}
+  type: 2
   lerpTime: 1.5
-  updateTime: 30
-  others:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  locationText: {fileID: 0}
+  updateTime: 10
 --- !u!114 &4538868372022182429
 MonoBehaviour:
   m_ObjectHideFlags: 0

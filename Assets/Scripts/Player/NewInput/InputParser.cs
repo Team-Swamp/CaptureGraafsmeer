@@ -9,7 +9,7 @@ namespace Player.NewInput
     {
         private const string INTERACTABLE_TAG = "Interactable";
         
-        [SerializeField, Range(10, 100)] private float interactableRayDistance;
+        [SerializeField, Range(1, 100)] private float interactableRayDistance;
         
         private Camera _mainCamera;
         private PlayerInput _playerInput;

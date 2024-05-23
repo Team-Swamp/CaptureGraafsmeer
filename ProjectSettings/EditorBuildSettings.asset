@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Sprint1.unity
     guid: 54551d5509f74c6458b94a9d3239d3cf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing/RouteHighlight.unity
     guid: 22e1783872581744eb9dfd3cc8c6dc6a
   - enabled: 0

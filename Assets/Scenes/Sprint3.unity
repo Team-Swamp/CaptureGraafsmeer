@@ -5453,6 +5453,63 @@ PrefabInstance:
       propertyPath: interactable
       value: 
       objectReference: {fileID: 1635328372}
+    - target: {fileID: 7607517302758895118, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: pages.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607517302758895118, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: pages.Array.data[0].info
+      value: 'Welkom bij CaptureGraafsmeer.
+
+        Ondek meer over Watergraafsmeer
+        via een fotoboek! Gemaakt door game developers en game artists van Mediacollege
+        Amsterdam.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607517302758895118, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: pages.Array.data[1].info
+      value: Dit is de route die je gaat bewandelen. Beginnende bij het kantoor van
+        gemeente Amsterdam-Oost, door Watergraafsmeer heen!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607517302758895118, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: pages.Array.data[2].info
+      value: Loop in het echt en in de digitale Watergraafsmeer. Volg de rode lijn,
+        dit is de route om af te lopen.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607517302758895118, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: pages.Array.data[3].info
+      value: Klik op de gebouwen, kunstwerken en parken. Dit doe je om er op te drukken
+        met je vinger.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607517302758895118, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: pages.Array.data[4].info
+      value: Tijd om een foto maken. Je zal de naam zien waar je op drukte. Ben je
+        klaar om de  foto te maken, klik dan op de camera!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607517302758895118, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: pages.Array.data[5].info
+      value: Foto goed gemaakt? Dan zal het verschijnen in jouw fotoboek. Hierdoor
+        kom je er meer over te weten.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607517302758895118, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: pages.Array.data[1].image
+      value: 
+      objectReference: {fileID: 2800000, guid: 515ac574b2d3699439db76956ed9f7b6, type: 3}
+    - target: {fileID: 7607517302758895118, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: pages.Array.data[2].image
+      value: 
+      objectReference: {fileID: 2800000, guid: 320380234d76a764f9c0f283e4cf987d, type: 3}
+    - target: {fileID: 7607517302758895118, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: pages.Array.data[3].image
+      value: 
+      objectReference: {fileID: 2800000, guid: 82da40b6f837b4543948a514dde2f736, type: 3}
+    - target: {fileID: 7607517302758895118, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: pages.Array.data[4].image
+      value: 
+      objectReference: {fileID: 2800000, guid: 99d43d4b936b6654fb76e42a7d216ad0, type: 3}
+    - target: {fileID: 7607517302758895118, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: pages.Array.data[5].image
+      value: 
+      objectReference: {fileID: 2800000, guid: 1be032895cfd1c74690a97d91092b52d, type: 3}
     - target: {fileID: 8896696852288704810, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
       propertyPath: player
       value: 
@@ -8850,11 +8907,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422362989458044855, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.018826285
+      value: 0.018826248
       objectReference: {fileID: 0}
     - target: {fileID: 2422362989458044855, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0038640422
+      value: 0.003864035
       objectReference: {fileID: 0}
     - target: {fileID: 2422362989458044855, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.y
@@ -8862,15 +8919,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422362989458044855, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.20101885
+      value: -0.20101888
       objectReference: {fileID: 0}
     - target: {fileID: 3905940548920388439, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.018826287
+      value: 0.018826252
       objectReference: {fileID: 0}
     - target: {fileID: 3905940548920388439, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0038640418
+      value: 0.0038640348
       objectReference: {fileID: 0}
     - target: {fileID: 3905940548920388439, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.y
@@ -8878,7 +8935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3905940548920388439, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.20101883
+      value: -0.20101884
       objectReference: {fileID: 0}
     - target: {fileID: 4070547984105785384, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8890,11 +8947,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4070547984105785384, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.018426144
+      value: 0.01842618
       objectReference: {fileID: 0}
     - target: {fileID: 4070547984105785384, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.005462248
+      value: 0.005462258
       objectReference: {fileID: 0}
     - target: {fileID: 4070547984105785384, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.y
@@ -8910,7 +8967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5688119187598977341, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.019077186
+      value: 0.019077187
       objectReference: {fileID: 0}
     - target: {fileID: 5688119187598977341, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.x

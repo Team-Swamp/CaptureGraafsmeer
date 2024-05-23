@@ -30,6 +30,9 @@ namespace Framework.PhoneCamera
         /// </summary>
         public void ActiveInteract()
         {
+            if (IsVisited)
+                return;
+            
             panel.SetPanelData(data);
             panel.gameObject.SetActive(true);
             SetPhotoData();

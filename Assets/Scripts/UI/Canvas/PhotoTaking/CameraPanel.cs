@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 using Framework.PhoneCamera;
@@ -16,6 +17,9 @@ namespace UI.Canvas.PhotoTaking
         [Header("Child objects")]
         [SerializeField] private TMP_Text pointOfInterestName;
         [SerializeField] private RawImage pointOfInterestRender;
+
+        [Header("Event")]
+        [SerializeField] private UnityEvent onShow = new();
 
         private bool _isActive;
 
@@ -34,6 +38,8 @@ namespace UI.Canvas.PhotoTaking
             pointOfInterestName.text = targetPhotoData.Title;
             pointOfInterestRender.texture = targetPhotoData.Render;
             taker.StartCamera();
+            
+            onShow?.Invoke();
         }
         
         private void Update()

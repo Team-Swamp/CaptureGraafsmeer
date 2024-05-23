@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CWGM
   m_EditorClassIdentifier: 
   render: {fileID: 2800000, guid: 657e6ff9fceb99141a46c1e2a0e560b0, type: 3}
-  title: CWGM
+  title: Rechthuis Watergraafsmeer
   info: Het huis is gebouwd in 1777 ter vervanging van het oorspronkelijke gebouw
     uit de 17e eeuw. Tot 1 mei 1906 kwam het gemeentebestuur van de Watergraafsmeer
     hier bijeen en werd gehuurd van het hoogheemraadschap Watergraafsmeer. Het behield

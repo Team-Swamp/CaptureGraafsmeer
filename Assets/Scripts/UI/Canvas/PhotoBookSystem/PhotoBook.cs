@@ -16,7 +16,7 @@ namespace UI.Canvas.PhotoBookSystem
         {
             int l = pages.Length;
             
-            for (int i = 0; i < l; i++)
+            for (int i = l - 1; i >= 0; i--)
             {
                 if (Saver.Instance.PhotoAmountMade >= i)
                     pages[i].GetPhotoInteractable.IsVisited = true;

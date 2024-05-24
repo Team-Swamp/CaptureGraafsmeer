@@ -1,4 +1,7 @@
-# Codename-BDLMTW
+# Capturegraafsmeer
+
+This is a `location-based augmented reality` mobile serious-game for android.
+
 | Links | Description |
 | ---------|----------|
 | [What-is-made](https://github.com/Team-Swamp/Codename-BDLMTW/wiki/What-is-made) | Here is a list of the team members with their roles and what they have made |

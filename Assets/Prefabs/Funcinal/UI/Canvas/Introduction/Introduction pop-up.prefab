@@ -71,6 +71,12 @@ MonoBehaviour:
   activeDelay: 3.5
   animationDuration: 0.5
   pages:
+  - info: Welkom bij CaptureGraafsMeer. Ondek meer over Watergraafsmeer via een fotoboek!
+      Gemaakt door Mediacollege Amsterdam studenten, game develeropers and game artists.
+    image: {fileID: 2800000, guid: a23bfe3b37c8b654594540aa06e7c75e, type: 3}
+  - info: Dit is de route die je gaat bewandelen. Beginnedn bij het kantoor van Amsterdamese
+      gemeente door het Watergraafsmeer!
+    image: {fileID: 2800000, guid: 515ac574b2d3699439db76956ed9f7b6, type: 3}
   - info: Loop in het echt en in de digitale Watergraafsmeer. Loop richting the rode
       lijn, die helpt met de route belopen.
     image: {fileID: 2800000, guid: 320380234d76a764f9c0f283e4cf987d, type: 3}

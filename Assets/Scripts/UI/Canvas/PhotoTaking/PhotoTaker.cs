@@ -24,6 +24,7 @@ namespace UI.Canvas.PhotoTaking
         private PhotoInteractable _currentInteractable;
         
         public WebCamTexture CameraTexture { get; private set; }
+        
         public PhotoData Data { get; set; }
         
         public Texture2D DefaultTex => defaultTex;
@@ -34,6 +35,8 @@ namespace UI.Canvas.PhotoTaking
         [SerializeField] private UnityEvent onPhotoTaken = new();
         
         private void Awake() => FindCamera();
+
+        private void OnEnable() => FindCamera();
 
         private void OnDisable()
         {
@@ -55,6 +58,9 @@ namespace UI.Canvas.PhotoTaking
 
         private void ApplyCamera(RawImage targetImage)
         {
+            if (CameraTexture == null)
+                FindCamera();
+            
             CameraTexture.Play();
             targetImage.texture = CameraTexture;
             onOpenCamera?.Invoke();

@@ -1,6 +1,6 @@
 # Capturegraafsmeer
 
-This is a `location-based augmented reality` mobile serious-game for android.
+This is a `location-based augmented reality` mobile serious-game for android. Here is a [gameplay video](https://www.youtube.com/watch?v=tSfMB9JWZ2Q) of the game/application.
 
 | Links | Description |
 | ---------|----------|

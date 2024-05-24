@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01fc612e5fe8423ea053bf2434eab262, type: 3}
-  m_Name: Gallileo
+  m_Name: Gallilei
   m_EditorClassIdentifier: 
   render: {fileID: 2800000, guid: 8d070e7dcf8801f4c91c9087a696bcda, type: 3}
-  title: Gallilei Plantsoen
+  title: Gallilei
   info: Galileo Galilei was een Italiaans natuurkundige, astronoom, wiskundige en
     filosoof. Hij was hoogleraar in Pisa en Padua. In het Nederlands, het Duits en
     in de Scandinavische talen wordt hij meestal aangeduid als Galilei.

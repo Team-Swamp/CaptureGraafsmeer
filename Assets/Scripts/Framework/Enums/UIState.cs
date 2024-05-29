@@ -1,6 +1,4 @@
-using UnityEngine;
-
-namespace UI.Canvas.StateMachine
+namespace Framework.Enums
 {
     public enum UIState
     {

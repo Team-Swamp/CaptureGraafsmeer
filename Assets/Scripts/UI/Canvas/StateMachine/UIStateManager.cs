@@ -23,7 +23,7 @@ namespace UI.Canvas.StateMachine
         /// and whether or not you're allowed to move from a certain state to another one.
         /// </summary>
         /// <param name="targetState">This is the state that is passed in.</param>
-        /// <exception cref="ArgumentOutOfRangeException">This error will be called when the state is unable</exception>
+        /// <exception cref="ArgumentOutOfRangeException">This error will be called when the state is unusable</exception>
         public void SwitchState(UIState targetState)
         {
             switch (targetState)

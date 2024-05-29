@@ -2,14 +2,13 @@ using UnityEngine;
 
 namespace UI.Canvas.StateMachine
 {
-
     public class StateChange : MonoBehaviour
     {
-        public UIStates States;
+        public UIStates states;
     }
     public enum UIStates
     {
-        MAIN_BUTTON,
+        MAIN,
         INTRODUCTION,
         PHOTOBOOK,
         CAMERA_PANEL,

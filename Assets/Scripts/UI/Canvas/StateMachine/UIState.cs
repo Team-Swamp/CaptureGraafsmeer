@@ -2,11 +2,7 @@ using UnityEngine;
 
 namespace UI.Canvas.StateMachine
 {
-    public class StateChange : MonoBehaviour
-    {
-        public UIStates states;
-    }
-    public enum UIStates
+    public enum UIState
     {
         MAIN,
         INTRODUCTION,

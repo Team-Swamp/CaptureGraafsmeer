@@ -22,11 +22,11 @@ namespace UI.Canvas.StateMachine
         /// This switch case checks whether or not you're in the correct state,
         /// and whether or not you're allowed to move from a certain state to another one.
         /// </summary>
-        /// <param name="newState">This is the state that is passed in.</param>
+        /// <param name="targetState">This is the state that is passed in.</param>
         /// <exception cref="ArgumentOutOfRangeException">This error will be called when the state is unable</exception>
-        public void SwitchState(UIState newState)
+        public void SwitchState(UIState targetState)
         {
-            switch (newState)
+            switch (targetState)
             {
                 case UIState.MAIN:
                     cameraPanel.SetActive(false);
@@ -51,10 +51,10 @@ namespace UI.Canvas.StateMachine
                         cameraPanel.SetActive(false);
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+                    throw new ArgumentOutOfRangeException(nameof(targetState), targetState, null);
             }
             
-            currentState = newState;
+            currentState = targetState;
         }
     }
 }

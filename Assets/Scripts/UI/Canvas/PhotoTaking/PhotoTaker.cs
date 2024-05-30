@@ -60,7 +60,6 @@ namespace UI.Canvas.PhotoTaking
         {
             if (CameraTexture == null)
                 FindCamera();
-            
             CameraTexture.Play();
             targetImage.texture = CameraTexture;
             onOpenCamera?.Invoke();

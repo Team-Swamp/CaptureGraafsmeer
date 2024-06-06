@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37fbfda4697dafb42ac68050a241e395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <States>k__BackingField: 2
+  <States>k__BackingField: 5
 --- !u!1 &3762881642748235205
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +481,7 @@ MonoBehaviour:
   photoBook: {fileID: 6510203119249383342}
   cameraPanel: {fileID: 8321171917658556964}
   takingPicture: {fileID: 1067583438853376655}
+  colorPicker: {fileID: 0}
 --- !u!114 &8855410879537036687
 MonoBehaviour:
   m_ObjectHideFlags: 0

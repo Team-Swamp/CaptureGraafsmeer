@@ -6,6 +6,7 @@ namespace Framework.Enums
         INTRODUCTION,
         PHOTOBOOK,
         CAMERA_PANEL,
-        TAKING_PICTURE
+        TAKING_PICTURE,
+        COLOR_PICKER
     }
 }

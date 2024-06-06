@@ -16,7 +16,7 @@ namespace UI.Canvas.StateMachine
         [SerializeField] private PhotoBook photoBook;
         [SerializeField] private GameObject cameraPanel;
         [SerializeField] private GameObject takingPicture;
-        
+        [SerializeField] private GameObject colorPicker;
 
         /// <summary>
         /// This switch case checks whether or not you're in the correct state,
@@ -49,6 +49,10 @@ namespace UI.Canvas.StateMachine
                     when currentState == UIState.CAMERA_PANEL:
                         takingPicture.gameObject.SetActive(true);
                         cameraPanel.SetActive(false);
+                    break;
+                case UIState.COLOR_PICKER
+                    when currentState == UIState.MAIN:
+                        colorPicker.gameObject.SetActive(true);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(targetState), targetState, null);

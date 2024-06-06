@@ -1,9 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-using FrameWork.Extensions;
-
-namespace UI.Canvas
+namespace UI.Canvas.Buttons
 {
     [RequireComponent(typeof(RectTransform))]
     public sealed class AnimatedButton : MonoBehaviour
@@ -16,10 +14,15 @@ namespace UI.Canvas
 
         private RectTransform _rect;
         private bool _isAtBeginPosition = true;
+        private Vector3 _activePosition;
 
         private void Awake() => _rect = GetComponent<RectTransform>();
 
-        private void Start() => _rect.localPosition = resetPosition;
+        private void Start()
+        {
+            _rect.localPosition = resetPosition;
+            _activePosition = _rect.localPosition + (Vector3)direction;
+        }
 
         /// <summary>
         /// Resets the button the to beginning state, without questions
@@ -35,15 +38,14 @@ namespace UI.Canvas
         /// </summary>
         public void TogglePlacement()
         {
-            Vector3 dir = direction;
-            StartCoroutine(AnimateScale(_isAtBeginPosition ? dir : dir.Invert()));
+            StopAllCoroutines();
+            StartCoroutine(AnimateScale(_isAtBeginPosition ? _activePosition : resetPosition));
             _isAtBeginPosition = !_isAtBeginPosition;
         }
         
-        private IEnumerator AnimateScale(Vector3 addVector)
+        private IEnumerator AnimateScale(Vector3 endPosition)
         {
             Vector3 initialPosition = _rect.localPosition;
-            Vector3 targetPosition = initialPosition + addVector;
             float elapsedTime = 0f;
 
             while (elapsedTime < animationDuration)
@@ -52,12 +54,12 @@ namespace UI.Canvas
                 float timeLeft = Mathf.Clamp01(elapsedTime / animationDuration);
                 float curveValue = animationCurve.Evaluate(timeLeft);
         
-                _rect.localPosition = Vector3.Lerp(initialPosition, targetPosition, curveValue);
+                _rect.localPosition = Vector3.Lerp(initialPosition, endPosition, curveValue);
 
                 yield return null;
             }
             
-            _rect.localPosition = targetPosition;
+            _rect.localPosition = endPosition;
         }
     }   
 }

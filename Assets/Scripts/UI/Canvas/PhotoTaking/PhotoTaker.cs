@@ -31,8 +31,9 @@ namespace UI.Canvas.PhotoTaking
         
         public PhotoInteractable CurrentPhotoInteractable => _currentInteractable;
 
-        [SerializeField] private UnityEvent onOpenCamera= new();
+        [SerializeField] private UnityEvent onOpenCamera = new();
         [SerializeField] private UnityEvent onPhotoTaken = new();
+        [SerializeField] private UnityEvent onHighlightButton = new();
         
         private void Awake() => FindCamera();
 
@@ -86,6 +87,10 @@ namespace UI.Canvas.PhotoTaking
             lastPhoto.texture = _currentInteractable.GetTexture();
             
             onPhotoTaken?.Invoke();
+            
+            if (_currentInteractable.ShouldHighlightButton)
+                onHighlightButton?.Invoke();
+            
             OnDisable();
         }
 

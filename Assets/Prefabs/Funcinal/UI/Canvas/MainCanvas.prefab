@@ -215,7 +215,7 @@ Transform:
   - {fileID: 5675474643035180365}
   - {fileID: 2573004835948038205}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7864867925937913528
 MonoBehaviour:
@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 1514369087794022191}
   - component: {fileID: 3167201743635947034}
   - component: {fileID: 3033674665745082060}
+  - component: {fileID: 4679973515152478016}
   m_Layer: 5
   m_Name: PhotobookButton
   m_TagString: Untagged
@@ -419,6 +420,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 4679973515152478016}
+        m_TargetAssemblyTypeName: UI.Canvas.Buttons.FlashingButton, Assembly-CSharp
+        m_MethodName: StopFlashing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1973967797503981873}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -482,6 +495,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <States>k__BackingField: 2
+--- !u!114 &4679973515152478016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620262679029281397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518b3e5382968c24f8740735f481e0bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonImage: {fileID: 3989224203698855030}
+  flashingSpeed: 0.75
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  flashedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &5059430834388247886
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +631,7 @@ GameObject:
   - component: {fileID: 3845564678020147217}
   - component: {fileID: 5817605153506145315}
   - component: {fileID: 1560367681669001992}
+  - component: {fileID: 6489850104419719665}
   m_Layer: 5
   m_Name: MainButton
   m_TagString: Untagged
@@ -735,6 +765,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6489850104419719665}
+        m_TargetAssemblyTypeName: UI.Canvas.Buttons.FlashingButton, Assembly-CSharp
+        m_MethodName: StopFlashing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6489850104419719665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5484669337196838487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518b3e5382968c24f8740735f481e0bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonImage: {fileID: 5817605153506145315}
+  flashingSpeed: 0.75
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  flashedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &8207825071808994439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,12 +1959,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1915,15 +1977,15 @@ PrefabInstance:
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 8996900943379555394}
+      objectReference: {fileID: 1973967797503981873}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 6510203119249383342}
+      objectReference: {fileID: 8996900943379555394}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1973967797503981873}
+      objectReference: {fileID: 6510203119249383342}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
@@ -1938,15 +2000,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: TakePhoto
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetCurrentPageProperties
+      value: TakePhoto
       objectReference: {fileID: 0}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: SetActive
+      value: SetCurrentPageProperties
       objectReference: {fileID: 0}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1954,18 +2016,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UI.Canvas.PhoneCamera.PhotoTaker, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UI.Canvas.PhoneBook.PhotoBook, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UI.Canvas.PhoneCamera.PhotoTaker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: UI.Canvas.PhoneBook.PhotoBook, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
@@ -1974,7 +2040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 391660441313726154, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -2105,9 +2171,61 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: onHighlightButton.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: onOpenCamera.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8321171917658556964}
+    - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: onHighlightButton.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: onHighlightButton.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: onHighlightButton.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6489850104419719665}
+    - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: onHighlightButton.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4679973515152478016}
+    - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: onHighlightButton.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: onHighlightButton.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: onHighlightButton.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateFlashing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: onHighlightButton.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ActivateFlashing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: onHighlightButton.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UI.Canvas.Buttons.FlashingButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: onHighlightButton.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UI.Canvas.Buttons.FlashingButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: onHighlightButton.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911227120022889447, guid: b30cc6fccb19931499940773590c3783, type: 3}
+      propertyPath: onHighlightButton.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4830316251992782940, guid: b30cc6fccb19931499940773590c3783, type: 3}

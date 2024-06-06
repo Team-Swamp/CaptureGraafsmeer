@@ -19,6 +19,7 @@ namespace UI.Canvas.PhotoTaking
         [SerializeField] private RawImage liveCamera;
         [SerializeField] private RawImage lastPhoto;
         [SerializeField] private Texture2D defaultTex;
+        [SerializeField] private float zoom;
 
         private Texture2D _currentPhoto;
         private PhotoInteractable _currentInteractable;
@@ -36,6 +37,11 @@ namespace UI.Canvas.PhotoTaking
         [SerializeField] private UnityEvent onHighlightButton = new();
         
         private void Awake() => FindCamera();
+
+        private void Update()
+        {
+            Zoom();
+        }
 
         private void OnEnable() => FindCamera();
 
@@ -56,6 +62,15 @@ namespace UI.Canvas.PhotoTaking
         /// </summary>
         /// <param name="targetImage">Target image to be the live camera</param>
         public void StartCamera(RawImage targetImage) => ApplyCamera(targetImage);
+
+        public void Zoom()
+        {
+            float width = 1f / zoom;
+            float height = 1f / zoom;
+            Rect uvRect = new Rect((1f - width) / 2f, (1f - height) / 2f, width, height);
+            
+            liveCamera.uvRect = uvRect;
+        }
 
         private void ApplyCamera(RawImage targetImage)
         {
@@ -112,8 +127,12 @@ namespace UI.Canvas.PhotoTaking
         
         private Texture2D CaptureFrame(WebCamTexture liveTexture)
         {
-            Texture2D currentTexture = new Texture2D(liveTexture.width, liveTexture.height);
-            Color[] pixels = liveTexture.GetPixels();
+            int x = Mathf.FloorToInt(liveCamera.uvRect.x * liveTexture.width);
+            int y = Mathf.FloorToInt(liveCamera.uvRect.y * liveTexture.height);
+            int width = Mathf.FloorToInt(liveCamera.uvRect.width * liveTexture.width);
+            int height = Mathf.FloorToInt(liveCamera.uvRect.height * liveTexture.height);
+            Texture2D currentTexture = new Texture2D(width, height);
+            Color[] pixels = liveTexture.GetPixels(x, y, width, height);
             
             currentTexture.SetPixels(pixels);
             currentTexture.Apply();

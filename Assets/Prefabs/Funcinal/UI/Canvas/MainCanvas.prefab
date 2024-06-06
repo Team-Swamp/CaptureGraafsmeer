@@ -422,7 +422,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4679973515152478016}
         m_TargetAssemblyTypeName: UI.Canvas.Buttons.FlashingButton, Assembly-CSharp
-        m_MethodName: StopFlashing
+        m_MethodName: DeactivateFlashing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -767,7 +767,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 6489850104419719665}
         m_TargetAssemblyTypeName: UI.Canvas.Buttons.FlashingButton, Assembly-CSharp
-        m_MethodName: StopFlashing
+        m_MethodName: DeactivateFlashing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

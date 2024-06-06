@@ -16,7 +16,7 @@ namespace UI.Canvas.Buttons
         private Coroutine _flashingCoroutine;
 
         /// <summary>
-        /// 
+        /// Activate the flashing of the button
         /// </summary>
         public void ActivateFlashing()
         {
@@ -30,9 +30,9 @@ namespace UI.Canvas.Buttons
         }
 
         /// <summary>
-        /// 
+        /// Deactivate the flashing of the button
         /// </summary>
-        public void StopFlashing()
+        public void DeactivateFlashing()
         {
             if (_flashingCoroutine == null)
                 return;

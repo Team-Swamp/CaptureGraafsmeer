@@ -1,10 +1,11 @@
-using Framework.Enums;
 using UnityEngine;
+
+using Framework.Enums;
 
 namespace UI.Canvas.ColorPicker
 {
-    public sealed class ColorChange : MonoBehaviour
+    public class ColorChange : MonoBehaviour
     {
-        [field: SerializeField] public RouteColors States { get; private set; }
+        [field: SerializeField] public RouteColors ColorToChange { get; private set; }
     }
 }

@@ -1,5 +1,6 @@
-using Framework.Enums;
 using UnityEngine;
+
+using Framework.Enums;
 
 namespace UI.Canvas.ColorPicker
 {
@@ -12,6 +13,11 @@ namespace UI.Canvas.ColorPicker
             gameObject.SetActive(false);
         }
 
+        /// <summary>
+        /// Checks which RouteColors enum goes with which color
+        /// </summary>
+        /// <param name="lineColor"> The RouteColors enum that gets grabbed from the button that's clicked </param>
+        /// <returns> Returns the color that is used for the ChangeColor function </returns>
         public Color SetColor(RouteColors lineColor)
         {
             Color newColor = new Color();
@@ -45,10 +51,10 @@ namespace UI.Canvas.ColorPicker
         /// Changes the line renderer's line color to a new color
         /// </summary>
         /// <param name="newColor"> The color to set the line to </param>
-        public void ChangeColor()
+        public void ChangeColor(ColorChange colorChange)
         {
-            routeLineRenderer.startColor = SetColor();
-            routeLineRenderer.endColor = SetColor();
+            routeLineRenderer.startColor = SetColor(colorChange.ColorToChange);
+            routeLineRenderer.endColor = SetColor(colorChange.ColorToChange);
         }
 
         /// <summary>

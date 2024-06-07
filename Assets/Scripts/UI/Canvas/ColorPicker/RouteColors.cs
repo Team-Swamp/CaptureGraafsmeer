@@ -3,11 +3,10 @@ namespace Framework.Enums
     public enum RouteColors
     {
         RED,
-        BLUE,
         GREEN,
+        BLUE,
         YELLOW,
         MAGENTA,
-        ORANGE,
-        BLACK
+        ORANGE
     }
 }

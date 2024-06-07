@@ -15,11 +15,17 @@ namespace Framework.PhoneCamera
         private const string NO_TEXTURE_TO_LOAD = "No texture data to load.";
         private const string SAVED_TEXTURE = "savedTexture.png";
         
+        [Header("References")]
         [SerializeField] private PhotoTaker parent;
         [SerializeField] private CameraPanel panel;
         [SerializeReference] private PhotoData data;
+
+        [Header("Attributes")]
+        [SerializeField] private bool shouldHighlightButton;
         
         private byte[] _textureBytes;
+
+        public bool ShouldHighlightButton => shouldHighlightButton;
         
         public bool IsVisited { get; set; }
         

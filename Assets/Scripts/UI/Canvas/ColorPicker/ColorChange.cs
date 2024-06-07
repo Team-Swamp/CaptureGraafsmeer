@@ -4,8 +4,8 @@ using Framework.Enums;
 
 namespace UI.Canvas.ColorPicker
 {
-    public class ColorChange : MonoBehaviour
+    public sealed class ColorChange : MonoBehaviour
     {
-        [field: SerializeField] public RouteColors ColorToChange { get; private set; }
+        [field: SerializeField] public RouteColors colorToChange { get; private set; }
     }
 }

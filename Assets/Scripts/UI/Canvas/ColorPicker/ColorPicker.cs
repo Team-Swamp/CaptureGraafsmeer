@@ -1,51 +1,27 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 using Framework.Enums;
 
 namespace UI.Canvas.ColorPicker
 {
-    public class ColorPicker : MonoBehaviour
+    public sealed class ColorPicker : MonoBehaviour
     {
         [SerializeField] private LineRenderer routeLineRenderer;
+        
+        private List<Color> colorList = new List<Color>()
+        {
+            Color.red,
+            Color.green,
+            Color.blue,
+            Color.yellow,
+            Color.magenta,
+            new Color(1f, 0.5f, 0f),
+            Color.black
+        };
     
-        private void Start()
-        {
-            gameObject.SetActive(false);
-        }
-
-        /// <summary>
-        /// Checks which RouteColors enum goes with which color
-        /// </summary>
-        /// <param name="lineColor"> The RouteColors enum that gets grabbed from the button that's clicked </param>
-        /// <returns> Returns the color that is used for the ChangeColor function </returns>
-        public Color SetColor(RouteColors lineColor)
-        {
-            Color newColor = new Color();
-            
-            switch (lineColor)
-            {
-                case RouteColors.RED:
-                    newColor = new Color(1f,0f,0f);
-                    break;
-                case RouteColors.GREEN:
-                    newColor = new Color(0f, 1f, 0f);
-                    break;
-                case RouteColors.BLUE:
-                    newColor = new Color(0f, 0f, 1f);
-                    break;
-                case RouteColors.YELLOW:
-                    newColor = new Color(1f, 1f, 0f);
-                    break;
-                case RouteColors.MAGENTA:
-                    newColor = new Color(1f, 0f, 1f);
-                    break;
-                case RouteColors.ORANGE:
-                    newColor = new Color(1f, 0.5f, 0f);
-                    break;
-            }
-            
-            return newColor;
-        }
+        private void Start() => gameObject.SetActive(false);
         
         /// <summary>
         /// Changes the line renderer's line color to a new color
@@ -53,18 +29,32 @@ namespace UI.Canvas.ColorPicker
         /// <param name="newColor"> The color to set the line to </param>
         public void ChangeColor(ColorChange colorChange)
         {
-            routeLineRenderer.startColor = SetColor(colorChange.ColorToChange);
-            routeLineRenderer.endColor = SetColor(colorChange.ColorToChange);
+            Color targetColor = GetColor(colorChange.colorToChange);
+            routeLineRenderer.startColor = targetColor;
+            routeLineRenderer.endColor = targetColor;
         }
-
-        /// <summary>
-        /// Changes the line renderer's line width to a new width
-        /// </summary>
-        /// <param name="newWidth"> The width to set the line to </param>
-        public void ChangeWidth(float newWidth)
+        
+        private Color GetColor(RouteColors lineColor)
         {
-            routeLineRenderer.startWidth = newWidth;
-            routeLineRenderer.endWidth = newWidth;
+            switch (lineColor)
+            {
+                case RouteColors.RED:
+                    return colorList[0];
+                case RouteColors.GREEN:
+                    return colorList[1];
+                case RouteColors.BLUE:
+                    return colorList[2];
+                case RouteColors.YELLOW:
+                    return colorList[3];
+                case RouteColors.MAGENTA:
+                    return colorList[4];
+                case RouteColors.ORANGE:
+                    return colorList[5];
+                case RouteColors.BLACK:
+                    return colorList[6];
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(lineColor), lineColor, null);
+            }
         }
     }
 }

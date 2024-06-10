@@ -92,7 +92,7 @@ namespace Framework.SaveLoadSystem
             if (PlayerPrefs.HasKey(ROUTE_WIDTH))
             {
                 _routeWidth = PlayerPrefs.GetFloat(ROUTE_WIDTH);
-                Debug.Log(_routeWidth);
+                
                 if (_routeWidth == 0)
                     _routeWidth = 1;
             }

@@ -354,9 +354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: uigwe4ilbhtrthwuiperg h34hg93ug h49iogh weioh g89oerhgiuher iug hreiug
-    hiuer hgiurhiug hruig hbiutr hgiutr hbih bv5uyth bir5tubiurtbiub5tri gbtriyuhb
-    ghjd bgjhe buigberiug berih
+  m_text: ERROR code 3125 - photobook page is not found or chrashed.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9902bed81f1ea894088ec62f83c704fe, type: 2}
   m_sharedMaterial: {fileID: 6414604993731514231, guid: 9902bed81f1ea894088ec62f83c704fe, type: 2}

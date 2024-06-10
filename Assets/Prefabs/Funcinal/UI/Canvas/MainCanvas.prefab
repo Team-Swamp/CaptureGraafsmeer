@@ -559,7 +559,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 57cd4066ecff35d488225c7264bf61f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9af1dc4295896fb40975c67b0aa406fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -947,7 +947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23722de5ab237147acdfefa977d2d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: -250, y: 150}
+  direction: {x: -300, y: 150}
   animationDuration: 0.75
   animationCurve:
     serializedVersion: 2
@@ -2065,7 +2065,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b59a1b19b0f545541a9b23b415ac81f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b4b30253c32899d4f9ecd4d6ae6f0671, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2191,7 +2191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23722de5ab237147acdfefa977d2d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 200, y: 150}
+  direction: {x: 300, y: 150}
   animationDuration: 0.75
   animationCurve:
     serializedVersion: 2
@@ -3341,7 +3341,7 @@ PrefabInstance:
     - target: {fileID: 5506299711406209441, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 89d3a01fdbaac6744860ebe545c2d1a2, type: 3}
+      objectReference: {fileID: 21300000, guid: cfc2743d0d9a6ea4791c4fce6a271e57, type: 3}
     - target: {fileID: 7591790919385058146, guid: b30cc6fccb19931499940773590c3783, type: 3}
       propertyPath: m_Name
       value: Photo maker
@@ -3712,6 +3712,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UI.Canvas.StateMachine.StateChange, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7197743672064463807, guid: dd70516a987b9db4a9f30219e6076712, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cfc2743d0d9a6ea4791c4fce6a271e57, type: 3}
     - target: {fileID: 7349062596696387047, guid: dd70516a987b9db4a9f30219e6076712, type: 3}
       propertyPath: m_Name
       value: CameraPanel
@@ -4378,6 +4382,58 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7147258212254151575, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147258212254151575, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147258212254151575, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4202412278692225256}
+    - target: {fileID: 7147258212254151575, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7864867925937913528}
+    - target: {fileID: 7147258212254151575, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1973967797503981873}
+    - target: {fileID: 7147258212254151575, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147258212254151575, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ChangeState
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147258212254151575, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147258212254151575, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UI.Canvas.StateMachine.UIStateCaller, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147258212254151575, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147258212254151575, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8855410879537036687}
+    - target: {fileID: 7147258212254151575, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147258212254151575, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UI.Canvas.StateMachine.StateChange, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8090806738308024339, guid: 02f09d511db02bc4dae16713bfbe2a77, type: 3}
       propertyPath: m_Name
       value: RouteLineSettings
@@ -4633,6 +4689,10 @@ PrefabInstance:
     - target: {fileID: 4087031345833428352, guid: c4e5124615253674a87e767a31deceb9, type: 3}
       propertyPath: m_Name
       value: Gallilei
+      objectReference: {fileID: 0}
+    - target: {fileID: 4087031345833428352, guid: c4e5124615253674a87e767a31deceb9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7798458782566640241, guid: c4e5124615253674a87e767a31deceb9, type: 3}
       propertyPath: m_Pivot.x
@@ -5707,7 +5767,7 @@ PrefabInstance:
     - target: {fileID: 1923957422169692095, guid: 5d07fe65da666584da8fa4d597cea1d7, type: 3}
       propertyPath: pages.Array.data[0].image
       value: 
-      objectReference: {fileID: 2800000, guid: a23bfe3b37c8b654594540aa06e7c75e, type: 3}
+      objectReference: {fileID: 2800000, guid: 7402790407f8c064ebe3a631a24a7382, type: 3}
     - target: {fileID: 1923957422169692095, guid: 5d07fe65da666584da8fa4d597cea1d7, type: 3}
       propertyPath: pages.Array.data[1].image
       value: 

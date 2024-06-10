@@ -19,7 +19,7 @@ namespace UI.Canvas.PhotoTaking
         [SerializeField] private RawImage liveCamera;
         [SerializeField] private RawImage lastPhoto;
         [SerializeField] private Texture2D defaultTex;
-
+        
         private Texture2D _currentPhoto;
         private PhotoInteractable _currentInteractable;
         
@@ -57,10 +57,24 @@ namespace UI.Canvas.PhotoTaking
         /// <param name="targetImage">Target image to be the live camera</param>
         public void StartCamera(RawImage targetImage) => ApplyCamera(targetImage);
 
+        /// <summary>
+        /// Set the zoom amount of the camera
+        /// </summary>
+        /// <param name="zoomTarget">Target zoom value</param>
+        public void Zoom(float zoomTarget)
+        {
+            float width = 1f / zoomTarget;
+            float height = 1f / zoomTarget;
+            Rect uvRect = new Rect((1f - width) / 2f, (1f - height) / 2f, width, height);
+            
+            liveCamera.uvRect = uvRect;
+        }
+
         private void ApplyCamera(RawImage targetImage)
         {
             if (CameraTexture == null)
                 FindCamera();
+            
             CameraTexture.Play();
             targetImage.texture = CameraTexture;
             onOpenCamera?.Invoke();
@@ -112,8 +126,15 @@ namespace UI.Canvas.PhotoTaking
         
         private Texture2D CaptureFrame(WebCamTexture liveTexture)
         {
-            Texture2D currentTexture = new Texture2D(liveTexture.width, liveTexture.height);
-            Color[] pixels = liveTexture.GetPixels();
+            Rect cameraUvRect = liveCamera.uvRect;
+            
+            int x = Mathf.FloorToInt(cameraUvRect.x * liveTexture.width);
+            int y = Mathf.FloorToInt(cameraUvRect.y * liveTexture.height);
+            int width = Mathf.FloorToInt(cameraUvRect.width * liveTexture.width);
+            int height = Mathf.FloorToInt(cameraUvRect.height * liveTexture.height);
+            
+            Texture2D currentTexture = new Texture2D(width, height);
+            Color[] pixels = liveTexture.GetPixels(x, y, width, height);
             
             currentTexture.SetPixels(pixels);
             currentTexture.Apply();

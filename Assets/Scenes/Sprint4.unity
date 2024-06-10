@@ -913,6 +913,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189552954}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!198 &190458477 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7954688689388761484, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
+  m_PrefabInstance: {fileID: 8638803314692804847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &205318400
 GameObject:
   m_ObjectHideFlags: 0
@@ -6920,6 +6925,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 307897055279406930, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 307897055279406930, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 307897055279406930, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1281544975758715206, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
       propertyPath: interactable
       value: 
@@ -6940,6 +6957,10 @@ PrefabInstance:
       propertyPath: interactable
       value: 
       objectReference: {fileID: 2062374168}
+    - target: {fileID: 3656778051060706818, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: lineRenderer
+      value: 
+      objectReference: {fileID: 3869015356337010550}
     - target: {fileID: 3762881642748235205, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
       propertyPath: m_Name
       value: MainCanvas
@@ -6952,6 +6973,10 @@ PrefabInstance:
       propertyPath: interactable
       value: 
       objectReference: {fileID: 621837108}
+    - target: {fileID: 4777464847840677873, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: routeLineRenderer
+      value: 
+      objectReference: {fileID: 3869015356337010550}
     - target: {fileID: 4868223334972323553, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
       propertyPath: interactable
       value: 
@@ -7024,6 +7049,14 @@ PrefabInstance:
       propertyPath: interactable
       value: 
       objectReference: {fileID: 1572627160}
+    - target: {fileID: 7285090255715663779, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285090255715663779, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7437889857220485956, guid: 33b1d199434d85d4c838b9e3000efc74, type: 3}
       propertyPath: interactable
       value: 
@@ -11006,6 +11039,34 @@ PrefabInstance:
       propertyPath: routePoints.Array.data[51]
       value: 
       objectReference: {fileID: 1243803814}
+    - target: {fileID: 2836343231450688759, guid: 26c896cbabb4be34a957bea4483c1fc4, type: 3}
+      propertyPath: onRouteDone.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836343231450688759, guid: 26c896cbabb4be34a957bea4483c1fc4, type: 3}
+      propertyPath: onRouteDone.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836343231450688759, guid: 26c896cbabb4be34a957bea4483c1fc4, type: 3}
+      propertyPath: onRouteDone.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 190458477}
+    - target: {fileID: 2836343231450688759, guid: 26c896cbabb4be34a957bea4483c1fc4, type: 3}
+      propertyPath: onRouteDone.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836343231450688759, guid: 26c896cbabb4be34a957bea4483c1fc4, type: 3}
+      propertyPath: onRouteDone.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836343231450688759, guid: 26c896cbabb4be34a957bea4483c1fc4, type: 3}
+      propertyPath: onRouteDone.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.ParticleSystem, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836343231450688759, guid: 26c896cbabb4be34a957bea4483c1fc4, type: 3}
+      propertyPath: onRouteDone.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4455553380821416567, guid: 26c896cbabb4be34a957bea4483c1fc4, type: 3}
       propertyPath: routePoints.Array.size
       value: 11
@@ -11213,11 +11274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4070547984105785384, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.01842618
+      value: 0.018426146
       objectReference: {fileID: 0}
     - target: {fileID: 4070547984105785384, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.005462258
+      value: 0.0054622483
       objectReference: {fileID: 0}
     - target: {fileID: 4070547984105785384, guid: 34b0e8de619297a4d86620a8c49645b8, type: 3}
       propertyPath: m_LocalRotation.y

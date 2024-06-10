@@ -2,7 +2,7 @@ using UnityEngine;
 
 using Framework.Enums;
 
-namespace UI.Canvas.ColorPicker
+namespace UI.Canvas.RouteLineSettings
 {
     public sealed class ColorChange : MonoBehaviour
     {

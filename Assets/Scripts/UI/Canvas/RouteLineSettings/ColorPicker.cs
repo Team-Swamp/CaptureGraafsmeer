@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 using Framework.Enums;
 
-namespace UI.Canvas.ColorPicker
+namespace UI.Canvas.RouteLineSettings
 {
     public sealed class ColorPicker : MonoBehaviour
     {
@@ -36,25 +35,12 @@ namespace UI.Canvas.ColorPicker
         
         private Color GetColor(RouteColors lineColor)
         {
-            switch (lineColor)
-            {
-                case RouteColors.RED:
-                    return colorList[0];
-                case RouteColors.GREEN:
-                    return colorList[1];
-                case RouteColors.BLUE:
-                    return colorList[2];
-                case RouteColors.YELLOW:
-                    return colorList[3];
-                case RouteColors.MAGENTA:
-                    return colorList[4];
-                case RouteColors.ORANGE:
-                    return colorList[5];
-                case RouteColors.BLACK:
-                    return colorList[6];
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(lineColor), lineColor, null);
-            }
+            int index = (int)lineColor;
+            if (index < 0
+                || index > colorList.Count)
+                return colorList[0];
+           
+            return colorList[index];
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Framework.Enums
         YELLOW,
         MAGENTA,
         ORANGE,
-        BLACK
+        BLACK,
+        PURPLE,
+        CYAN
     }
 }

@@ -2,14 +2,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Framework.Enums;
+using Framework.SaveLoadSystem;
 
 namespace UI.Canvas.RouteLineSettings
 {
     public sealed class ColorPicker : MonoBehaviour
     {
         [SerializeField] private LineRenderer routeLineRenderer;
-        
-        private List<Color> colorList = new List<Color>()
+
+        private readonly List<Color> _colors = new()
         {
             Color.red,
             Color.green,
@@ -17,30 +18,39 @@ namespace UI.Canvas.RouteLineSettings
             Color.yellow,
             Color.magenta,
             new Color(1f, 0.5f, 0f),
-            Color.black
+            Color.black,
+            new Color(0.5f, 0f, 1f),
+            new Color(0, 1f, 1)
         };
-    
+
+        private void Awake() => ChangeColor(Saver.Instance.RouteColorIndex);
+
         private void Start() => gameObject.SetActive(false);
-        
+
         /// <summary>
         /// Changes the line renderer's line color to a new color
         /// </summary>
         /// <param name="colorChange"> The color to set the line to </param>
-        public void ChangeColor(ColorChange colorChange)
+        public void ChangeColor(ColorChange colorChange) => SetRouteColor(GetColor(colorChange.colorToChange));
+
+        private void ChangeColor(int targetColor) => GetColor((RouteColors) targetColor);
+
+        private void SetRouteColor(Color targetColor)
         {
-            Color targetColor = GetColor(colorChange.colorToChange);
             routeLineRenderer.startColor = targetColor;
             routeLineRenderer.endColor = targetColor;
         }
-        
+
         private Color GetColor(RouteColors lineColor)
         {
             int index = (int)lineColor;
+
             if (index < 0
-                || index > colorList.Count)
-                return colorList[0];
-           
-            return colorList[index];
+                || index > _colors.Count)
+                index = 0;
+
+            Saver.Instance.RouteColorIndex = index;
+            return _colors[index];
         }
     }
 }

@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31352067459995580}
-  m_LocalRotation: {x: 0.28395236, y: 0.04121127, z: -0.012216672, w: 0.9578745}
+  m_LocalRotation: {x: 0.005462258, y: 0.9585835, z: -0.28416255, w: 0.01842618}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -103,7 +103,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348494069865417241}
-  m_LocalRotation: {x: 0.20087017, y: 0.042106178, z: -0.008642174, w: 0.9786744}
+  m_LocalRotation: {x: 0.0038640348, y: 0.9793989, z: -0.20101884, w: 0.018826252}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -184,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448860394435706529}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.85888356, y: 6.5, z: -9.963048}
+  m_LocalPosition: {x: -0.38430363, y: 6.5, z: 9.992613}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -265,7 +265,7 @@ MonoBehaviour:
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
-    m_InvertInput: 1
+    m_InvertInput: 0
     m_MinValue: -180
     m_MaxValue: 180
     m_Wrap: 1
@@ -339,7 +339,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3803344782732681540}
-  m_LocalRotation: {x: 0.12104061, y: 0.042667273, z: -0.005207609, w: 0.9917165}
+  m_LocalRotation: {x: 0.0023284014, y: 0.9924506, z: -0.121130206, w: 0.019077187}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -422,8 +422,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4753385812358373499}
-  m_LocalRotation: {x: 0.20087016, y: 0.042106193, z: -0.008642179, w: 0.9786744}
-  m_LocalPosition: {x: -0.85888356, y: 6.5, z: -9.963048}
+  m_LocalRotation: {x: 0.003864035, y: 0.97939885, z: -0.20101888, w: 0.018826248}
+  m_LocalPosition: {x: -0.38430363, y: 6.5, z: 9.992613}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -743,7 +743,7 @@ Transform:
   - {fileID: 41942163562136506}
   - {fileID: 913277902707569672}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3703318793402651681
 MonoBehaviour:
@@ -787,7 +787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfdfe99707648e24d839fa2428e95fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableRayDistance: 10
+  interactableRayDistance: 2
 --- !u!114 &5497335927952231202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -800,10 +800,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24921be9b51241df8439c48c0cefafe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coordinates: {x: 52.35653, y: 4.9308}
+  coordinates: {x: 52.35653, y: 4.9307}
   type: 2
   lerpTime: 1.5
-  updateTime: 10
+  updateTime: 1
 --- !u!114 &4538868372022182429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1150,7 +1150,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ecccd0315cd3b97408d18682d2f06c75, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 04bcf1d3d68a46a46a5f9d86a2d9f3ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

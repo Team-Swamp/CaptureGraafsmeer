@@ -25,7 +25,7 @@ namespace UI.Canvas.RouteLineSettings
         /// <summary>
         /// Changes the line renderer's line color to a new color
         /// </summary>
-        /// <param name="newColor"> The color to set the line to </param>
+        /// <param name="colorChange"> The color to set the line to </param>
         public void ChangeColor(ColorChange colorChange)
         {
             Color targetColor = GetColor(colorChange.colorToChange);
